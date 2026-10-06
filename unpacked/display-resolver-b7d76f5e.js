@@ -1,0 +1,522 @@
+const DEFAULT_URL = 'https://m.baidu.com/';
+const DEFAULT_VIEWPORT = '960x266';
+const DEFAULT_ROTATION = 270;
+const DEFAULT_DRM_MODE = '480x960';
+const DEFAULT_BROWSER_MODE = 'native';
+const LAST_BROWSER_MODE = 'last';
+
+const BROWSER_MODE_DELTAS = Object.freeze({
+  native: 0,
+  rotate90: 90,
+  rotate180: 180,
+  rotate270: 270,
+});
+const BROWSER_MODE_LAYOUT_TEMPLATES = Object.freeze({
+  native: 'native',
+  rotate90: 'rotate270',
+  rotate180: 'native',
+  rotate270: 'rotate270',
+});
+const LAYOUT_TEMPLATE_DELTAS = Object.freeze({
+  native: 0,
+  rotate270: 270,
+});
+const HARD_FALLBACK_DISPLAY = {
+  panelSize: DEFAULT_VIEWPORT,
+  drmMode: DEFAULT_DRM_MODE,
+  rotation: DEFAULT_ROTATION,
+};
+
+function normalizeBrowserMode(value) {
+  const mode = `${value || ''}`;
+  return Object.prototype.hasOwnProperty.call(BROWSER_MODE_DELTAS, mode)
+    ? mode : DEFAULT_BROWSER_MODE
+}
+
+function normalizeBrowserLaunchMode(value) {
+  const mode = `${value || ''}`;
+  return !mode || mode === LAST_BROWSER_MODE
+    ? LAST_BROWSER_MODE : normalizeBrowserMode(mode)
+}
+
+function browserModeDelta(value) {
+  return BROWSER_MODE_DELTAS[normalizeBrowserMode(value)]
+}
+
+function browserLayoutTemplate(value) {
+  return BROWSER_MODE_LAYOUT_TEMPLATES[normalizeBrowserMode(value)]
+}
+
+function browserLayoutDelta(value) {
+  return LAYOUT_TEMPLATE_DELTAS[browserLayoutTemplate(value)]
+}
+
+function resolvePersistedBrowserMode(browserPlayer, options) {
+  const launchMode = normalizeBrowserLaunchMode(options && options.browserMode);
+  if (launchMode !== LAST_BROWSER_MODE) return launchMode
+  try {
+    if (browserPlayer && browserPlayer.getDisplayMode) {
+      return normalizeBrowserMode(browserPlayer.getDisplayMode({
+        workdir: (options && options.workdir) || browserDataPath(''),
+      }))
+    }
+  } catch (err) {
+    console.warn(`read persisted display mode failed ${err}`);
+  }
+  return DEFAULT_BROWSER_MODE
+}
+
+function normalizeRotationValue(value, fallback) {
+  const rotation = Number(value);
+  if (rotation === 0 || rotation === 90 || rotation === 180 || rotation === 270) return rotation
+  return fallback
+}
+
+function rotateByDelta(rotation, delta) {
+  return normalizeRotationValue((Number(rotation) + Number(delta)) % 360, normalizeRotationValue(rotation, 0))
+}
+
+function rotationDelta(fromRotation, toRotation) {
+  const from = normalizeRotationValue(fromRotation, 0);
+  const to = normalizeRotationValue(toRotation, from);
+  return (to - from + 360) % 360
+}
+
+function parseSizeSpec(value) {
+  if (!value) return null
+  if (typeof value === 'object') {
+    const width = Math.round(Number(value.width));
+    const height = Math.round(Number(value.height));
+    if (width >= 64 && height >= 64 && width <= 4096 && height <= 4096) {
+      return { width, height }
+    }
+    return null
+  }
+  const match = `${value}`.trim().match(/^(\d+)\s*[xX,]\s*(\d+)$/);
+  if (!match) return null
+  const width = Math.round(Number(match[1]));
+  const height = Math.round(Number(match[2]));
+  if (width < 64 || height < 64 || width > 4096 || height > 4096) return null
+  return { width, height }
+}
+
+function sizeSpec(size) {
+  return size && size.width > 0 && size.height > 0 ? `${size.width}x${size.height}` : ''
+}
+
+function normalizeForRotation(size, rotationDeltaValue) {
+  if (!size) return null
+  const rotated = Number(rotationDeltaValue) === 90 || Number(rotationDeltaValue) === 270;
+  if (rotated) return { width: size.height, height: size.width }
+  return { width: size.width, height: size.height }
+}
+
+function rotatedFramebufferSize(panel, rotation) {
+  if (!panel) return null
+  const swapped = Number(rotation) === 90 || Number(rotation) === 270;
+  return swapped
+    ? { width: panel.height, height: panel.width }
+    : { width: panel.width, height: panel.height }
+}
+
+function orientation(size) {
+  if (!size || size.width === size.height) return 'square'
+  return size.width > size.height ? 'landscape' : 'portrait'
+}
+
+function reconcilePanelOrientation(panel, rotation, drmSize) {
+  if (!panel || !drmSize || orientation(drmSize) === 'square') {
+    return { panel, corrected: false }
+  }
+  const framebuffer = rotatedFramebufferSize(panel, rotation);
+  if (orientation(framebuffer) === orientation(drmSize)) {
+    return { panel, corrected: false }
+  }
+  const swapped = { width: panel.height, height: panel.width };
+  if (orientation(rotatedFramebufferSize(swapped, rotation)) === orientation(drmSize)) {
+    return { panel: swapped, corrected: true }
+  }
+  return { panel, corrected: false }
+}
+
+function parseSystemDisplayConfig(raw) {
+  if (!raw) return null
+  let config = raw;
+  if (typeof raw === 'string') {
+    try {
+      config = JSON.parse(raw);
+    } catch (err) {
+      console.warn(`parse system display config failed ${err}`);
+      return null
+    }
+  }
+  return config && typeof config === 'object' ? config : null
+}
+
+function aspectDistance(a, b) {
+  if (!a || !b || !a.width || !a.height || !b.width || !b.height) return 0
+  const ratioA = a.width / a.height;
+  const ratioB = b.width / b.height;
+  if (!ratioA || !ratioB) return 0
+  return Math.abs(ratioA - ratioB) / ratioB
+}
+
+function sameSize(a, b) {
+  return !!(a && b && a.width === b.width && a.height === b.height)
+}
+
+function isDrmTransportSize(size, drmSize) {
+  return !!(size && drmSize && sameSize(size, drmSize))
+}
+
+function isSwappedDrmSize(size, drmSize) {
+  return !!(size && drmSize && size.width === drmSize.height && size.height === drmSize.width)
+}
+
+function isLikelyFullResolutionDrm(drmSize) {
+  if (!drmSize) return false
+  return Math.max(drmSize.width, drmSize.height) >= 1000 &&
+    Math.min(drmSize.width, drmSize.height) >= 540
+}
+
+function falconEnv() {
+  try {
+    if (typeof $falcon !== 'undefined' && $falcon && $falcon.env) return $falcon.env
+  } catch (err) {
+    console.warn(`read falcon env failed ${err}`);
+  }
+  try {
+    if (typeof globalThis !== 'undefined' && globalThis.$falcon && globalThis.$falcon.env) {
+      return globalThis.$falcon.env
+    }
+  } catch (err) {
+    console.warn(`read global falcon env failed ${err}`);
+  }
+  return {}
+}
+
+function appMeta() {
+  try {
+    if (typeof $falcon !== 'undefined' && $falcon && $falcon.__AppClazz && $falcon.__AppClazz.meta) {
+      return $falcon.__AppClazz.meta
+    }
+  } catch (err) {
+    console.warn(`read app meta failed ${err}`);
+  }
+  return {}
+}
+
+function keyboardBackendOverride() {
+  const props = appMeta().props || {};
+  const value = `${props.keyboard_backend || 'auto'}`.toLowerCase();
+  return value === 'textarea' || value === 'global' ? value : 'auto'
+}
+
+function deviceSkuKey() {
+  const env = falconEnv();
+  const custom = env && env.custom ? env.custom : {};
+  const values = [
+    custom.sku,
+    custom.product,
+    custom.model,
+    env.deviceModel,
+    env.model,
+  ];
+  for (let i = 0; i < values.length; i += 1) {
+    const value = values[i] ? `${values[i]}`.toLowerCase() : '';
+    if (value) return value
+  }
+  return ''
+}
+
+function pickSkuConfig(map) {
+  if (!map || typeof map !== 'object') return null
+  const sku = deviceSkuKey();
+  if (sku) {
+    const keys = Object.keys(map);
+    for (let i = 0; i < keys.length; i += 1) {
+      const key = `${keys[i]}`.toLowerCase();
+      if (key !== 'default' && sku.indexOf(key) >= 0) return map[keys[i]]
+    }
+  }
+  return map.default || null
+}
+
+function normalizeDisplayConfig(value) {
+  const config = value && typeof value === 'object' ? value : {};
+  const panel = parseSizeSpec(config.panelSize || config.viewport || config.panel);
+  const drm = parseSizeSpec(config.drmMode || config.drm || config.screen);
+  const rotation = Number(config.rotation);
+  return {
+    panelSize: sizeSpec(panel) || HARD_FALLBACK_DISPLAY.panelSize,
+    drmMode: sizeSpec(drm) || HARD_FALLBACK_DISPLAY.drmMode,
+    rotation: Number.isFinite(rotation) ? rotation : HARD_FALLBACK_DISPLAY.rotation,
+  }
+}
+
+function dataRootPath() {
+  if (typeof $dataDir === 'string' && $dataDir) return $dataDir
+  if (typeof $falcon !== 'undefined' && $falcon && typeof $falcon.$dataDir === 'string' && $falcon.$dataDir) {
+    return $falcon.$dataDir
+  }
+  try {
+    if (typeof globalThis !== 'undefined' && typeof globalThis.$dataDir === 'string' && globalThis.$dataDir) {
+      return globalThis.$dataDir
+    }
+  } catch (err) {
+    console.warn(`read data dir failed ${err}`);
+  }
+  return ''
+}
+
+function workspacePath(page) {
+  if (page && typeof page.$workspace === 'string' && page.$workspace) return page.$workspace
+  try {
+    if (typeof globalThis !== 'undefined' && typeof globalThis.$workspace === 'string' && globalThis.$workspace) {
+      return globalThis.$workspace
+    }
+  } catch (err) {
+    console.warn(`read workspace failed ${err}`);
+  }
+  if (typeof $falcon !== 'undefined' && $falcon && typeof $falcon.$workspace === 'string' && $falcon.$workspace) {
+    return $falcon.$workspace
+  }
+  if (typeof $workspace === 'string' && $workspace) return $workspace
+  const dataRoot = dataRootPath();
+  if (dataRoot.slice(-5) === '/data') return dataRoot.slice(0, -5) + '/a'
+  return ''
+}
+
+function browserDataPath(name) {
+  const root = dataRootPath();
+  if (!root) return ''
+  return root + '/browser/' + name
+}
+
+function fallbackDisplayConfig() {
+  const props = appMeta().props || {};
+  const selected = pickSkuConfig(props.browser_display_sku);
+  return normalizeDisplayConfig(selected)
+}
+
+function readSystemDisplayConfig(browserPlayer) {
+  if (!browserPlayer.getSystemDisplayConfig) return null
+  try {
+    return parseSystemDisplayConfig(browserPlayer.getSystemDisplayConfig() || '')
+  } catch (err) {
+    console.warn(`read system display config failed ${err}`);
+  }
+  return null
+}
+
+function readDrmMode(browserPlayer, options, fallback) {
+  const optionMode = parseSizeSpec(options && options.drmMode);
+  if (optionMode) return sizeSpec(optionMode)
+  try {
+    if (browserPlayer.getDrmScreenSize) {
+      const mode = parseSizeSpec(browserPlayer.getDrmScreenSize() || '');
+      if (mode) return sizeSpec(mode)
+    }
+  } catch (err) {
+    console.warn(`read drm mode failed ${err}`);
+  }
+  return fallback.drmMode || DEFAULT_DRM_MODE
+}
+
+function rejectPanelCandidate(size, fallbackPanel, drmSize) {
+  if (!size) return 'invalid'
+  if (isDrmTransportSize(size, drmSize)) return 'drm_transport'
+  const distance = aspectDistance(size, fallbackPanel);
+  if (distance > 0.30 && isSwappedDrmSize(size, drmSize) && isLikelyFullResolutionDrm(drmSize)) {
+    return ''
+  }
+  if (fallbackPanel && distance > 0.30) return `aspect_conflict_${Math.round(distance * 100)}`
+  return ''
+}
+
+async function nextTick() {
+  return new Promise((resolve) => setTimeout(resolve, 0))
+}
+
+async function readHoleSize(component) {
+  await nextTick();
+  let rectResult = null;
+  try {
+    const dom = component.$page && component.$page.$dom ? component.$page.$dom : null;
+    if (!dom || !dom.getComponentRect) return null
+    rectResult = dom.getComponentRect(component.$refs.browserHole);
+    if (rectResult && rectResult.then) {
+      rectResult = await Promise.race([
+        rectResult,
+        new Promise((resolve) => setTimeout(() => resolve(null), 300)),
+      ]);
+    }
+  } catch (err) {
+    console.warn(`get hole rect failed ${err}`);
+  }
+  const size = rectResult && (rectResult.size || rectResult);
+  return parseSizeSpec(size)
+}
+
+function readEnvSize() {
+  const env = falconEnv();
+  return parseSizeSpec({
+    width: env.deviceWidth,
+    height: env.deviceHeight,
+  })
+}
+
+async function resolveDisplayConfig(component, browserPlayer, options) {
+  const fallback = fallbackDisplayConfig();
+  const browserMode = normalizeBrowserMode(options && options.browserMode);
+  const outputDelta = browserModeDelta(browserMode);
+  const modeLayoutTemplate = browserLayoutTemplate(browserMode);
+  const modeLayoutDelta = browserLayoutDelta(browserMode);
+  const systemConfig = readSystemDisplayConfig(browserPlayer);
+  const legacyRotation = Number(options && options.rotation);
+  const hasLegacyRotation = !(options && options.browserMode) && Number.isFinite(legacyRotation);
+  if (systemConfig && Number(systemConfig.width) > 0 && Number(systemConfig.height) > 0) {
+    const rawPanel = parseSizeSpec({
+      width: systemConfig.width,
+      height: systemConfig.height,
+    });
+    const nativeRotation = normalizeRotationValue(systemConfig.frameworkRotation, fallback.rotation);
+    const nativeTouchRotation = normalizeRotationValue(systemConfig.touchRotation, nativeRotation);
+    const rotation = hasLegacyRotation
+      ? normalizeRotationValue(legacyRotation, nativeRotation)
+      : rotateByDelta(nativeRotation, outputDelta);
+    const layoutTemplate = hasLegacyRotation ? 'legacy' : modeLayoutTemplate;
+    const layoutRotation = hasLegacyRotation
+      ? rotation
+      : rotateByDelta(nativeRotation, modeLayoutDelta);
+    const drmMode = sizeSpec(parseSizeSpec(systemConfig.drmMode)) || readDrmMode(browserPlayer, options || {}, fallback);
+    const drmSize = parseSizeSpec(drmMode);
+    const layoutRelativeRotation = rotationDelta(nativeRotation, layoutRotation);
+    const orientedPanel = normalizeForRotation(rawPanel, layoutRelativeRotation);
+    const reconciled = reconcilePanelOrientation(orientedPanel, layoutRotation, drmSize);
+    const panel = reconciled.panel;
+    const panelSize = sizeSpec(panel) || fallback.panelSize || HARD_FALLBACK_DISPLAY.panelSize;
+    const touchRotation = hasLegacyRotation
+      ? normalizeRotationValue(systemConfig.touchRotation, rotation)
+      : rotateByDelta(nativeTouchRotation, outputDelta);
+    const displaySource = `system_cfg:${browserMode}`;
+    console.warn(`display_resolve source=${displaySource} raw=${systemConfig.width}x${systemConfig.height} direction=${systemConfig.frameworkRotation} layout_template=${layoutTemplate} layout_rotation=${layoutRotation} layout_relative_rotation=${layoutRelativeRotation} output_rotation=${rotation} video_direction=${systemConfig.videoRotation} tp_direction=${systemConfig.touchRotation} panel=${panelSize} drm_mode=${drmMode} viewport=${panelSize} rotation=${rotation} touch_rotation=${touchRotation} orientation_corrected=${reconciled.corrected ? 1 : 0}`);
+    return {
+      panelSize,
+      drmMode,
+      viewport: panelSize,
+      rotation,
+      touchRotation,
+      layoutTemplate,
+      layoutRotation,
+      touchDevice: systemConfig.touchDevice || '',
+      touchOffsetX: Number(systemConfig.touchOffsetX) || 0,
+      touchOffsetY: Number(systemConfig.touchOffsetY) || 0,
+      fpsMax: Number(systemConfig.fpsMax) || 0,
+      browserMode,
+      displaySource,
+    }
+  }
+
+  const optionRotation = Number(options && options.rotation);
+  const hasFallbackLegacyRotation = !(options && options.browserMode) && Number.isFinite(optionRotation);
+  const rotation = hasFallbackLegacyRotation
+    ? normalizeRotationValue(optionRotation, fallback.rotation)
+    : rotateByDelta(fallback.rotation, outputDelta);
+  const layoutTemplate = hasFallbackLegacyRotation ? 'legacy' : modeLayoutTemplate;
+  const layoutRotation = hasFallbackLegacyRotation
+    ? rotation
+    : rotateByDelta(fallback.rotation, modeLayoutDelta);
+  const layoutRelativeRotation = rotationDelta(fallback.rotation, layoutRotation);
+  const drmMode = readDrmMode(browserPlayer, options || {}, fallback);
+  const drmSize = parseSizeSpec(drmMode);
+  const fallbackPanel = parseSizeSpec((options && options.panelSize) || fallback.panelSize) || parseSizeSpec(HARD_FALLBACK_DISPLAY.panelSize);
+  const candidates = [
+    { source: 'dom', size: await readHoleSize(component) },
+    { source: 'env', size: readEnvSize() },
+  ];
+  if (isLikelyFullResolutionDrm(drmSize)) {
+    candidates.push({ source: 'drm_mode', size: drmSize });
+  }
+
+  for (let i = 0; i < candidates.length; i += 1) {
+    const candidate = candidates[i];
+    const normalized = normalizeForRotation(candidate.size, layoutRelativeRotation);
+    const reject = rejectPanelCandidate(normalized, fallbackPanel, drmSize);
+    if (!reject) {
+      const reconciled = reconcilePanelOrientation(normalized, layoutRotation, drmSize);
+      const panelSize = sizeSpec(reconciled.panel);
+      console.warn(`display_resolve source=${candidate.source}:${browserMode} layout_template=${layoutTemplate} layout_rotation=${layoutRotation} layout_relative_rotation=${layoutRelativeRotation} output_rotation=${rotation} panel=${panelSize} drm_mode=${drmMode} viewport=${panelSize} rotation=${rotation} touch_rotation=${rotation} orientation_corrected=${reconciled.corrected ? 1 : 0}`);
+      return {
+        panelSize,
+        drmMode,
+        viewport: panelSize,
+        rotation,
+        touchRotation: rotation,
+        layoutTemplate,
+        layoutRotation,
+        browserMode,
+        displaySource: `${candidate.source}:${browserMode}`,
+      }
+    }
+    if (candidate.size) {
+      console.warn(`display_resolve reject source=${candidate.source} size=${sizeSpec(candidate.size)} normalized=${sizeSpec(normalized)} layout_template=${layoutTemplate} reason=${reject}`);
+    }
+  }
+
+  const orientedFallback = normalizeForRotation(fallbackPanel, layoutRelativeRotation);
+  const reconciledFallback = reconcilePanelOrientation(orientedFallback, layoutRotation, drmSize);
+  const panelSize = sizeSpec(reconciledFallback.panel) || HARD_FALLBACK_DISPLAY.panelSize;
+  const source = fallbackPanel ? 'app_config' : 'hard_fallback';
+  console.warn(`display_resolve source=${source}:${browserMode} layout_template=${layoutTemplate} layout_rotation=${layoutRotation} layout_relative_rotation=${layoutRelativeRotation} output_rotation=${rotation} panel=${panelSize} drm_mode=${drmMode} viewport=${panelSize} rotation=${rotation} touch_rotation=${rotation} orientation_corrected=${reconciledFallback.corrected ? 1 : 0}`);
+  return {
+    panelSize,
+    drmMode,
+    viewport: panelSize,
+    rotation,
+    touchRotation: rotation,
+    layoutTemplate,
+    layoutRotation,
+    browserMode,
+    displaySource: `${source}:${browserMode}`,
+  }
+}
+
+async function browserOptions(component, browserPlayer, options) {
+  const resolvedMode = resolvePersistedBrowserMode(browserPlayer, options || {});
+  const resolvedOptions = Object.assign({}, options || {}, {
+    browserMode: resolvedMode,
+  });
+  let runtimePath = resolvedOptions.runtimePath || '';
+  if (!runtimePath) {
+    runtimePath = browserPlayer.prepareRuntime({
+      workspace: workspacePath(component),
+    });
+  }
+  const display = await resolveDisplayConfig(component, browserPlayer, resolvedOptions);
+  return {
+    runtimePath,
+    workdir: resolvedOptions.workdir || browserDataPath(''),
+    logPath: resolvedOptions.logPath || browserDataPath('wpe-drm.log'),
+    url: resolvedOptions.url || DEFAULT_URL,
+    viewport: resolvedOptions.viewport || display.viewport || DEFAULT_VIEWPORT,
+    panelSize: resolvedOptions.panelSize || display.panelSize || DEFAULT_VIEWPORT,
+    drmMode: resolvedOptions.drmMode || display.drmMode || DEFAULT_DRM_MODE,
+    displaySource: display.displaySource || 'unknown',
+    layoutTemplate: display.layoutTemplate || browserLayoutTemplate(resolvedMode),
+    layoutRotation: Number.isFinite(Number(display.layoutRotation)) ? Number(display.layoutRotation) : Number(display.rotation),
+    rotation: Number.isFinite(Number(display.rotation)) ? Number(display.rotation) : DEFAULT_ROTATION,
+    browserMode: display.browserMode || resolvedMode,
+    touchRotation: Number.isFinite(Number(display.touchRotation)) ? Number(display.touchRotation) : Number(display.rotation),
+    touchDevice: resolvedOptions.touchDevice || display.touchDevice || '',
+    touchOffsetX: Number.isFinite(Number(display.touchOffsetX)) ? Number(display.touchOffsetX) : 0,
+    touchOffsetY: Number.isFinite(Number(display.touchOffsetY)) ? Number(display.touchOffsetY) : 0,
+    fpsMax: Number.isFinite(Number(display.fpsMax)) ? Number(display.fpsMax) : 0,
+    drm: resolvedOptions.drm || '/dev/dri/card0',
+    gpuMode: resolvedOptions.gpuMode || 'auto',
+    useOverlay: true,
+    overlayZpos: 0,
+  }
+}
+
+export { LAST_BROWSER_MODE as L, browserOptions as a, browserDataPath as b, normalizeBrowserMode as c, keyboardBackendOverride as k, normalizeBrowserLaunchMode as n };

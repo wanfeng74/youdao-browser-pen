@@ -1,0 +1,7 @@
+#!/bin/sh
+DIR=$(CDPATH= cd -- "$(dirname -- "$0")/../.." && pwd)
+if [ -x "$DIR/glibc/ld-linux-aarch64.so.1" ]; then
+    exec "$DIR/glibc/ld-linux-aarch64.so.1" --library-path "$DIR/glibc:$DIR/lib:/lib64:/usr/lib64" "$DIR/libexec/wpe-webkit-2.0/WPEGPUProcess.bin" "$@"
+else
+    exec "$DIR/libexec/wpe-webkit-2.0/WPEGPUProcess.bin" "$@"
+fi

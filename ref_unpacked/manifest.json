@@ -1,0 +1,87 @@
+{
+  "appName": "CloudBrowser",
+  "version": "0.2.86",
+  "appid": "8001792669600001",
+  "quickjs": {
+    "version": "20200705",
+    "bigNum": false
+  },
+  "cert": {
+    "app-lifecycle-83f4be72.js.bin": {
+      "size": 1188,
+      "md5": "5523dd27519e1b8eb1b7bc2924e2168b"
+    },
+    "app.js.bin": {
+      "size": 25213,
+      "md5": "4a6b0e061d8a6ad51af4dbf07a42db54"
+    },
+    "app-version-830c6f66.js.bin": {
+      "size": 91,
+      "md5": "9fafb14e416a685dcc3c88cc85b52b13"
+    },
+    "cloud-api-2df5020e.js.bin": {
+      "size": 10378,
+      "md5": "d34cb3874e512f85b33e635f251cc805"
+    },
+    "browser.js.bin": {
+      "size": 64461,
+      "md5": "296a94edda37fc2aee116b7cf3285893"
+    },
+    "connection-log-f3ec7999.js.bin": {
+      "size": 2320,
+      "md5": "264a186e8cfdd53ae3229e87386c2d1b"
+    },
+    "donation.js.bin": {
+      "size": 29032,
+      "md5": "0281edbba6f70042f20408a72f3677ad"
+    },
+    "download-layout-5c5c176c.js.bin": {
+      "size": 1344,
+      "md5": "e1cc1008d2b48d9730f1444b152af3cd"
+    },
+    "device-profile-9f229927.js.bin": {
+      "size": 4074,
+      "md5": "5137b6d1f234dcbf637bc49863b47738"
+    },
+    "download-task-b7c2500c.js.bin": {
+      "size": 3882,
+      "md5": "59d152cc12f03c12e6aa3ec70acf5f28"
+    },
+    "downloads.js.bin": {
+      "size": 9842,
+      "md5": "c957d94f5739b84883c925739895b23f"
+    },
+    "index.js.bin": {
+      "size": 16701,
+      "md5": "30697915f44b760bf1aff8c5de685065"
+    },
+    "feedback.js.bin": {
+      "size": 8054,
+      "md5": "c6b328f2529347fe028d7507f9fbd0e5"
+    },
+    "falcon-storage-aada65ef.js.bin": {
+      "size": 885,
+      "md5": "18c83d0928f0da17c3ea27f10b14c2a6"
+    },
+    "membership-presentation-4436e768.js.bin": {
+      "size": 773,
+      "md5": "d227859852db0b038a45215f43a4f1e6"
+    },
+    "settings.js.bin": {
+      "size": 13407,
+      "md5": "2281f2969e0664b5ee5d59624bf9cc9f"
+    },
+    "membership.js.bin": {
+      "size": 28288,
+      "md5": "724cdabc544adcb02f6c0d1d0175f060"
+    },
+    "user-agent-mode-18aafb41.js.bin": {
+      "size": 265,
+      "md5": "1d2a644daecb8d4f87a066a59b8a71df"
+    },
+    "libs/libjsapi_cloudbrowser.so": {
+      "size": 14982696,
+      "md5": "6db92a590c8cfb53c845523c71520526"
+    }
+  }
+}

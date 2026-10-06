@@ -1,0 +1,6 @@
+*.amr
+verify_*/
+.DS_Store
+unpacked_v1410_backup/
+# GitHub 100MB 文件限制:WPE 预编译库从 .amr 包中提取
+unpacked/assets/wpe-runtime/lib/libWPEWebKit-2.0.so.1
