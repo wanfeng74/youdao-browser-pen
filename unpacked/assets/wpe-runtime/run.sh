@@ -401,7 +401,11 @@ if [ -z "$WPE_TOUCH_DEVICE" ]; then
 fi
 export WPE_TOUCH_OFFSET_X="${WPE_TOUCH_OFFSET_X:-0}"
 export WPE_TOUCH_OFFSET_Y="${WPE_TOUCH_OFFSET_Y:-0}"
-export WPE_SEND_TOUCH_EVENTS="${WPE_SEND_TOUCH_EVENTS:-1}"
+# 指针合成点击模式(=0):WPE用鼠标事件合成点击,不受网页触摸preventDefault影响,
+# click必定触发,WPE键盘脚本监听到click后必定唤起键盘。
+# 原生触摸模式(=1)下网页若preventDefault触摸事件,click不合成,键盘不唤起。
+# 滚动由WPE_TOUCH_NATIVE_SCROLL处理,不受此选项影响。
+export WPE_SEND_TOUCH_EVENTS="${WPE_SEND_TOUCH_EVENTS:-0}"
 export WPE_SYNTHESIZE_POINTER_TAP="${WPE_SYNTHESIZE_POINTER_TAP:-1}"
 export WPE_GAME_GESTURE_DRAG_PX="${WPE_GAME_GESTURE_DRAG_PX:-8}"
 export WPE_GAME_GESTURE_HOLD_MS="${WPE_GAME_GESTURE_HOLD_MS:-80}"
