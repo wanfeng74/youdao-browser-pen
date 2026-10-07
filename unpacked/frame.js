@@ -1320,6 +1320,8 @@ var script = {
       keyboardHideTimer: null,
       currentDisplayUrl: '',
       urlOverride: '',
+      // 浏览历史栈:用于「返回」按钮回到上一个页面
+      urlHistory: [],
       // 地址栏专用状态(与网页输入隔离,避免账号被当成网址)
       addressBarEditing: false,
       addressBarText: '',
@@ -1387,8 +1389,26 @@ var script = {
       return options.workdir || browserDataPath('')
     },
     onTopBack() {
-      if (this.browserLifecycle) {
-        this.browserLifecycle.leaveFrame('user exit');
+      // 返回上一个页面:从浏览历史栈弹出上一个URL并导航。
+      // 历史栈为空时兜底为退出浏览器。
+      const self = this;
+      if (self.urlHistory && self.urlHistory.length > 0) {
+        const prev = self.urlHistory.pop();
+        console.warn('top-back: navigate to history=' + JSON.stringify(prev));
+        if (self.browserLifecycle) {
+          try { self.browserLifecycle.stop(); } catch (e) {}
+        }
+        setTimeout(function () {
+          if (self.browserLifecycle && !self.browserLifecycle.state.leaving) {
+            self.currentDisplayUrl = prev;
+            self.browserLifecycle.restartForUrl(prev);
+          }
+        }, 600);
+      } else {
+        console.warn('top-back: history empty, exit frame');
+        if (self.browserLifecycle) {
+          self.browserLifecycle.leaveFrame('user exit');
+        }
       }
     },
     onTopReload() {
@@ -1533,6 +1553,13 @@ var script = {
           val = 'https://' + val;
         }
       }
+      // 记录浏览历史:当前URL压入栈,供「返回」按钮使用
+      const cur = self.currentDisplayUrl;
+      if (cur && cur !== val && cur !== 'about:blank' && cur !== 'about:start') {
+        self.urlHistory.push(cur);
+        if (self.urlHistory.length > 50) self.urlHistory.shift();
+        console.warn('navigate: history push=' + JSON.stringify(cur) + ' stack=' + self.urlHistory.length);
+      }
       self.currentDisplayUrl = val;
       // B站视频页兼容性workaround:WPE WebKit(605.x)播放B站H5播放器报4004,
       // 自动转为嵌入播放器页面(player.bilibili.com),其播放器更简单兼容性更好。
@@ -1580,6 +1607,60 @@ var script = {
       if (this.browserLifecycle) {
         try { this.browserLifecycle.stop(); } catch (e) {}
       }
+    },
+    // 「键盘」按钮:手动唤起输入法(初始为空),作为网页输入框不唤起时的备选。
+    // 输入内容经 navigateToUrl 自动判断是URL还是搜索词后提交。
+    onTopKeyboard() {
+      const self = this;
+      const bridge = this.keyboardBridge;
+      const session = bridge && bridge.state && bridge.state.session;
+      if (!session) return;
+      if (self.browserLifecycle) {
+        try { self.browserLifecycle.stop(); } catch (e) {}
+      }
+      const uuid = session.open({
+        text: '',
+        placeholder: '输入网址或搜索词',
+        inputType: 'EnUSPreferred',
+        enterButtonText: '前往'
+      });
+      if (!uuid) {
+        console.warn('top-keyboard: open failed (empty uuid)');
+        if (bridge) bridge.restoreSessionHandlers();
+        if (self.browserLifecycle) {
+          setTimeout(() => {
+            if (!self.browserLifecycle.state.leaving) self.browserLifecycle.restartForUrl(self.currentDisplayUrl);
+          }, 400);
+        }
+        return;
+      }
+      self.addressBarEditing = true;
+      self.addressBarText = '';
+      const restore = () => { if (bridge) bridge.restoreSessionHandlers(); };
+      session.onConfirm = (newText) => {
+        const val = (newText || '').trim();
+        self.addressBarText = val;
+        self.addressBarEditing = false;
+        restore();
+        if (!val) {
+          if (self.browserLifecycle) {
+            setTimeout(() => {
+              if (!self.browserLifecycle.state.leaving) self.browserLifecycle.restartForUrl(self.currentDisplayUrl);
+            }, 900);
+          }
+          return;
+        }
+        setTimeout(() => { self.navigateToUrl(val); }, 900);
+      };
+      session.onCancel = () => {
+        self.addressBarEditing = false;
+        restore();
+        if (self.browserLifecycle) {
+          setTimeout(() => {
+            if (!self.browserLifecycle.state.leaving) self.browserLifecycle.restartForUrl(self.currentDisplayUrl);
+          }, 900);
+        }
+      };
     },
     closeSettings() {
       this.showSettings = false;
@@ -1794,6 +1875,7 @@ var style_0 = { "_": {
   },
   "top-tab-url": {
     "flex": 1,
+    "maxWidth": "340px",
     "height": "34px",
     "lineHeight": "34px",
     "backgroundColor": "#0d1117",
@@ -1801,7 +1883,10 @@ var style_0 = { "_": {
     "paddingLeft": "10px",
     "paddingRight": "10px",
     "fontSize": "14px",
-    "color": "#8fd0ff"
+    "color": "#8fd0ff",
+    "overflow": "hidden",
+    "textOverflow": "ellipsis",
+    "whiteSpace": "nowrap"
   },
   "top-tab-reload": {
     "width": "64px",
@@ -1822,6 +1907,17 @@ var style_0 = { "_": {
     "fontSize": "15px",
     "color": "#ffffff",
     "backgroundColor": "#2d6a4f",
+    "borderRadius": "7px",
+    "marginLeft": "8px"
+  },
+  "top-tab-keyboard": {
+    "width": "64px",
+    "height": "34px",
+    "lineHeight": "34px",
+    "textAlign": "center",
+    "fontSize": "15px",
+    "color": "#ffffff",
+    "backgroundColor": "#7b2d8c",
     "borderRadius": "7px",
     "marginLeft": "8px"
   },
@@ -1941,6 +2037,12 @@ var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
       staticClass: ["top-tab-settings"],
       on: { "click": function($event) { return _vm.onTopSettings() } }
     }, [_vm._v("设置")]),
+    // 「键盘」按钮:手动唤起输入法。网页输入框键盘不唤起时的备选入口,
+    // 点击后弹出输入法,输入内容作为URL或搜索词提交。
+    _c('text', {
+      staticClass: ["top-tab-keyboard"],
+      on: { "click": function($event) { return _vm.onTopKeyboard() } }
+    }, [_vm._v("键盘")]),
     // 导航栏最右侧:确认键。点击后直接提交当前地址栏内容,
     // 不依赖输入法的确认回调(固件确认回调不触发时的可靠通路)。
     _c('text', {
