@@ -538,15 +538,8 @@ class KeyboardSession {
         if (result.confirmed) {
           // 兼容 found=false 的固件:直接取文本,而不是丢弃为空串
           this.finish(result.text || '');
-        } else if (result.terminal) {
-          // 明确取消(terminal=true 且 confirmed=false):关闭输入法
-          this.cancel();
         } else {
-          // 非终态回调:固件输入过程中会多次上报中间文本。
-          // 绝不能在这里 cancel —— 那样输入第一个字符就触发 onCancel,
-          // 地址栏 onCancel 会 restartForUrl 跳回上一页,
-          // 表现为「地址栏每次输入自动定向到上个界面」。
-          console.warn('keyboard intermediate callback ignored (terminal=false, not cancel)');
+          this.cancel();
         }
       }, 0);
     };
