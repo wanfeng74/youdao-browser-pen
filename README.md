@@ -10,7 +10,6 @@
 - **触摸交互**：原生触摸滚动、点击、缩放
 - **视频播放**：硬件解码 + DRM overlay 直出，支持 B 站等视频网站
 - **低内存优化**：针对 400MB 内存设备优化，Skia CPU 光栅化，30fps 刷新节流
-- **云游戏支持**：内置米哈游云游戏适配（WPE_GAME_HOSTS）
 
 ## 设备要求
 
@@ -42,7 +41,6 @@
 - 删除地址栏键盘按钮
 - WPE_DRM_MODE 强制横屏，修复间歇性"侧边一条"显示异常
 - watchdog 连续 3 次失败才判定崩溃，修复"黑屏→百度→黑屏"循环
-- 恢复原始 WPE_GAME_HOSTS（ys.mihoyo.com,cloudgame.mihoyo.com）
 
 ### v1.4.20
 - WPE_DRM_MODE 强制横屏修复间歇性侧边一条
@@ -55,7 +53,6 @@
 ### v1.4.18
 - 去掉启动页文字
 - 键盘按钮初始值修复
-- 原神域名修复
 
 ### v1.4.14
 - WPE_DRM_MODE 恢复横屏（修复硬编码竖屏导致的侧边一条）
@@ -123,7 +120,6 @@ zip -qrD ../8002482420830506.1_4_XX.amr .
 | `WPE_SEND_TOUCH_EVENTS` | 1 | 原生触摸事件（1=原生，0=指针合成） |
 | `WPE_TOUCH_NATIVE_SCROLL` | 1 | 原生滚动 |
 | `WPE_WEB_PROCESS_MEMORY_LIMIT_MB` | 550 | Web 进程内存限制 |
-| `WPE_GAME_HOSTS` | ys.mihoyo.com,cloudgame.mihoyo.com | 云游戏域名 |
 
 ## License
 
