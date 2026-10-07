@@ -416,7 +416,10 @@ export WPE_TOUCH_TAP_MAX_MOVE="${WPE_TOUCH_TAP_MAX_MOVE:-28}"
 export WPE_TOUCH_SCROLL_INTERVAL_MS="${WPE_TOUCH_SCROLL_INTERVAL_MS:-16}"
 export WPE_TOUCH_SCROLL_STOP_DELAY_MS="${WPE_TOUCH_SCROLL_STOP_DELAY_MS:-120}"
 export WPE_INPUT_PROFILE="${WPE_INPUT_PROFILE:-auto}"
-export WPE_GAME_HOSTS="${WPE_GAME_HOSTS:-ys.mihoyo.com,cloudgame.mihoyo.com}"
+# 只把云游戏域名加入GAME_HOSTS。官网ys.mihoyo.com(及yuanshen.com重定向目标)
+# 若被加入,整个官网会被切换到game输入模式并注入cloud_autostart脚本,
+# 导致页面无法正常渲染(黑屏)。
+export WPE_GAME_HOSTS="${WPE_GAME_HOSTS:-cloudgame.mihoyo.com}"
 export WPE_CLOUD_AUTOSTART="${WPE_CLOUD_AUTOSTART:-1}"
 export WPE_DEFAULT_URL="${WPE_DEFAULT_URL:-https://m.baidu.com/}"
 URL="${1:-$WPE_DEFAULT_URL}"

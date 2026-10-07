@@ -121,13 +121,13 @@ var script = {
         console.warn('auto-launch suppressed: within cooldown after recent launch');
         return
       }
-      // 稍等一拍,确保页面已挂载、选项已解析
+      // 稍等一拍,确保页面已挂载、选项已解析。延迟尽量短,避免用户看到启动页
       self._autoLaunchTimer = setTimeout(function () {
         self._autoLaunchTimer = null;
         if (self._autoLaunchDone) return
         self._autoLaunchDone = true;
         self.launchBrowser();
-      }, 120);
+      }, 30);
     },
     launchBrowser() {
       if (this.busy) return
@@ -255,6 +255,8 @@ var style_0 = { "_": {
 
 var render = function (){
 var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  // 启动页不显示任何文字:点图标后直接黑屏跳转 frame,
+  // 避免「正在进入浏览器」界面反复出现。
   return _c('div', {
     staticClass: ["launcher-page"],
     on: {
@@ -262,21 +264,7 @@ var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
         return _vm.launchBrowser()
       }
     }
-  }, [_c('div', {
-    staticClass: ["launcher-shell"]
-  }, [_c('div', {
-    staticClass: ["topbar"]
-  }, [_c('text', {
-    staticClass: ["title"]
-  }, [_vm._v("Web浏览器")]), _c('text', {
-    staticClass: ["status"]
-  }, [_vm._v(_vm._s(_vm.statusText))])]), _c('div', {
-    staticClass: ["content"]
-  }, [_c('text', {
-    staticClass: ["message"]
-  }, [_vm._v(_vm._s(_vm.messageText))]), (_vm.detailText) ? _c('text', {
-    staticClass: ["detail"]
-  }, [_vm._v(_vm._s(_vm.detailText))]) : _vm._e()])])])
+  })
 };
 
 var staticRenderFns=[];

@@ -1,6 +1,6 @@
 {
   "appName": "Web浏览器",
-  "version": "1.4.17",
+  "version": "1.4.18",
   "appid": "8002482420830506",
   "icon": "icon.png",
   "quickjs": {
@@ -35,24 +35,24 @@
       "md5": "8dd6daa0753996ece6659f13ec42425f"
     },
     "frame.js": {
-      "size": 77921,
-      "md5": "114809d338e1db814c054f17c3d59b02"
+      "size": 78109,
+      "md5": "0cd7a7da9b8980c3fc749c5e3902cbd4"
     },
     "icon.png": {
       "size": 772,
       "md5": "b773a3f4da4541ef43f74f4678760f5e"
     },
     "index.js": {
-      "size": 9143,
-      "md5": "e9cc4d338dc7b83579760c8db2e593d4"
+      "size": 8820,
+      "md5": "93f91910e951f4b3e59e2fc90e26ab20"
     },
     "assets/wpe-runtime/build-manifest.json": {
       "size": 682,
       "md5": "897e0ea40263abf7facbe7137a16298d"
     },
     "assets/wpe-runtime/run.sh": {
-      "size": 31611,
-      "md5": "04e36fbfd7fbfbf32784195ff4364f80"
+      "size": 31825,
+      "md5": "2348bc4c9aab7750b4370c97f51e30d9"
     },
     "assets/wpe-runtime/wpe-drm-minimal": {
       "size": 253504,

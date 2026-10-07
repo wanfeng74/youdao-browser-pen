@@ -1608,18 +1608,20 @@ var script = {
         try { this.browserLifecycle.stop(); } catch (e) {}
       }
     },
-    // 「键盘」按钮:手动唤起输入法(初始为空),作为网页输入框不唤起时的备选。
-    // 输入内容经 navigateToUrl 自动判断是URL还是搜索词后提交。
+    // 「键盘」按钮:手动唤起输入法,作为网页输入框不唤起时的备选入口。
+    // 初始文本为当前URL(与点击地址栏一致),确保导航栏「确认」按钮能拿到正确值。
     onTopKeyboard() {
       const self = this;
       const bridge = this.keyboardBridge;
       const session = bridge && bridge.state && bridge.state.session;
       if (!session) return;
+      const initial = (self.currentDisplayUrl === 'about:blank' || self.currentDisplayUrl === 'about:start')
+        ? '' : (self.currentDisplayUrl || '');
       if (self.browserLifecycle) {
         try { self.browserLifecycle.stop(); } catch (e) {}
       }
       const uuid = session.open({
-        text: '',
+        text: initial,
         placeholder: '输入网址或搜索词',
         inputType: 'EnUSPreferred',
         enterButtonText: '前往'
@@ -1635,7 +1637,7 @@ var script = {
         return;
       }
       self.addressBarEditing = true;
-      self.addressBarText = '';
+      self.addressBarText = initial;
       const restore = () => { if (bridge) bridge.restoreSessionHandlers(); };
       session.onConfirm = (newText) => {
         const val = (newText || '').trim();
