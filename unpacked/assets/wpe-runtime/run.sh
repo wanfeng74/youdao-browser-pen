@@ -415,7 +415,10 @@ export WPE_TOUCH_TAP_MAX_MOVE="${WPE_TOUCH_TAP_MAX_MOVE:-28}"
 export WPE_TOUCH_SCROLL_INTERVAL_MS="${WPE_TOUCH_SCROLL_INTERVAL_MS:-16}"
 export WPE_TOUCH_SCROLL_STOP_DELAY_MS="${WPE_TOUCH_SCROLL_STOP_DELAY_MS:-120}"
 export WPE_INPUT_PROFILE="${WPE_INPUT_PROFILE:-auto}"
-export WPE_GAME_HOSTS="${WPE_GAME_HOSTS:-ys.mihoyo.com,cloudgame.mihoyo.com}"
+# 只把云原神入口(cloudgame.mihoyo.com)当作云游戏host;
+# ys.mihoyo.com 是原神官网,若列入游戏host会被WPE当成云游戏入口,
+# 触发 cloud_autostart 注入探测脚本+切换game输入模式,导致官网无法正常访问。
+export WPE_GAME_HOSTS="${WPE_GAME_HOSTS:-cloudgame.mihoyo.com}"
 export WPE_CLOUD_AUTOSTART="${WPE_CLOUD_AUTOSTART:-1}"
 export WPE_DEFAULT_URL="${WPE_DEFAULT_URL:-https://m.baidu.com/}"
 URL="${1:-$WPE_DEFAULT_URL}"
