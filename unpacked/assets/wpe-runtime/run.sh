@@ -400,7 +400,12 @@ if [ -z "$WPE_TOUCH_DEVICE" ]; then
 fi
 export WPE_TOUCH_OFFSET_X="${WPE_TOUCH_OFFSET_X:-0}"
 export WPE_TOUCH_OFFSET_Y="${WPE_TOUCH_OFFSET_Y:-0}"
-export WPE_SEND_TOUCH_EVENTS="${WPE_SEND_TOUCH_EVENTS:-1}"
+# 关闭原生触摸事件,改用指针合成点击(send_pointer_tap)。
+# 原生触摸模式下,网页若在touch事件中preventDefault,WebKit不合成click,
+# WPE键盘脚本收不到click→输入法不唤起(表现为"点击输入框没反应")。
+# 指针合成的鼠标事件不受触摸preventDefault影响,click必定触发。
+# 滚动仍由WPE_TOUCH_NATIVE_SCROLL原生处理,不依赖页面触摸事件。
+export WPE_SEND_TOUCH_EVENTS="${WPE_SEND_TOUCH_EVENTS:-0}"
 export WPE_SYNTHESIZE_POINTER_TAP="${WPE_SYNTHESIZE_POINTER_TAP:-1}"
 export WPE_GAME_GESTURE_DRAG_PX="${WPE_GAME_GESTURE_DRAG_PX:-8}"
 export WPE_GAME_GESTURE_HOLD_MS="${WPE_GAME_GESTURE_HOLD_MS:-80}"
@@ -412,11 +417,17 @@ export WPE_TOUCH_SCROLL_INVERT_Y="${WPE_TOUCH_SCROLL_INVERT_Y:-0}"
 export WPE_TOUCH_SCROLL_SCALE="${WPE_TOUCH_SCROLL_SCALE:-1.3}"
 export WPE_TOUCH_SCROLL_MAX_STEP="${WPE_TOUCH_SCROLL_MAX_STEP:-64}"
 export WPE_TOUCH_SCROLL_PENDING_LIMIT="${WPE_TOUCH_SCROLL_PENDING_LIMIT:-64}"
-export WPE_TOUCH_TAP_MAX_MOVE="${WPE_TOUCH_TAP_MAX_MOVE:-28}"
+export WPE_TOUCH_TAP_MAX_MOVE="${WPE_TOUCH_TAP_MAX_MOVE:-48}"
 export WPE_TOUCH_SCROLL_INTERVAL_MS="${WPE_TOUCH_SCROLL_INTERVAL_MS:-16}"
 export WPE_TOUCH_SCROLL_STOP_DELAY_MS="${WPE_TOUCH_SCROLL_STOP_DELAY_MS:-120}"
 export WPE_INPUT_PROFILE="${WPE_INPUT_PROFILE:-auto}"
-export WPE_GAME_HOSTS="${WPE_GAME_HOSTS:-ys.mihoyo.com,cloudgame.mihoyo.com}"
+# 只把云游戏域名加入GAME_HOSTS。官网ys.mihoyo.com若被加入,整个官网(含登录/
+# 验证码页)会被切换到game输入模式,触摸事件被游戏手势处理器消费,
+# 网页input的click不触发→键盘不唤起。这是原神验证码登录无法输入的根因。
+export WPE_GAME_HOSTS="${WPE_GAME_HOSTS:-cloudgame.mihoyo.com}"
+# 禁用键盘指针门控:确保网页发起的键盘请求不会因"无最近指针点击"被拒绝。
+# 某些页面(如原神验证码对话框)的自定义触摸处理可能导致门控时间戳不更新。
+export WPE_KEYBOARD_POINTER_GATE_MS="${WPE_KEYBOARD_POINTER_GATE_MS:-0}"
 export WPE_CLOUD_AUTOSTART="${WPE_CLOUD_AUTOSTART:-1}"
 export WPE_DEFAULT_URL="${WPE_DEFAULT_URL:-https://m.baidu.com/}"
 URL="${1:-$WPE_DEFAULT_URL}"
