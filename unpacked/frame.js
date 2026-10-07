@@ -40,6 +40,7 @@ function createBrowserLifecycleState() {
     leaving: false,
     startToken: 0,
     watchdogTimer: null,
+    watchdogFailCount: 0,
     browserModeOverride: '',
     rotationRestartCount: 0,
     // 主动重启(换 URL / 换显示模式)期间的保护截止时间戳。
@@ -190,8 +191,18 @@ class BrowserLifecycle {
     }
     if (running) {
       this.state.running = true;
+      this.state.watchdogFailCount = 0;
       return
     }
+    // 连续失败计数:WPE 加载复杂页面时进程可能短暂无响应,
+    // 一次 isBrowserRunning=false 就 leaveFrame 会导致「黑屏→百度→黑屏」循环。
+    // 必须连续 3 次(约3秒)检测不到才判定为真正崩溃。
+    this.state.watchdogFailCount += 1;
+    console.warn(`watchdog: browser not running (fail ${this.state.watchdogFailCount}/3)`);
+    if (this.state.watchdogFailCount < 3) {
+      return
+    }
+    this.state.watchdogFailCount = 0;
     this.state.running = false;
     const status = this.consumeExitStatus();
     if (status.reason === 'rotation_change') {

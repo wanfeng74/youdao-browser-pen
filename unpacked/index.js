@@ -121,13 +121,14 @@ var script = {
         console.warn('auto-launch suppressed: within cooldown after recent launch');
         return
       }
-      // 稍等一拍,确保页面已挂载、选项已解析。延迟尽量短,避免用户看到启动页
+      // 等待页面挂载完成+选项解析,120ms确保WPE启动资源就绪,
+      // 过短(30ms)会导致WPE启动时资源竞争崩溃→被踢回index→黑屏循环
       self._autoLaunchTimer = setTimeout(function () {
         self._autoLaunchTimer = null;
         if (self._autoLaunchDone) return
         self._autoLaunchDone = true;
         self.launchBrowser();
-      }, 30);
+      }, 120);
     },
     launchBrowser() {
       if (this.busy) return
