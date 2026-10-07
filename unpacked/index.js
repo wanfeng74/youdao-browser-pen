@@ -1,7 +1,7 @@
 import { B as BasePage } from './base-page-bd62aef9.js';
 import { n as normalizeBrowserLaunchMode } from './display-resolver-b7d76f5e.js';
 
-const DEFAULT_BROWSER_URL = 'http://m.baidu.com/';
+const DEFAULT_BROWSER_URL = 'https://m.baidu.com/';
 
 const ALLOWED_SCHEMES = ['http', 'https', 'about', 'file'];
 
@@ -24,6 +24,10 @@ function normalizeLaunchUrl(url) {
   if (value.indexOf('://') >= 0) return DEFAULT_BROWSER_URL
   if (/\s/.test(value) || value.indexOf('.') < 0) {
     return `https://m.baidu.com/s?word=${encodeURIComponent(value)}`
+  }
+  // IP地址或localhost默认用HTTP(校园网登录页/路由器管理页通常是HTTP)
+  if (/^(\d{1,3}\.){3}\d{1,3}$/.test(value) || /^localhost/i.test(value)) {
+    return `http://${value}`
   }
   return `https://${value}`
 }

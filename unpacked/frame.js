@@ -84,16 +84,24 @@ class BrowserLifecycle {
       opts.url = this.component.urlOverride;
     }
     // B站视频页→嵌入播放器兼容性转换(初始加载也覆盖)
+    // WPE WebKit 605.x 播放B站H5播放器报4004(playurl API失败),
+    // 转嵌入播放器 player.bilibili.com,其播放器更简单。
     try {
       const u = opts.url || '';
       const bvMatch = u.match(/bilibili\.com\/video\/(BV[0-9A-Za-z]+)/);
+      const epMatch = u.match(/bilibili\.com\/bangumi\/play\/(ep[0-9]+|ss[0-9]+)/);
       if (bvMatch) {
         const bvid = bvMatch[1];
         const pageMatch = u.match(/[?&]p=(\d+)/);
         const page = pageMatch ? pageMatch[1] : '1';
         opts.url = 'https://player.bilibili.com/player.html?bvid=' + bvid
-          + '&page=' + page + '&high_quality=1&danmaku=0&autoplay=0';
+          + '&page=' + page + '&platform=html5&high_quality=0&danmaku=0&autoplay=0';
         console.warn('bilibili initial url redirected to embed: ' + opts.url);
+      } else if (epMatch) {
+        const epid = epMatch[1];
+        opts.url = 'https://player.bilibili.com/player.html?ep_id=' + epid
+          + '&platform=html5&high_quality=0&danmaku=0&autoplay=0';
+        console.warn('bilibili bangumi redirected to embed: ' + opts.url);
       }
     } catch (e) { console.warn('bilibili initial redirect failed: ' + e); }
     console.warn('DIAGRESOLVE pageOptions=' + JSON.stringify(this.pageOptions()) +
@@ -1514,6 +1522,9 @@ var script = {
           val = (self.settingsSearch === 'bing')
             ? 'https://www.bing.com/search?q=' + encodeURIComponent(val)
             : 'https://m.baidu.com/s?word=' + encodeURIComponent(val);
+        } else if (/^(\d{1,3}\.){3}\d{1,3}$/.test(val) || /^localhost/i.test(val)) {
+          // IP地址或localhost默认用HTTP(校园网登录页/路由器管理页通常是HTTP)
+          val = 'http://' + val;
         } else {
           val = 'https://' + val;
         }
@@ -1523,14 +1534,21 @@ var script = {
       // 自动转为嵌入播放器页面(player.bilibili.com),其播放器更简单兼容性更好。
       try {
         const bvMatch = val.match(/bilibili\.com\/video\/(BV[0-9A-Za-z]+)/);
+        const epMatch = val.match(/bilibili\.com\/bangumi\/play\/(ep[0-9]+|ss[0-9]+)/);
         if (bvMatch) {
           const bvid = bvMatch[1];
           const pageMatch = val.match(/[?&]p=(\d+)/);
           const page = pageMatch ? pageMatch[1] : '1';
           val = 'https://player.bilibili.com/player.html?bvid=' + bvid
-            + '&page=' + page + '&high_quality=1&danmaku=0&autoplay=0';
+            + '&page=' + page + '&platform=html5&high_quality=0&danmaku=0&autoplay=0';
           self.currentDisplayUrl = val;
           console.warn('bilibili video redirected to embed player: ' + val);
+        } else if (epMatch) {
+          const epid = epMatch[1];
+          val = 'https://player.bilibili.com/player.html?ep_id=' + epid
+            + '&platform=html5&high_quality=0&danmaku=0&autoplay=0';
+          self.currentDisplayUrl = val;
+          console.warn('bilibili bangumi redirected to embed player: ' + val);
         }
       } catch (e) { console.warn('bilibili redirect failed: ' + e); }
       // 重启保护窗口:输入法收起会触发 onHide,期间绝不能停浏览器。

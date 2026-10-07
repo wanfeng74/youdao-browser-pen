@@ -1,6 +1,6 @@
 {
   "appName": "Web浏览器",
-  "version": "1.4.8",
+  "version": "1.4.13",
   "appid": "8002482420830506",
   "icon": "icon.png",
   "quickjs": {
@@ -25,6 +25,38 @@
     "app_icon.png": {
       "size": 772,
       "md5": "b773a3f4da4541ef43f74f4678760f5e"
+    },
+    "base-page-bd62aef9.js": {
+      "size": 1485,
+      "md5": "48b3177818e2c83146c518d4dc4f4960"
+    },
+    "display-resolver-b7d76f5e.js": {
+      "size": 20041,
+      "md5": "8dd6daa0753996ece6659f13ec42425f"
+    },
+    "frame.js": {
+      "size": 73549,
+      "md5": "48ff5f113af882766361b5a410a196af"
+    },
+    "icon.png": {
+      "size": 772,
+      "md5": "b773a3f4da4541ef43f74f4678760f5e"
+    },
+    "index.js": {
+      "size": 8792,
+      "md5": "eca2cfd74ecbb7b778d0224d25d51227"
+    },
+    "assets/wpe-runtime/build-manifest.json": {
+      "size": 682,
+      "md5": "897e0ea40263abf7facbe7137a16298d"
+    },
+    "assets/wpe-runtime/run.sh": {
+      "size": 31538,
+      "md5": "a463ec72cae466770de3cc4b33158ba1"
+    },
+    "assets/wpe-runtime/wpe-drm-minimal": {
+      "size": 253504,
+      "md5": "2abf373272879affdd32b714e0cf50e5"
     },
     "assets/wpe-runtime/assets/fonts/dejavu/DejaVuSans-Bold.ttf": {
       "size": 708920,
@@ -65,18 +97,6 @@
     "assets/wpe-runtime/assets/fonts/miniapp/Castoro-Regular.ttf": {
       "size": 124916,
       "md5": "2fd6031fcb7d787ebfe6b9f9e42ec1a8"
-    },
-    "assets/wpe-runtime/assets/fonts/miniapp/falcon-icons.ttf": {
-      "size": 55956,
-      "md5": "732389ded34cb9c52dd88271f1345af9"
-    },
-    "assets/wpe-runtime/assets/fonts/miniapp/fonts.xml": {
-      "size": 6459,
-      "md5": "a51973accfdd86424418ff6a7cdbf7cd"
-    },
-    "assets/wpe-runtime/assets/fonts/miniapp/gkai00mp.ttf": {
-      "size": 4633128,
-      "md5": "2e52d7eb8933ff32f21b67c47eadb561"
     },
     "assets/wpe-runtime/assets/fonts/miniapp/HarmonyOS_Sans_SC_Bold.ttf": {
       "size": 8158996,
@@ -142,10 +162,6 @@
       "size": 4548208,
       "md5": "ecfed48e463db4e31d1691c8af367730"
     },
-    "assets/wpe-runtime/assets/fonts/miniapp/NotoSansKhmer.ttf": {
-      "size": 53036,
-      "md5": "d49ef0b2a5389f9e32f08ee1e105e776"
-    },
     "assets/wpe-runtime/assets/fonts/miniapp/NotoSansKR-Medium.otf": {
       "size": 4768768,
       "md5": "32666ae307200b0bcab5553590672bb1"
@@ -153,6 +169,10 @@
     "assets/wpe-runtime/assets/fonts/miniapp/NotoSansKR-Regular.otf": {
       "size": 4744692,
       "md5": "210989664066c01d8ffdbdf56bb773cd"
+    },
+    "assets/wpe-runtime/assets/fonts/miniapp/NotoSansKhmer.ttf": {
+      "size": 53036,
+      "md5": "d49ef0b2a5389f9e32f08ee1e105e776"
     },
     "assets/wpe-runtime/assets/fonts/miniapp/NotoSansLao.ttf": {
       "size": 19660,
@@ -214,17 +234,25 @@
       "size": 13887204,
       "md5": "1484cd2ff64d9d7372b59b9f611891c8"
     },
-    "assets/wpe-runtime/build-manifest.json": {
-      "size": 682,
-      "md5": "897e0ea40263abf7facbe7137a16298d"
+    "assets/wpe-runtime/assets/fonts/miniapp/falcon-icons.ttf": {
+      "size": 55956,
+      "md5": "732389ded34cb9c52dd88271f1345af9"
     },
-    "assets/wpe-runtime/etc/fonts/conf.d/README": {
-      "size": 988,
-      "md5": "e0536801445fd68a69ac6192b79de2c3"
+    "assets/wpe-runtime/assets/fonts/miniapp/fonts.xml": {
+      "size": 6459,
+      "md5": "a51973accfdd86424418ff6a7cdbf7cd"
+    },
+    "assets/wpe-runtime/assets/fonts/miniapp/gkai00mp.ttf": {
+      "size": 4633128,
+      "md5": "2e52d7eb8933ff32f21b67c47eadb561"
     },
     "assets/wpe-runtime/etc/fonts/fonts.conf": {
       "size": 2713,
       "md5": "f084d7cecf02b691ba7e99651c8f35be"
+    },
+    "assets/wpe-runtime/etc/fonts/conf.d/README": {
+      "size": 988,
+      "md5": "e0536801445fd68a69ac6192b79de2c3"
     },
     "assets/wpe-runtime/etc/ssl/certs/ca-certificates.crt": {
       "size": 182140,
@@ -258,17 +286,21 @@
       "size": 1753544,
       "md5": "94d4c56526aac48f50d7ec8d7e835a8a"
     },
+    "assets/wpe-runtime/gpu/README.md": {
+      "size": 1181,
+      "md5": "538f547722d18eaa892c80c36b5f3761"
+    },
     "assets/wpe-runtime/gpu/mali/lib/libEGL.so.1": {
       "size": 5688,
       "md5": "3a8950e75ac665cc4add8168ed8734fd"
     },
-    "assets/wpe-runtime/gpu/mali/lib/libgbm.so.1": {
-      "size": 5688,
-      "md5": "448f2151aef7e862a1762d46e8d0e713"
-    },
     "assets/wpe-runtime/gpu/mali/lib/libGLESv2.so.2": {
       "size": 5688,
       "md5": "0c83ae7162ac6dbda9aabe8b38037d18"
+    },
+    "assets/wpe-runtime/gpu/mali/lib/libgbm.so.1": {
+      "size": 5688,
+      "md5": "448f2151aef7e862a1762d46e8d0e713"
     },
     "assets/wpe-runtime/gpu/mali/lib/libmali.so.1": {
       "size": 44063720,
@@ -290,9 +322,593 @@
       "size": 8592,
       "md5": "37e5c85cd1143a06be338c21254d22b0"
     },
-    "assets/wpe-runtime/gpu/README.md": {
-      "size": 1181,
-      "md5": "538f547722d18eaa892c80c36b5f3761"
+    "assets/wpe-runtime/lib/libEGL.so": {
+      "size": 167824,
+      "md5": "1d025ed431595181085a4f4cadb884d2"
+    },
+    "assets/wpe-runtime/lib/libEGL.so.1": {
+      "size": 167824,
+      "md5": "1d025ed431595181085a4f4cadb884d2"
+    },
+    "assets/wpe-runtime/lib/libEGL.so.1.0.0": {
+      "size": 167824,
+      "md5": "1d025ed431595181085a4f4cadb884d2"
+    },
+    "assets/wpe-runtime/lib/libGLESv2.so": {
+      "size": 30176,
+      "md5": "ce0936a077412eb10f08a8931efffe44"
+    },
+    "assets/wpe-runtime/lib/libGLESv2.so.2": {
+      "size": 30176,
+      "md5": "ce0936a077412eb10f08a8931efffe44"
+    },
+    "assets/wpe-runtime/lib/libGLESv2.so.2.0.0": {
+      "size": 30176,
+      "md5": "ce0936a077412eb10f08a8931efffe44"
+    },
+    "assets/wpe-runtime/lib/libWPEWebKit-2.0.so.1": {
+      "size": 160131352,
+      "md5": "bd0408013742201747c0a390a70f34eb"
+    },
+    "assets/wpe-runtime/lib/libasound.so.2": {
+      "size": 993256,
+      "md5": "e8f5abb8c942fcf7cf90ac94b7e1bcc5"
+    },
+    "assets/wpe-runtime/lib/libasound.so.2.0.0": {
+      "size": 993256,
+      "md5": "e8f5abb8c942fcf7cf90ac94b7e1bcc5"
+    },
+    "assets/wpe-runtime/lib/libatk-1.0.so.0": {
+      "size": 276849,
+      "md5": "bba23eaf639f718c851eb495b7fa53de"
+    },
+    "assets/wpe-runtime/lib/libatk-bridge-2.0.so.0": {
+      "size": 276601,
+      "md5": "67a2398307803891665520111663de8c"
+    },
+    "assets/wpe-runtime/lib/libatomic.so.1": {
+      "size": 134865,
+      "md5": "21485a2280d7477714711fc99430e95f"
+    },
+    "assets/wpe-runtime/lib/libatspi.so.0": {
+      "size": 349489,
+      "md5": "758652edc8422d5408e8aca7fe266f7a"
+    },
+    "assets/wpe-runtime/lib/libavif.so": {
+      "size": 193136,
+      "md5": "c0f5750255f7bc3c130bb1e0fb6bb42b"
+    },
+    "assets/wpe-runtime/lib/libavif.so.16": {
+      "size": 193136,
+      "md5": "c0f5750255f7bc3c130bb1e0fb6bb42b"
+    },
+    "assets/wpe-runtime/lib/libavif.so.16.1.1": {
+      "size": 193136,
+      "md5": "c0f5750255f7bc3c130bb1e0fb6bb42b"
+    },
+    "assets/wpe-runtime/lib/libbrotlicommon.so.1": {
+      "size": 197737,
+      "md5": "91b48b69b7b5f3484debd8bfdef1f434"
+    },
+    "assets/wpe-runtime/lib/libbrotlidec.so.1": {
+      "size": 67073,
+      "md5": "cf8d4882d624c5c6616d013f4b44c888"
+    },
+    "assets/wpe-runtime/lib/libcrypto.so": {
+      "size": 6457448,
+      "md5": "ccf97e84701f46ffa123bb0629009a00"
+    },
+    "assets/wpe-runtime/lib/libcrypto.so.1.1": {
+      "size": 3207361,
+      "md5": "f30403212e30c1077ccb4eebc9a2d687"
+    },
+    "assets/wpe-runtime/lib/libcrypto.so.3": {
+      "size": 6457448,
+      "md5": "ccf97e84701f46ffa123bb0629009a00"
+    },
+    "assets/wpe-runtime/lib/libdav1d.so": {
+      "size": 827320,
+      "md5": "b26d4bf74ce349bd4dc52bf10a0bdd43"
+    },
+    "assets/wpe-runtime/lib/libdav1d.so.7": {
+      "size": 827320,
+      "md5": "b26d4bf74ce349bd4dc52bf10a0bdd43"
+    },
+    "assets/wpe-runtime/lib/libdav1d.so.7.0.0": {
+      "size": 827320,
+      "md5": "b26d4bf74ce349bd4dc52bf10a0bdd43"
+    },
+    "assets/wpe-runtime/lib/libdbus-1.so.3": {
+      "size": 545721,
+      "md5": "f3dba28d3a00d76776616dc501fa4d0a"
+    },
+    "assets/wpe-runtime/lib/libdrm.so": {
+      "size": 72304,
+      "md5": "cc5011111025de5a71adb6a46efc1833"
+    },
+    "assets/wpe-runtime/lib/libdrm.so.2": {
+      "size": 72304,
+      "md5": "cc5011111025de5a71adb6a46efc1833"
+    },
+    "assets/wpe-runtime/lib/libdrm.so.2.4.0": {
+      "size": 72304,
+      "md5": "cc5011111025de5a71adb6a46efc1833"
+    },
+    "assets/wpe-runtime/lib/libepoxy.so.0": {
+      "size": 5621505,
+      "md5": "f2d81134843a67b4cc04313409c0b0d2"
+    },
+    "assets/wpe-runtime/lib/libevdev.so.2": {
+      "size": 200521,
+      "md5": "23ed5b1a0fefbd4fa9d62567be7272ee"
+    },
+    "assets/wpe-runtime/lib/libexpat.so": {
+      "size": 112624,
+      "md5": "285bc3640f5d81636be228a3251a8e82"
+    },
+    "assets/wpe-runtime/lib/libexpat.so.1": {
+      "size": 112624,
+      "md5": "285bc3640f5d81636be228a3251a8e82"
+    },
+    "assets/wpe-runtime/lib/libexpat.so.1.6.7": {
+      "size": 112624,
+      "md5": "285bc3640f5d81636be228a3251a8e82"
+    },
+    "assets/wpe-runtime/lib/libffi.so": {
+      "size": 92528,
+      "md5": "04e1d50c14f05b3ff4ea3fa83656c4b3"
+    },
+    "assets/wpe-runtime/lib/libffi.so.8": {
+      "size": 92528,
+      "md5": "04e1d50c14f05b3ff4ea3fa83656c4b3"
+    },
+    "assets/wpe-runtime/lib/libffi.so.8.1.2": {
+      "size": 92528,
+      "md5": "04e1d50c14f05b3ff4ea3fa83656c4b3"
+    },
+    "assets/wpe-runtime/lib/libfontconfig.so.1": {
+      "size": 469129,
+      "md5": "635953d1c19fe7ed9ff7f2cc0e15e984"
+    },
+    "assets/wpe-runtime/lib/libfreetype.so.6": {
+      "size": 1067104,
+      "md5": "424b84e5c376f265b34eba3367d6ee93"
+    },
+    "assets/wpe-runtime/lib/libgbm.so": {
+      "size": 22920,
+      "md5": "e9c6c81b8c0cde7e0febd7a88dcb51a7"
+    },
+    "assets/wpe-runtime/lib/libgbm.so.1": {
+      "size": 22920,
+      "md5": "e9c6c81b8c0cde7e0febd7a88dcb51a7"
+    },
+    "assets/wpe-runtime/lib/libgbm.so.1.0.0": {
+      "size": 22920,
+      "md5": "e9c6c81b8c0cde7e0febd7a88dcb51a7"
+    },
+    "assets/wpe-runtime/lib/libgcrypt.so.20": {
+      "size": 902528,
+      "md5": "d7635d9d279154469dab3ee669715c78"
+    },
+    "assets/wpe-runtime/lib/libgio-2.0.so.0": {
+      "size": 10715985,
+      "md5": "b0a0f3f401723f089f7d5b3e6184405b"
+    },
+    "assets/wpe-runtime/lib/libglapi.so": {
+      "size": 264168,
+      "md5": "7c06155b07cc1a509cf1fad64b80e4cc"
+    },
+    "assets/wpe-runtime/lib/libglapi.so.0": {
+      "size": 264168,
+      "md5": "7c06155b07cc1a509cf1fad64b80e4cc"
+    },
+    "assets/wpe-runtime/lib/libglapi.so.0.0.0": {
+      "size": 264168,
+      "md5": "7c06155b07cc1a509cf1fad64b80e4cc"
+    },
+    "assets/wpe-runtime/lib/libglib-2.0.so.0": {
+      "size": 5038081,
+      "md5": "e4d22d397deee405e0eb00e23f067207"
+    },
+    "assets/wpe-runtime/lib/libgmodule-2.0.so.0": {
+      "size": 67457,
+      "md5": "9b48e9d182978d9cf7d547d7ebe2ba36"
+    },
+    "assets/wpe-runtime/lib/libgmp.so.10": {
+      "size": 529184,
+      "md5": "469cdade68f7d2d90ff92cd8041f3d7a"
+    },
+    "assets/wpe-runtime/lib/libgmp.so.10.4.1": {
+      "size": 529184,
+      "md5": "469cdade68f7d2d90ff92cd8041f3d7a"
+    },
+    "assets/wpe-runtime/lib/libgnutls.so.30": {
+      "size": 2303440,
+      "md5": "7b28c75ebdb3f8fbc238198aed11c2ff"
+    },
+    "assets/wpe-runtime/lib/libgnutls.so.30.34.3": {
+      "size": 2303440,
+      "md5": "7b28c75ebdb3f8fbc238198aed11c2ff"
+    },
+    "assets/wpe-runtime/lib/libgobject-2.0.so.0": {
+      "size": 2117177,
+      "md5": "92fcffbac6213b21da4d65a9b27e854e"
+    },
+    "assets/wpe-runtime/lib/libgpg-error.so.0": {
+      "size": 202361,
+      "md5": "d557876e22dca6f286aad931bd0a11ac"
+    },
+    "assets/wpe-runtime/lib/libgstadaptivedemux-1.0.so.0": {
+      "size": 136985,
+      "md5": "c672e4a6b0698fc422d09f14a1dc35e4"
+    },
+    "assets/wpe-runtime/lib/libgstallocators-1.0.so.0": {
+      "size": 67633,
+      "md5": "a3d228916c1b01e49500e3a7dc5f3489"
+    },
+    "assets/wpe-runtime/lib/libgstapp-1.0.so.0": {
+      "size": 137185,
+      "md5": "941d40e737f95a244ac1820ebffbc75c"
+    },
+    "assets/wpe-runtime/lib/libgstaudio-1.0.so.0": {
+      "size": 677441,
+      "md5": "2a935f61f9ad606bdc2a0f6837196b1b"
+    },
+    "assets/wpe-runtime/lib/libgstbase-1.0.so.0": {
+      "size": 615961,
+      "md5": "61dcbbc954a3c6db513e83b9862db268"
+    },
+    "assets/wpe-runtime/lib/libgstbasecamerabinsrc-1.0.so.0": {
+      "size": 68681,
+      "md5": "f39c3a046e4c9df59e6bf9a455ba59bf"
+    },
+    "assets/wpe-runtime/lib/libgstcodecparsers-1.0.so.0": {
+      "size": 599185,
+      "md5": "79b0bb68c3681a5ea6848b8e9f997c38"
+    },
+    "assets/wpe-runtime/lib/libgstcodecs-1.0.so.0": {
+      "size": 270937,
+      "md5": "37da8ad6c268bca045d458775581b31b"
+    },
+    "assets/wpe-runtime/lib/libgstcontroller-1.0.so.0": {
+      "size": 135329,
+      "md5": "2c0b9468c2de24f508f2313ade1b4445"
+    },
+    "assets/wpe-runtime/lib/libgstcuda-1.0.so.0": {
+      "size": 136985,
+      "md5": "626155ddc8a47c9690d1dd59759f7749"
+    },
+    "assets/wpe-runtime/lib/libgstfft-1.0.so.0": {
+      "size": 67273,
+      "md5": "cc4dd8861536882065c83d93c6a65dc0"
+    },
+    "assets/wpe-runtime/lib/libgstgl-1.0.so.0": {
+      "size": 617257,
+      "md5": "d20682bd547054178e95da8ba836bad0"
+    },
+    "assets/wpe-runtime/lib/libgstisoff-1.0.so.0": {
+      "size": 67217,
+      "md5": "acc462e730e8a4613266f8c692cffb55"
+    },
+    "assets/wpe-runtime/lib/libgstmpegts-1.0.so.0": {
+      "size": 275001,
+      "md5": "baa38a35e9a8caf7ee0a78da4101a81e"
+    },
+    "assets/wpe-runtime/lib/libgstnet-1.0.so.0": {
+      "size": 137161,
+      "md5": "3a3fc542754e5368f4336e99f43dae92"
+    },
+    "assets/wpe-runtime/lib/libgstpbutils-1.0.so.0": {
+      "size": 347665,
+      "md5": "282f74b4d84483fbb2747a4688e126c8"
+    },
+    "assets/wpe-runtime/lib/libgstphotography-1.0.so.0": {
+      "size": 68833,
+      "md5": "86fb9fa4ce42c115036b33e6455366b9"
+    },
+    "assets/wpe-runtime/lib/libgstreamer-1.0.so.0": {
+      "size": 1709345,
+      "md5": "ff97dc34b2010c31b355a766c23c76d3"
+    },
+    "assets/wpe-runtime/lib/libgstrtp-1.0.so.0": {
+      "size": 278025,
+      "md5": "280c6abea6771f1b488e46b7649a5719"
+    },
+    "assets/wpe-runtime/lib/libgstsctp-1.0.so": {
+      "size": 14256,
+      "md5": "cf7a97b83bf14f63ca2ba074110cb7f2"
+    },
+    "assets/wpe-runtime/lib/libgstsctp-1.0.so.0": {
+      "size": 14256,
+      "md5": "cf7a97b83bf14f63ca2ba074110cb7f2"
+    },
+    "assets/wpe-runtime/lib/libgstsctp-1.0.so.0.2212.0": {
+      "size": 14256,
+      "md5": "cf7a97b83bf14f63ca2ba074110cb7f2"
+    },
+    "assets/wpe-runtime/lib/libgstsdp-1.0.so.0": {
+      "size": 206769,
+      "md5": "79f5587cf7e6182c8f4dc6b7d7fe39b5"
+    },
+    "assets/wpe-runtime/lib/libgsttag-1.0.so.0": {
+      "size": 337393,
+      "md5": "6feab5f166696a903085440ef29dfe09"
+    },
+    "assets/wpe-runtime/lib/libgsturidownloader-1.0.so.0": {
+      "size": 69233,
+      "md5": "7834bfb091b3da74ac99946429c99df1"
+    },
+    "assets/wpe-runtime/lib/libgstvideo-1.0.so.0": {
+      "size": 1147857,
+      "md5": "722f34e75f88f44bb7990fee209ed1c8"
+    },
+    "assets/wpe-runtime/lib/libgstwebrtc-1.0.so": {
+      "size": 93264,
+      "md5": "65ad767094dadc8553beebbbca89fa41"
+    },
+    "assets/wpe-runtime/lib/libgstwebrtc-1.0.so.0": {
+      "size": 93264,
+      "md5": "65ad767094dadc8553beebbbca89fa41"
+    },
+    "assets/wpe-runtime/lib/libgstwebrtc-1.0.so.0.2212.0": {
+      "size": 93264,
+      "md5": "65ad767094dadc8553beebbbca89fa41"
+    },
+    "assets/wpe-runtime/lib/libgstwebrtcnice-1.0.so": {
+      "size": 67192,
+      "md5": "730938520a25fe2d08b6ec7d40467975"
+    },
+    "assets/wpe-runtime/lib/libgstwebrtcnice-1.0.so.0": {
+      "size": 67192,
+      "md5": "730938520a25fe2d08b6ec7d40467975"
+    },
+    "assets/wpe-runtime/lib/libgstwebrtcnice-1.0.so.0.2212.0": {
+      "size": 67192,
+      "md5": "730938520a25fe2d08b6ec7d40467975"
+    },
+    "assets/wpe-runtime/lib/libharfbuzz-icu.so.0": {
+      "size": 67505,
+      "md5": "24e74a6571df18bccfe02d16f0813aa6"
+    },
+    "assets/wpe-runtime/lib/libharfbuzz.so.0": {
+      "size": 1461041,
+      "md5": "fda4ff613e1b632092600beeffaaf119"
+    },
+    "assets/wpe-runtime/lib/libhogweed.so.6": {
+      "size": 329656,
+      "md5": "cadeb69c4ff41bb86b8cd0c952879bfb"
+    },
+    "assets/wpe-runtime/lib/libhogweed.so.6.6": {
+      "size": 329656,
+      "md5": "cadeb69c4ff41bb86b8cd0c952879bfb"
+    },
+    "assets/wpe-runtime/lib/libicudata.so.72": {
+      "size": 31262336,
+      "md5": "7dd18077eb297883b63acbbd489c96d5"
+    },
+    "assets/wpe-runtime/lib/libicudata.so.72.1": {
+      "size": 31262336,
+      "md5": "7dd18077eb297883b63acbbd489c96d5"
+    },
+    "assets/wpe-runtime/lib/libicui18n.so.72": {
+      "size": 4709945,
+      "md5": "6776937f7f2ba2a892f2de3d3b48fd83"
+    },
+    "assets/wpe-runtime/lib/libicuuc.so.72": {
+      "size": 2676649,
+      "md5": "66a64a867743ba0b39219dfb6db8ed79"
+    },
+    "assets/wpe-runtime/lib/libidn2.so.0": {
+      "size": 198664,
+      "md5": "443b70e7092a443ac904472931472c52"
+    },
+    "assets/wpe-runtime/lib/libidn2.so.0.3.8": {
+      "size": 198664,
+      "md5": "443b70e7092a443ac904472931472c52"
+    },
+    "assets/wpe-runtime/lib/libinput.so.10": {
+      "size": 410313,
+      "md5": "9edcf800de6b33446601877b3686683e"
+    },
+    "assets/wpe-runtime/lib/libjpeg.so.8": {
+      "size": 455184,
+      "md5": "2ce41ed02ee6477607d0a296dbaf8fa9"
+    },
+    "assets/wpe-runtime/lib/liblcms2.so.2": {
+      "size": 1256769,
+      "md5": "bb3c7e08a67e21e5f51ee5260eafc686"
+    },
+    "assets/wpe-runtime/lib/libmtdev.so.1": {
+      "size": 67009,
+      "md5": "4e4cc56d4032384aed37ff618767f148"
+    },
+    "assets/wpe-runtime/lib/libnettle.so.8": {
+      "size": 329736,
+      "md5": "880d0822cf9a56a1aeddc0de35eb4bd2"
+    },
+    "assets/wpe-runtime/lib/libnettle.so.8.6": {
+      "size": 329736,
+      "md5": "880d0822cf9a56a1aeddc0de35eb4bd2"
+    },
+    "assets/wpe-runtime/lib/libnghttp2.so.14": {
+      "size": 269929,
+      "md5": "c79a1c62d1b27b92fb44c6fb791829c2"
+    },
+    "assets/wpe-runtime/lib/libnice.so": {
+      "size": 401976,
+      "md5": "fa702aaefd2cd9755059bd1a51b5873a"
+    },
+    "assets/wpe-runtime/lib/libnice.so.10": {
+      "size": 401976,
+      "md5": "fa702aaefd2cd9755059bd1a51b5873a"
+    },
+    "assets/wpe-runtime/lib/libnice.so.10.14.0": {
+      "size": 401976,
+      "md5": "fa702aaefd2cd9755059bd1a51b5873a"
+    },
+    "assets/wpe-runtime/lib/libopenjp2.so.7": {
+      "size": 402425,
+      "md5": "bd6801865f706277ee32ad90359b0c30"
+    },
+    "assets/wpe-runtime/lib/liborc-0.4.so.0": {
+      "size": 863969,
+      "md5": "43acfb30ab884ee8f4191592f3f3df32"
+    },
+    "assets/wpe-runtime/lib/libp11-kit.so.0": {
+      "size": 1351264,
+      "md5": "ae0b4b85ad4ffcfa3920848e483c7ea9"
+    },
+    "assets/wpe-runtime/lib/libp11-kit.so.0.3.0": {
+      "size": 1351264,
+      "md5": "ae0b4b85ad4ffcfa3920848e483c7ea9"
+    },
+    "assets/wpe-runtime/lib/libpcre2-8.so.0": {
+      "size": 396745,
+      "md5": "b4c675ba6c10be6b6a84eea20cccf8cd"
+    },
+    "assets/wpe-runtime/lib/libpng16.so.16": {
+      "size": 335841,
+      "md5": "57402ed6785df4e23a039fc3f8cf8661"
+    },
+    "assets/wpe-runtime/lib/libpsl.so.5": {
+      "size": 133025,
+      "md5": "eb76cb2d1e377b4395583b32e1572f77"
+    },
+    "assets/wpe-runtime/lib/librga.so.2": {
+      "size": 170200,
+      "md5": "76b73ce6178ab9ec9fba6e54d012e0ae"
+    },
+    "assets/wpe-runtime/lib/libsharpyuv.so.0": {
+      "size": 27696,
+      "md5": "1c67e7a6a204b1fc14d46d278e67a382"
+    },
+    "assets/wpe-runtime/lib/libsoup-3.0.so.0": {
+      "size": 770496,
+      "md5": "0a7b63f56083b2fb9b58985bf00ee0dc"
+    },
+    "assets/wpe-runtime/lib/libsqlite3.so.0": {
+      "size": 1320353,
+      "md5": "7d7a95ac73b737afdea05eeae1f4a8e2"
+    },
+    "assets/wpe-runtime/lib/libsrtp2.so": {
+      "size": 100720,
+      "md5": "f9f62884c31a7a4dfb091474b8deede1"
+    },
+    "assets/wpe-runtime/lib/libsrtp2.so.2.8.0": {
+      "size": 100720,
+      "md5": "f9f62884c31a7a4dfb091474b8deede1"
+    },
+    "assets/wpe-runtime/lib/libssl.so": {
+      "size": 1199248,
+      "md5": "b30de5740f40c80870927de0be6f903a"
+    },
+    "assets/wpe-runtime/lib/libssl.so.1.1": {
+      "size": 744417,
+      "md5": "1deee35491f7281a67e3bfd71be2151c"
+    },
+    "assets/wpe-runtime/lib/libssl.so.3": {
+      "size": 1199248,
+      "md5": "b30de5740f40c80870927de0be6f903a"
+    },
+    "assets/wpe-runtime/lib/libtasn1.so.6": {
+      "size": 264241,
+      "md5": "54b7eb017229a0d18e64ea76191c74ab"
+    },
+    "assets/wpe-runtime/lib/libudev.so.1": {
+      "size": 332945,
+      "md5": "dfa9f9d5051202f9311e5f20688ca149"
+    },
+    "assets/wpe-runtime/lib/libunistring.so.2": {
+      "size": 1771448,
+      "md5": "7d3cc2c917e34dacb8f51fde43309b1b"
+    },
+    "assets/wpe-runtime/lib/libunistring.so.2.2.0": {
+      "size": 1771448,
+      "md5": "7d3cc2c917e34dacb8f51fde43309b1b"
+    },
+    "assets/wpe-runtime/lib/libwayland-client.so": {
+      "size": 60504,
+      "md5": "39b1b056607051e7dee15bf308ed0dc1"
+    },
+    "assets/wpe-runtime/lib/libwayland-client.so.0": {
+      "size": 60504,
+      "md5": "39b1b056607051e7dee15bf308ed0dc1"
+    },
+    "assets/wpe-runtime/lib/libwayland-client.so.0.22.0": {
+      "size": 60504,
+      "md5": "39b1b056607051e7dee15bf308ed0dc1"
+    },
+    "assets/wpe-runtime/lib/libwayland-cursor.so": {
+      "size": 30848,
+      "md5": "40b78537ba1eb25076285df1e6cf8684"
+    },
+    "assets/wpe-runtime/lib/libwayland-cursor.so.0": {
+      "size": 30848,
+      "md5": "40b78537ba1eb25076285df1e6cf8684"
+    },
+    "assets/wpe-runtime/lib/libwayland-cursor.so.0.22.0": {
+      "size": 30848,
+      "md5": "40b78537ba1eb25076285df1e6cf8684"
+    },
+    "assets/wpe-runtime/lib/libwayland-egl.so": {
+      "size": 5768,
+      "md5": "0c79e15f416eaa416ccd408218be4007"
+    },
+    "assets/wpe-runtime/lib/libwayland-egl.so.1": {
+      "size": 5768,
+      "md5": "0c79e15f416eaa416ccd408218be4007"
+    },
+    "assets/wpe-runtime/lib/libwayland-egl.so.1.22.0": {
+      "size": 5768,
+      "md5": "0c79e15f416eaa416ccd408218be4007"
+    },
+    "assets/wpe-runtime/lib/libwayland-server.so": {
+      "size": 77144,
+      "md5": "077b1da16339eceb752122ece0035c28"
+    },
+    "assets/wpe-runtime/lib/libwayland-server.so.0": {
+      "size": 77144,
+      "md5": "077b1da16339eceb752122ece0035c28"
+    },
+    "assets/wpe-runtime/lib/libwayland-server.so.0.22.0": {
+      "size": 77144,
+      "md5": "077b1da16339eceb752122ece0035c28"
+    },
+    "assets/wpe-runtime/lib/libwebp.so.7": {
+      "size": 505888,
+      "md5": "bcd331e85e762736f7e4eb5897b872ef"
+    },
+    "assets/wpe-runtime/lib/libwebpdemux.so.2": {
+      "size": 22936,
+      "md5": "aba72cec7c994ea0ebb530cdb78dce14"
+    },
+    "assets/wpe-runtime/lib/libwebpmux.so.3": {
+      "size": 50680,
+      "md5": "a0c6e1f3bf9c11090f78f3fa4a6b630f"
+    },
+    "assets/wpe-runtime/lib/libwoff2common.so.1.0.2": {
+      "size": 66457,
+      "md5": "f86f1337f8efe443de98959abcf9e2ff"
+    },
+    "assets/wpe-runtime/lib/libwoff2dec.so.1.0.2": {
+      "size": 49368,
+      "md5": "9eab20325889234c814ace985ead85fe"
+    },
+    "assets/wpe-runtime/lib/libxkbcommon.so.0": {
+      "size": 725329,
+      "md5": "9da1e217c47ad616f5fc194bb80b3c4b"
+    },
+    "assets/wpe-runtime/lib/libxml2.so.2": {
+      "size": 1488169,
+      "md5": "06410badff194fceeb5c5c367c3191e3"
+    },
+    "assets/wpe-runtime/lib/libxslt.so.1": {
+      "size": 846784,
+      "md5": "2e6367bb4a2ba6a6172834d55c7a7faf"
+    },
+    "assets/wpe-runtime/lib/libz.so": {
+      "size": 330513,
+      "md5": "046407acbba175b123ae0f29d54ffb02"
     },
     "assets/wpe-runtime/lib/dri/kms_swrast_dri.so": {
       "size": 8089264,
@@ -822,594 +1438,6 @@
       "size": 68633,
       "md5": "c54248ddf9d4ab22537ca0317572e4ce"
     },
-    "assets/wpe-runtime/lib/libasound.so.2": {
-      "size": 993256,
-      "md5": "e8f5abb8c942fcf7cf90ac94b7e1bcc5"
-    },
-    "assets/wpe-runtime/lib/libasound.so.2.0.0": {
-      "size": 993256,
-      "md5": "e8f5abb8c942fcf7cf90ac94b7e1bcc5"
-    },
-    "assets/wpe-runtime/lib/libatk-1.0.so.0": {
-      "size": 276849,
-      "md5": "bba23eaf639f718c851eb495b7fa53de"
-    },
-    "assets/wpe-runtime/lib/libatk-bridge-2.0.so.0": {
-      "size": 276601,
-      "md5": "67a2398307803891665520111663de8c"
-    },
-    "assets/wpe-runtime/lib/libatomic.so.1": {
-      "size": 134865,
-      "md5": "21485a2280d7477714711fc99430e95f"
-    },
-    "assets/wpe-runtime/lib/libatspi.so.0": {
-      "size": 349489,
-      "md5": "758652edc8422d5408e8aca7fe266f7a"
-    },
-    "assets/wpe-runtime/lib/libavif.so": {
-      "size": 193136,
-      "md5": "c0f5750255f7bc3c130bb1e0fb6bb42b"
-    },
-    "assets/wpe-runtime/lib/libavif.so.16": {
-      "size": 193136,
-      "md5": "c0f5750255f7bc3c130bb1e0fb6bb42b"
-    },
-    "assets/wpe-runtime/lib/libavif.so.16.1.1": {
-      "size": 193136,
-      "md5": "c0f5750255f7bc3c130bb1e0fb6bb42b"
-    },
-    "assets/wpe-runtime/lib/libbrotlicommon.so.1": {
-      "size": 197737,
-      "md5": "91b48b69b7b5f3484debd8bfdef1f434"
-    },
-    "assets/wpe-runtime/lib/libbrotlidec.so.1": {
-      "size": 67073,
-      "md5": "cf8d4882d624c5c6616d013f4b44c888"
-    },
-    "assets/wpe-runtime/lib/libcrypto.so": {
-      "size": 6457448,
-      "md5": "ccf97e84701f46ffa123bb0629009a00"
-    },
-    "assets/wpe-runtime/lib/libcrypto.so.1.1": {
-      "size": 3207361,
-      "md5": "f30403212e30c1077ccb4eebc9a2d687"
-    },
-    "assets/wpe-runtime/lib/libcrypto.so.3": {
-      "size": 6457448,
-      "md5": "ccf97e84701f46ffa123bb0629009a00"
-    },
-    "assets/wpe-runtime/lib/libdav1d.so": {
-      "size": 827320,
-      "md5": "b26d4bf74ce349bd4dc52bf10a0bdd43"
-    },
-    "assets/wpe-runtime/lib/libdav1d.so.7": {
-      "size": 827320,
-      "md5": "b26d4bf74ce349bd4dc52bf10a0bdd43"
-    },
-    "assets/wpe-runtime/lib/libdav1d.so.7.0.0": {
-      "size": 827320,
-      "md5": "b26d4bf74ce349bd4dc52bf10a0bdd43"
-    },
-    "assets/wpe-runtime/lib/libdbus-1.so.3": {
-      "size": 545721,
-      "md5": "f3dba28d3a00d76776616dc501fa4d0a"
-    },
-    "assets/wpe-runtime/lib/libdrm.so": {
-      "size": 72304,
-      "md5": "cc5011111025de5a71adb6a46efc1833"
-    },
-    "assets/wpe-runtime/lib/libdrm.so.2": {
-      "size": 72304,
-      "md5": "cc5011111025de5a71adb6a46efc1833"
-    },
-    "assets/wpe-runtime/lib/libdrm.so.2.4.0": {
-      "size": 72304,
-      "md5": "cc5011111025de5a71adb6a46efc1833"
-    },
-    "assets/wpe-runtime/lib/libEGL.so": {
-      "size": 167824,
-      "md5": "1d025ed431595181085a4f4cadb884d2"
-    },
-    "assets/wpe-runtime/lib/libEGL.so.1": {
-      "size": 167824,
-      "md5": "1d025ed431595181085a4f4cadb884d2"
-    },
-    "assets/wpe-runtime/lib/libEGL.so.1.0.0": {
-      "size": 167824,
-      "md5": "1d025ed431595181085a4f4cadb884d2"
-    },
-    "assets/wpe-runtime/lib/libepoxy.so.0": {
-      "size": 5621505,
-      "md5": "f2d81134843a67b4cc04313409c0b0d2"
-    },
-    "assets/wpe-runtime/lib/libevdev.so.2": {
-      "size": 200521,
-      "md5": "23ed5b1a0fefbd4fa9d62567be7272ee"
-    },
-    "assets/wpe-runtime/lib/libexpat.so": {
-      "size": 112624,
-      "md5": "285bc3640f5d81636be228a3251a8e82"
-    },
-    "assets/wpe-runtime/lib/libexpat.so.1": {
-      "size": 112624,
-      "md5": "285bc3640f5d81636be228a3251a8e82"
-    },
-    "assets/wpe-runtime/lib/libexpat.so.1.6.7": {
-      "size": 112624,
-      "md5": "285bc3640f5d81636be228a3251a8e82"
-    },
-    "assets/wpe-runtime/lib/libffi.so": {
-      "size": 92528,
-      "md5": "04e1d50c14f05b3ff4ea3fa83656c4b3"
-    },
-    "assets/wpe-runtime/lib/libffi.so.8": {
-      "size": 92528,
-      "md5": "04e1d50c14f05b3ff4ea3fa83656c4b3"
-    },
-    "assets/wpe-runtime/lib/libffi.so.8.1.2": {
-      "size": 92528,
-      "md5": "04e1d50c14f05b3ff4ea3fa83656c4b3"
-    },
-    "assets/wpe-runtime/lib/libfontconfig.so.1": {
-      "size": 469129,
-      "md5": "635953d1c19fe7ed9ff7f2cc0e15e984"
-    },
-    "assets/wpe-runtime/lib/libfreetype.so.6": {
-      "size": 1067104,
-      "md5": "424b84e5c376f265b34eba3367d6ee93"
-    },
-    "assets/wpe-runtime/lib/libgbm.so": {
-      "size": 22920,
-      "md5": "e9c6c81b8c0cde7e0febd7a88dcb51a7"
-    },
-    "assets/wpe-runtime/lib/libgbm.so.1": {
-      "size": 22920,
-      "md5": "e9c6c81b8c0cde7e0febd7a88dcb51a7"
-    },
-    "assets/wpe-runtime/lib/libgbm.so.1.0.0": {
-      "size": 22920,
-      "md5": "e9c6c81b8c0cde7e0febd7a88dcb51a7"
-    },
-    "assets/wpe-runtime/lib/libgcrypt.so.20": {
-      "size": 902528,
-      "md5": "d7635d9d279154469dab3ee669715c78"
-    },
-    "assets/wpe-runtime/lib/libgio-2.0.so.0": {
-      "size": 10715985,
-      "md5": "b0a0f3f401723f089f7d5b3e6184405b"
-    },
-    "assets/wpe-runtime/lib/libglapi.so": {
-      "size": 264168,
-      "md5": "7c06155b07cc1a509cf1fad64b80e4cc"
-    },
-    "assets/wpe-runtime/lib/libglapi.so.0": {
-      "size": 264168,
-      "md5": "7c06155b07cc1a509cf1fad64b80e4cc"
-    },
-    "assets/wpe-runtime/lib/libglapi.so.0.0.0": {
-      "size": 264168,
-      "md5": "7c06155b07cc1a509cf1fad64b80e4cc"
-    },
-    "assets/wpe-runtime/lib/libGLESv2.so": {
-      "size": 30176,
-      "md5": "ce0936a077412eb10f08a8931efffe44"
-    },
-    "assets/wpe-runtime/lib/libGLESv2.so.2": {
-      "size": 30176,
-      "md5": "ce0936a077412eb10f08a8931efffe44"
-    },
-    "assets/wpe-runtime/lib/libGLESv2.so.2.0.0": {
-      "size": 30176,
-      "md5": "ce0936a077412eb10f08a8931efffe44"
-    },
-    "assets/wpe-runtime/lib/libglib-2.0.so.0": {
-      "size": 5038081,
-      "md5": "e4d22d397deee405e0eb00e23f067207"
-    },
-    "assets/wpe-runtime/lib/libgmodule-2.0.so.0": {
-      "size": 67457,
-      "md5": "9b48e9d182978d9cf7d547d7ebe2ba36"
-    },
-    "assets/wpe-runtime/lib/libgmp.so.10": {
-      "size": 529184,
-      "md5": "469cdade68f7d2d90ff92cd8041f3d7a"
-    },
-    "assets/wpe-runtime/lib/libgmp.so.10.4.1": {
-      "size": 529184,
-      "md5": "469cdade68f7d2d90ff92cd8041f3d7a"
-    },
-    "assets/wpe-runtime/lib/libgnutls.so.30": {
-      "size": 2303440,
-      "md5": "7b28c75ebdb3f8fbc238198aed11c2ff"
-    },
-    "assets/wpe-runtime/lib/libgnutls.so.30.34.3": {
-      "size": 2303440,
-      "md5": "7b28c75ebdb3f8fbc238198aed11c2ff"
-    },
-    "assets/wpe-runtime/lib/libgobject-2.0.so.0": {
-      "size": 2117177,
-      "md5": "92fcffbac6213b21da4d65a9b27e854e"
-    },
-    "assets/wpe-runtime/lib/libgpg-error.so.0": {
-      "size": 202361,
-      "md5": "d557876e22dca6f286aad931bd0a11ac"
-    },
-    "assets/wpe-runtime/lib/libgstadaptivedemux-1.0.so.0": {
-      "size": 136985,
-      "md5": "c672e4a6b0698fc422d09f14a1dc35e4"
-    },
-    "assets/wpe-runtime/lib/libgstallocators-1.0.so.0": {
-      "size": 67633,
-      "md5": "a3d228916c1b01e49500e3a7dc5f3489"
-    },
-    "assets/wpe-runtime/lib/libgstapp-1.0.so.0": {
-      "size": 137185,
-      "md5": "941d40e737f95a244ac1820ebffbc75c"
-    },
-    "assets/wpe-runtime/lib/libgstaudio-1.0.so.0": {
-      "size": 677441,
-      "md5": "2a935f61f9ad606bdc2a0f6837196b1b"
-    },
-    "assets/wpe-runtime/lib/libgstbase-1.0.so.0": {
-      "size": 615961,
-      "md5": "61dcbbc954a3c6db513e83b9862db268"
-    },
-    "assets/wpe-runtime/lib/libgstbasecamerabinsrc-1.0.so.0": {
-      "size": 68681,
-      "md5": "f39c3a046e4c9df59e6bf9a455ba59bf"
-    },
-    "assets/wpe-runtime/lib/libgstcodecparsers-1.0.so.0": {
-      "size": 599185,
-      "md5": "79b0bb68c3681a5ea6848b8e9f997c38"
-    },
-    "assets/wpe-runtime/lib/libgstcodecs-1.0.so.0": {
-      "size": 270937,
-      "md5": "37da8ad6c268bca045d458775581b31b"
-    },
-    "assets/wpe-runtime/lib/libgstcontroller-1.0.so.0": {
-      "size": 135329,
-      "md5": "2c0b9468c2de24f508f2313ade1b4445"
-    },
-    "assets/wpe-runtime/lib/libgstcuda-1.0.so.0": {
-      "size": 136985,
-      "md5": "626155ddc8a47c9690d1dd59759f7749"
-    },
-    "assets/wpe-runtime/lib/libgstfft-1.0.so.0": {
-      "size": 67273,
-      "md5": "cc4dd8861536882065c83d93c6a65dc0"
-    },
-    "assets/wpe-runtime/lib/libgstgl-1.0.so.0": {
-      "size": 617257,
-      "md5": "d20682bd547054178e95da8ba836bad0"
-    },
-    "assets/wpe-runtime/lib/libgstisoff-1.0.so.0": {
-      "size": 67217,
-      "md5": "acc462e730e8a4613266f8c692cffb55"
-    },
-    "assets/wpe-runtime/lib/libgstmpegts-1.0.so.0": {
-      "size": 275001,
-      "md5": "baa38a35e9a8caf7ee0a78da4101a81e"
-    },
-    "assets/wpe-runtime/lib/libgstnet-1.0.so.0": {
-      "size": 137161,
-      "md5": "3a3fc542754e5368f4336e99f43dae92"
-    },
-    "assets/wpe-runtime/lib/libgstpbutils-1.0.so.0": {
-      "size": 347665,
-      "md5": "282f74b4d84483fbb2747a4688e126c8"
-    },
-    "assets/wpe-runtime/lib/libgstphotography-1.0.so.0": {
-      "size": 68833,
-      "md5": "86fb9fa4ce42c115036b33e6455366b9"
-    },
-    "assets/wpe-runtime/lib/libgstreamer-1.0.so.0": {
-      "size": 1709345,
-      "md5": "ff97dc34b2010c31b355a766c23c76d3"
-    },
-    "assets/wpe-runtime/lib/libgstrtp-1.0.so.0": {
-      "size": 278025,
-      "md5": "280c6abea6771f1b488e46b7649a5719"
-    },
-    "assets/wpe-runtime/lib/libgstsctp-1.0.so": {
-      "size": 14256,
-      "md5": "cf7a97b83bf14f63ca2ba074110cb7f2"
-    },
-    "assets/wpe-runtime/lib/libgstsctp-1.0.so.0": {
-      "size": 14256,
-      "md5": "cf7a97b83bf14f63ca2ba074110cb7f2"
-    },
-    "assets/wpe-runtime/lib/libgstsctp-1.0.so.0.2212.0": {
-      "size": 14256,
-      "md5": "cf7a97b83bf14f63ca2ba074110cb7f2"
-    },
-    "assets/wpe-runtime/lib/libgstsdp-1.0.so.0": {
-      "size": 206769,
-      "md5": "79f5587cf7e6182c8f4dc6b7d7fe39b5"
-    },
-    "assets/wpe-runtime/lib/libgsttag-1.0.so.0": {
-      "size": 337393,
-      "md5": "6feab5f166696a903085440ef29dfe09"
-    },
-    "assets/wpe-runtime/lib/libgsturidownloader-1.0.so.0": {
-      "size": 69233,
-      "md5": "7834bfb091b3da74ac99946429c99df1"
-    },
-    "assets/wpe-runtime/lib/libgstvideo-1.0.so.0": {
-      "size": 1147857,
-      "md5": "722f34e75f88f44bb7990fee209ed1c8"
-    },
-    "assets/wpe-runtime/lib/libgstwebrtc-1.0.so": {
-      "size": 93264,
-      "md5": "65ad767094dadc8553beebbbca89fa41"
-    },
-    "assets/wpe-runtime/lib/libgstwebrtc-1.0.so.0": {
-      "size": 93264,
-      "md5": "65ad767094dadc8553beebbbca89fa41"
-    },
-    "assets/wpe-runtime/lib/libgstwebrtc-1.0.so.0.2212.0": {
-      "size": 93264,
-      "md5": "65ad767094dadc8553beebbbca89fa41"
-    },
-    "assets/wpe-runtime/lib/libgstwebrtcnice-1.0.so": {
-      "size": 67192,
-      "md5": "730938520a25fe2d08b6ec7d40467975"
-    },
-    "assets/wpe-runtime/lib/libgstwebrtcnice-1.0.so.0": {
-      "size": 67192,
-      "md5": "730938520a25fe2d08b6ec7d40467975"
-    },
-    "assets/wpe-runtime/lib/libgstwebrtcnice-1.0.so.0.2212.0": {
-      "size": 67192,
-      "md5": "730938520a25fe2d08b6ec7d40467975"
-    },
-    "assets/wpe-runtime/lib/libharfbuzz-icu.so.0": {
-      "size": 67505,
-      "md5": "24e74a6571df18bccfe02d16f0813aa6"
-    },
-    "assets/wpe-runtime/lib/libharfbuzz.so.0": {
-      "size": 1461041,
-      "md5": "fda4ff613e1b632092600beeffaaf119"
-    },
-    "assets/wpe-runtime/lib/libhogweed.so.6": {
-      "size": 329656,
-      "md5": "cadeb69c4ff41bb86b8cd0c952879bfb"
-    },
-    "assets/wpe-runtime/lib/libhogweed.so.6.6": {
-      "size": 329656,
-      "md5": "cadeb69c4ff41bb86b8cd0c952879bfb"
-    },
-    "assets/wpe-runtime/lib/libicudata.so.72": {
-      "size": 31262336,
-      "md5": "7dd18077eb297883b63acbbd489c96d5"
-    },
-    "assets/wpe-runtime/lib/libicudata.so.72.1": {
-      "size": 31262336,
-      "md5": "7dd18077eb297883b63acbbd489c96d5"
-    },
-    "assets/wpe-runtime/lib/libicui18n.so.72": {
-      "size": 4709945,
-      "md5": "6776937f7f2ba2a892f2de3d3b48fd83"
-    },
-    "assets/wpe-runtime/lib/libicuuc.so.72": {
-      "size": 2676649,
-      "md5": "66a64a867743ba0b39219dfb6db8ed79"
-    },
-    "assets/wpe-runtime/lib/libidn2.so.0": {
-      "size": 198664,
-      "md5": "443b70e7092a443ac904472931472c52"
-    },
-    "assets/wpe-runtime/lib/libidn2.so.0.3.8": {
-      "size": 198664,
-      "md5": "443b70e7092a443ac904472931472c52"
-    },
-    "assets/wpe-runtime/lib/libinput.so.10": {
-      "size": 410313,
-      "md5": "9edcf800de6b33446601877b3686683e"
-    },
-    "assets/wpe-runtime/lib/libjpeg.so.8": {
-      "size": 455184,
-      "md5": "2ce41ed02ee6477607d0a296dbaf8fa9"
-    },
-    "assets/wpe-runtime/lib/liblcms2.so.2": {
-      "size": 1256769,
-      "md5": "bb3c7e08a67e21e5f51ee5260eafc686"
-    },
-    "assets/wpe-runtime/lib/libmtdev.so.1": {
-      "size": 67009,
-      "md5": "4e4cc56d4032384aed37ff618767f148"
-    },
-    "assets/wpe-runtime/lib/libnettle.so.8": {
-      "size": 329736,
-      "md5": "880d0822cf9a56a1aeddc0de35eb4bd2"
-    },
-    "assets/wpe-runtime/lib/libnettle.so.8.6": {
-      "size": 329736,
-      "md5": "880d0822cf9a56a1aeddc0de35eb4bd2"
-    },
-    "assets/wpe-runtime/lib/libnghttp2.so.14": {
-      "size": 269929,
-      "md5": "c79a1c62d1b27b92fb44c6fb791829c2"
-    },
-    "assets/wpe-runtime/lib/libnice.so": {
-      "size": 401976,
-      "md5": "fa702aaefd2cd9755059bd1a51b5873a"
-    },
-    "assets/wpe-runtime/lib/libnice.so.10": {
-      "size": 401976,
-      "md5": "fa702aaefd2cd9755059bd1a51b5873a"
-    },
-    "assets/wpe-runtime/lib/libnice.so.10.14.0": {
-      "size": 401976,
-      "md5": "fa702aaefd2cd9755059bd1a51b5873a"
-    },
-    "assets/wpe-runtime/lib/libopenjp2.so.7": {
-      "size": 402425,
-      "md5": "bd6801865f706277ee32ad90359b0c30"
-    },
-    "assets/wpe-runtime/lib/liborc-0.4.so.0": {
-      "size": 863969,
-      "md5": "43acfb30ab884ee8f4191592f3f3df32"
-    },
-    "assets/wpe-runtime/lib/libp11-kit.so.0": {
-      "size": 1351264,
-      "md5": "ae0b4b85ad4ffcfa3920848e483c7ea9"
-    },
-    "assets/wpe-runtime/lib/libp11-kit.so.0.3.0": {
-      "size": 1351264,
-      "md5": "ae0b4b85ad4ffcfa3920848e483c7ea9"
-    },
-    "assets/wpe-runtime/lib/libpcre2-8.so.0": {
-      "size": 396745,
-      "md5": "b4c675ba6c10be6b6a84eea20cccf8cd"
-    },
-    "assets/wpe-runtime/lib/libpng16.so.16": {
-      "size": 335841,
-      "md5": "57402ed6785df4e23a039fc3f8cf8661"
-    },
-    "assets/wpe-runtime/lib/libpsl.so.5": {
-      "size": 133025,
-      "md5": "eb76cb2d1e377b4395583b32e1572f77"
-    },
-    "assets/wpe-runtime/lib/librga.so.2": {
-      "size": 170200,
-      "md5": "76b73ce6178ab9ec9fba6e54d012e0ae"
-    },
-    "assets/wpe-runtime/lib/libsharpyuv.so.0": {
-      "size": 27696,
-      "md5": "1c67e7a6a204b1fc14d46d278e67a382"
-    },
-    "assets/wpe-runtime/lib/libsoup-3.0.so.0": {
-      "size": 770496,
-      "md5": "0a7b63f56083b2fb9b58985bf00ee0dc"
-    },
-    "assets/wpe-runtime/lib/libsqlite3.so.0": {
-      "size": 1320353,
-      "md5": "7d7a95ac73b737afdea05eeae1f4a8e2"
-    },
-    "assets/wpe-runtime/lib/libsrtp2.so": {
-      "size": 100720,
-      "md5": "f9f62884c31a7a4dfb091474b8deede1"
-    },
-    "assets/wpe-runtime/lib/libsrtp2.so.2.8.0": {
-      "size": 100720,
-      "md5": "f9f62884c31a7a4dfb091474b8deede1"
-    },
-    "assets/wpe-runtime/lib/libssl.so": {
-      "size": 1199248,
-      "md5": "b30de5740f40c80870927de0be6f903a"
-    },
-    "assets/wpe-runtime/lib/libssl.so.1.1": {
-      "size": 744417,
-      "md5": "1deee35491f7281a67e3bfd71be2151c"
-    },
-    "assets/wpe-runtime/lib/libssl.so.3": {
-      "size": 1199248,
-      "md5": "b30de5740f40c80870927de0be6f903a"
-    },
-    "assets/wpe-runtime/lib/libtasn1.so.6": {
-      "size": 264241,
-      "md5": "54b7eb017229a0d18e64ea76191c74ab"
-    },
-    "assets/wpe-runtime/lib/libudev.so.1": {
-      "size": 332945,
-      "md5": "dfa9f9d5051202f9311e5f20688ca149"
-    },
-    "assets/wpe-runtime/lib/libunistring.so.2": {
-      "size": 1771448,
-      "md5": "7d3cc2c917e34dacb8f51fde43309b1b"
-    },
-    "assets/wpe-runtime/lib/libunistring.so.2.2.0": {
-      "size": 1771448,
-      "md5": "7d3cc2c917e34dacb8f51fde43309b1b"
-    },
-    "assets/wpe-runtime/lib/libwayland-client.so": {
-      "size": 60504,
-      "md5": "39b1b056607051e7dee15bf308ed0dc1"
-    },
-    "assets/wpe-runtime/lib/libwayland-client.so.0": {
-      "size": 60504,
-      "md5": "39b1b056607051e7dee15bf308ed0dc1"
-    },
-    "assets/wpe-runtime/lib/libwayland-client.so.0.22.0": {
-      "size": 60504,
-      "md5": "39b1b056607051e7dee15bf308ed0dc1"
-    },
-    "assets/wpe-runtime/lib/libwayland-cursor.so": {
-      "size": 30848,
-      "md5": "40b78537ba1eb25076285df1e6cf8684"
-    },
-    "assets/wpe-runtime/lib/libwayland-cursor.so.0": {
-      "size": 30848,
-      "md5": "40b78537ba1eb25076285df1e6cf8684"
-    },
-    "assets/wpe-runtime/lib/libwayland-cursor.so.0.22.0": {
-      "size": 30848,
-      "md5": "40b78537ba1eb25076285df1e6cf8684"
-    },
-    "assets/wpe-runtime/lib/libwayland-egl.so": {
-      "size": 5768,
-      "md5": "0c79e15f416eaa416ccd408218be4007"
-    },
-    "assets/wpe-runtime/lib/libwayland-egl.so.1": {
-      "size": 5768,
-      "md5": "0c79e15f416eaa416ccd408218be4007"
-    },
-    "assets/wpe-runtime/lib/libwayland-egl.so.1.22.0": {
-      "size": 5768,
-      "md5": "0c79e15f416eaa416ccd408218be4007"
-    },
-    "assets/wpe-runtime/lib/libwayland-server.so": {
-      "size": 77144,
-      "md5": "077b1da16339eceb752122ece0035c28"
-    },
-    "assets/wpe-runtime/lib/libwayland-server.so.0": {
-      "size": 77144,
-      "md5": "077b1da16339eceb752122ece0035c28"
-    },
-    "assets/wpe-runtime/lib/libwayland-server.so.0.22.0": {
-      "size": 77144,
-      "md5": "077b1da16339eceb752122ece0035c28"
-    },
-    "assets/wpe-runtime/lib/libwebp.so.7": {
-      "size": 505888,
-      "md5": "bcd331e85e762736f7e4eb5897b872ef"
-    },
-    "assets/wpe-runtime/lib/libwebpdemux.so.2": {
-      "size": 22936,
-      "md5": "aba72cec7c994ea0ebb530cdb78dce14"
-    },
-    "assets/wpe-runtime/lib/libwebpmux.so.3": {
-      "size": 50680,
-      "md5": "a0c6e1f3bf9c11090f78f3fa4a6b630f"
-    },
-    "assets/wpe-runtime/lib/libwoff2common.so.1.0.2": {
-      "size": 66457,
-      "md5": "f86f1337f8efe443de98959abcf9e2ff"
-    },
-    "assets/wpe-runtime/lib/libwoff2dec.so.1.0.2": {
-      "size": 49368,
-      "md5": "9eab20325889234c814ace985ead85fe"
-    },
-    "assets/wpe-runtime/lib/libWPEWebKit-2.0.so.1": {
-      "size": 160131352,
-      "md5": "bd0408013742201747c0a390a70f34eb"
-    },
-    "assets/wpe-runtime/lib/libxkbcommon.so.0": {
-      "size": 725329,
-      "md5": "9da1e217c47ad616f5fc194bb80b3c4b"
-    },
-    "assets/wpe-runtime/lib/libxml2.so.2": {
-      "size": 1488169,
-      "md5": "06410badff194fceeb5c5c367c3191e3"
-    },
-    "assets/wpe-runtime/lib/libxslt.so.1": {
-      "size": 846784,
-      "md5": "2e6367bb4a2ba6a6172834d55c7a7faf"
-    },
-    "assets/wpe-runtime/lib/libz.so": {
-      "size": 330513,
-      "md5": "046407acbba175b123ae0f29d54ffb02"
-    },
     "assets/wpe-runtime/lib/ossl-modules/legacy.so": {
       "size": 160984,
       "md5": "031b2ba52fb29e31df887c62ed186db5"
@@ -1418,14 +1446,6 @@
       "size": 7688,
       "md5": "bd03662ed6ed261e1b8ede99b68c5fcb"
     },
-    "assets/wpe-runtime/libexec/gstreamer-1.0/gst-plugin-scanner": {
-      "size": 66817,
-      "md5": "c7efd9fac57f179055522b89d9cabac0"
-    },
-    "assets/wpe-runtime/libexec/gstreamer-1.0/gst-ptp-helper": {
-      "size": 67513,
-      "md5": "42366c2ded146fcd0c751bc99a48eadc"
-    },
     "assets/wpe-runtime/libexec/wpe-gpu-probe": {
       "size": 305,
       "md5": "d36d647590584bd6605b2a0059aa0178"
@@ -1433,6 +1453,14 @@
     "assets/wpe-runtime/libexec/wpe-gpu-probe.bin": {
       "size": 18384,
       "md5": "661836d48ea0f3e38924d4806e0485ad"
+    },
+    "assets/wpe-runtime/libexec/gstreamer-1.0/gst-plugin-scanner": {
+      "size": 66817,
+      "md5": "c7efd9fac57f179055522b89d9cabac0"
+    },
+    "assets/wpe-runtime/libexec/gstreamer-1.0/gst-ptp-helper": {
+      "size": 67513,
+      "md5": "42366c2ded146fcd0c751bc99a48eadc"
     },
     "assets/wpe-runtime/libexec/wpe-webkit-2.0/WPEGPUProcess": {
       "size": 338,
@@ -1458,10 +1486,6 @@
       "size": 7560,
       "md5": "ed4e89e7ef4423ad02ac3a1c68a1747a"
     },
-    "assets/wpe-runtime/run.sh": {
-      "size": 31538,
-      "md5": "a463ec72cae466770de3cc4b33158ba1"
-    },
     "assets/wpe-runtime/runtime/gpu-runtime.sh": {
       "size": 8218,
       "md5": "d04cd633a48b6eec934e6a84cb3402cc"
@@ -1469,6 +1493,1186 @@
     "assets/wpe-runtime/runtime/memory-runtime.sh": {
       "size": 6054,
       "md5": "d099c38f298f9b8dae4c905e78e77021"
+    },
+    "assets/wpe-runtime/share/gstreamer-plugin-set.sha256": {
+      "size": 11066,
+      "md5": "0c6aabd5e80067ac6b0146d21afef1d9"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/README": {
+      "size": 1712,
+      "md5": "248cf4492eb76056449873b36da53aae"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/accessx": {
+      "size": 1121,
+      "md5": "ee106b5ef0da6071d90511652f7c4a72"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/basic": {
+      "size": 996,
+      "md5": "bbee0fb670f46f8fcf80ea463b5d8030"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/caps": {
+      "size": 507,
+      "md5": "1397c66d1c78221e686d3c9fe4eefd4b"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/complete": {
+      "size": 228,
+      "md5": "af35b0e40c0de53459538fa37dd185a8"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/iso9995": {
+      "size": 1492,
+      "md5": "4273520af1e9429bd81695ba918f2a7b"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/japan": {
+      "size": 979,
+      "md5": "d985da6a1f56872177c38f3f0656d320"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/ledcaps": {
+      "size": 469,
+      "md5": "1a7fb9f3400c54c358d851ab83ef28db"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/ledcompose": {
+      "size": 287,
+      "md5": "9c689b38c1d5c2bbdde76ffe9a8ec268"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/lednum": {
+      "size": 466,
+      "md5": "2a8603ced28fe0cabdf805306b385ea9"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/ledscroll": {
+      "size": 486,
+      "md5": "ede43ecfca7cabda85f4a78960213b41"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/level5": {
+      "size": 1273,
+      "md5": "073a8d522aae67bbb5809c9dbdaa7497"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/misc": {
+      "size": 3053,
+      "md5": "272508090144d0455b177276f04aef96"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/mousekeys": {
+      "size": 4578,
+      "md5": "2fd3a56bb9de015f50424063b94820fb"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/olpc": {
+      "size": 1001,
+      "md5": "c54d1c04d6a4199fea505b8edc897bdc"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/pc": {
+      "size": 341,
+      "md5": "31e2bf669d7542fbafd35ac0b1ba9b4b"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/pc98": {
+      "size": 1094,
+      "md5": "fb843b09367bce7d30dc887b59732074"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/xfree86": {
+      "size": 1842,
+      "md5": "e83ae778ccb3a66336e47519efbb9bd3"
+    },
+    "assets/wpe-runtime/share/X11/xkb/compat/xtest": {
+      "size": 1399,
+      "md5": "08657b0ca35d54d229cfbec3540d46e1"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/README": {
+      "size": 461,
+      "md5": "a0373dff2e35d1d0bbbb7652a6854d62"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/amiga": {
+      "size": 6221,
+      "md5": "fe82b14ff14f8e345c8bfea183d9b3cb"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/ataritt": {
+      "size": 5764,
+      "md5": "ff7e9651ce43f036c5363906b62f8947"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/chicony": {
+      "size": 4531,
+      "md5": "78365c2f0019654a3f9c0039bb8f97a5"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/dell": {
+      "size": 20201,
+      "md5": "6c35e91cef6d32c7449fc06d6283cbe9"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/everex": {
+      "size": 3821,
+      "md5": "0683f027f76f3b55ed32f62e891955d3"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/fujitsu": {
+      "size": 7737,
+      "md5": "ac705259287d83e832e10553927bb529"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/hhk": {
+      "size": 5451,
+      "md5": "fd57e65140935b7c61815b37d09621fa"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/hp": {
+      "size": 17323,
+      "md5": "c9c57b8e61cbbfc727da1a6043b5f523"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/keytronic": {
+      "size": 6479,
+      "md5": "e4b0df372db7dbaffddeac368247356f"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/kinesis": {
+      "size": 4030,
+      "md5": "e359cb6b6a12db78e209680d7aef980f"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/macintosh": {
+      "size": 41020,
+      "md5": "1a3eb7c0f736b298275debb1c862eb50"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/microsoft": {
+      "size": 12547,
+      "md5": "2bd0b2e293f2e987f614396ec677496f"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/nec": {
+      "size": 4139,
+      "md5": "4800b69d1fe505e3c0a99ef6041c7f57"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/nokia": {
+      "size": 1264,
+      "md5": "2e4f27ebfa220be78cfb316d70d0e03c"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/northgate": {
+      "size": 4011,
+      "md5": "9fb53548303a743af50c0f511d31c9d3"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/pc": {
+      "size": 25737,
+      "md5": "5ae97048440a601c3dc3c3b954cdfafa"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/sanwa": {
+      "size": 5878,
+      "md5": "9dbc1070ae2cd4a7173b219a7fce5b82"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/sony": {
+      "size": 4949,
+      "md5": "462babbcdc4e6e22ec2f743b00f5ca66"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/steelseries": {
+      "size": 8282,
+      "md5": "6ed822a0da799faf1edc31f1fb64c913"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/sun": {
+      "size": 19791,
+      "md5": "7ecf43a0999f4066e7da11bf09fcb80e"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/teck": {
+      "size": 9728,
+      "md5": "96f02dacd16fab1dbcccb04b2b60f26d"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/thinkpad": {
+      "size": 12112,
+      "md5": "7751ac08e63c08ee561ff02ceacfa8c3"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/typematrix": {
+      "size": 21188,
+      "md5": "5796ed8b885ef3deec79205216a9d5c3"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/winbook": {
+      "size": 2740,
+      "md5": "274a120892206c4ab672cb79c0c4aea2"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/digital_vndr/lk": {
+      "size": 20585,
+      "md5": "0e6e4ee10a63788ee0914b8d457066ad"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/digital_vndr/pc": {
+      "size": 10833,
+      "md5": "ba695f57c058cefe73ba859e0de3579a"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/digital_vndr/unix": {
+      "size": 7147,
+      "md5": "1f58db2c3878c006ea83c76c6f280ba6"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/sgi_vndr/O2": {
+      "size": 15273,
+      "md5": "ac4850896b1e572ba3a765bf2d4a441a"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/sgi_vndr/indigo": {
+      "size": 10366,
+      "md5": "48395d72c157f554ba10f95f47c5790d"
+    },
+    "assets/wpe-runtime/share/X11/xkb/geometry/sgi_vndr/indy": {
+      "size": 14928,
+      "md5": "cda2fec2d1ae8236c2d96b37f64aa346"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/README": {
+      "size": 416,
+      "md5": "9b71ac20a2dcd2b0dd108b3030f243e7"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/aliases": {
+      "size": 2176,
+      "md5": "e01f2cfd7b4e39af4ac38eeac76146a4"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/amiga": {
+      "size": 3401,
+      "md5": "a5d14a62ce9e2924f39d62b9b7f1ec23"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/ataritt": {
+      "size": 1839,
+      "md5": "080091672369fbd14f214c430dabf884"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/empty": {
+      "size": 68,
+      "md5": "f40094105a7f7f387c82002903be840c"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/evdev": {
+      "size": 25523,
+      "md5": "f29deac1b4f5c9b40fe33c9a0902c7b0"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/fujitsu": {
+      "size": 3715,
+      "md5": "db53b9093054b119f1b6c72e17734a93"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/hp": {
+      "size": 4971,
+      "md5": "54b1a93e6e36fc91847340745d0e5f55"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/ibm": {
+      "size": 3146,
+      "md5": "a92a55358f70f361f1ca6add5b29cc43"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/jolla": {
+      "size": 283,
+      "md5": "e06941e7da64ec02ef1beeb480fb31f6"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/macintosh": {
+      "size": 4120,
+      "md5": "4d631636819e588df3a5f4f2ea8463e3"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/olpc": {
+      "size": 762,
+      "md5": "b887690d116c9c5a87df6f0a11d59959"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/sony": {
+      "size": 2954,
+      "md5": "1e607126d546e1778116d037a425eb5d"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/sun": {
+      "size": 5076,
+      "md5": "e355318b548108461e2111c6d1950b81"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/xfree86": {
+      "size": 8749,
+      "md5": "e360c8cb97139b3fe3edbe69b398daf6"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/xfree98": {
+      "size": 3204,
+      "md5": "9ff6be9792b215d59eb75acc8129a918"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/digital_vndr/lk": {
+      "size": 6126,
+      "md5": "afe9bafacd1c22ea24a06a27af3800ae"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/digital_vndr/pc": {
+      "size": 6094,
+      "md5": "dc4bae1d9ae7e0f0d3638a677a2fa859"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/sgi_vndr/indigo": {
+      "size": 2311,
+      "md5": "f2a0c427912a87fb85045e9232b4058b"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/sgi_vndr/indy": {
+      "size": 3683,
+      "md5": "7d9f062b92b8e4b01bf4dbb2c5b6d16d"
+    },
+    "assets/wpe-runtime/share/X11/xkb/keycodes/sgi_vndr/iris": {
+      "size": 260,
+      "md5": "ae27e8d91213aaa8b985ab2221327d0c"
+    },
+    "assets/wpe-runtime/share/X11/xkb/rules/README": {
+      "size": 91,
+      "md5": "1cb4b3e6d56889944af101ba0122f103"
+    },
+    "assets/wpe-runtime/share/X11/xkb/rules/base": {
+      "size": 40765,
+      "md5": "ae5ceab72717d5385e3a69bae73e2a5b"
+    },
+    "assets/wpe-runtime/share/X11/xkb/rules/base.extras.xml": {
+      "size": 59969,
+      "md5": "9ba14495b8fa56f08c1d1bdec1c89239"
+    },
+    "assets/wpe-runtime/share/X11/xkb/rules/base.lst": {
+      "size": 46249,
+      "md5": "383771af855da77d4cafb46c331c8cf5"
+    },
+    "assets/wpe-runtime/share/X11/xkb/rules/base.xml": {
+      "size": 253198,
+      "md5": "b03368f411d07266739458bf9993735f"
+    },
+    "assets/wpe-runtime/share/X11/xkb/rules/evdev": {
+      "size": 35826,
+      "md5": "8078207278372280124f1c300b442a75"
+    },
+    "assets/wpe-runtime/share/X11/xkb/rules/evdev.extras.xml": {
+      "size": 59969,
+      "md5": "9ba14495b8fa56f08c1d1bdec1c89239"
+    },
+    "assets/wpe-runtime/share/X11/xkb/rules/evdev.lst": {
+      "size": 46249,
+      "md5": "383771af855da77d4cafb46c331c8cf5"
+    },
+    "assets/wpe-runtime/share/X11/xkb/rules/evdev.xml": {
+      "size": 253198,
+      "md5": "b03368f411d07266739458bf9993735f"
+    },
+    "assets/wpe-runtime/share/X11/xkb/rules/xfree98": {
+      "size": 863,
+      "md5": "d8fdac41407c0a6dceda6e5188600658"
+    },
+    "assets/wpe-runtime/share/X11/xkb/rules/xkb.dtd": {
+      "size": 1085,
+      "md5": "a0b48dc9ca4e8f6ee5001d39658fd78c"
+    },
+    "assets/wpe-runtime/share/X11/xkb/rules/xorg": {
+      "size": 40765,
+      "md5": "ae5ceab72717d5385e3a69bae73e2a5b"
+    },
+    "assets/wpe-runtime/share/X11/xkb/rules/xorg.lst": {
+      "size": 46249,
+      "md5": "383771af855da77d4cafb46c331c8cf5"
+    },
+    "assets/wpe-runtime/share/X11/xkb/rules/xorg.xml": {
+      "size": 253198,
+      "md5": "b03368f411d07266739458bf9993735f"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/af": {
+      "size": 22269,
+      "md5": "2bef124a8da0b4dc095f5f5e3ddd6da4"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/al": {
+      "size": 5987,
+      "md5": "2e8df330203d67a979f4a19b2c9858b2"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/altwin": {
+      "size": 3667,
+      "md5": "52b2448da3f31d5f82372cce26bb2ca7"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/am": {
+      "size": 9468,
+      "md5": "b267468788d2902cfd0ad89499e02c53"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ancient": {
+      "size": 8468,
+      "md5": "6a3a6f7c3aceee9e59f01fda6db13988"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/apl": {
+      "size": 52172,
+      "md5": "28a27f71abd7923ddec934bd47e7c0ea"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ara": {
+      "size": 36045,
+      "md5": "f82ae613705654077c56d96145802601"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/at": {
+      "size": 392,
+      "md5": "b1fc1eb6e2a7cc62857500c94d35766a"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/au": {
+      "size": 222,
+      "md5": "d8cc1854fd0d1ada293f9eb1dd31a7e5"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/az": {
+      "size": 3946,
+      "md5": "03dcbffc12dd75645c7e415e1818bd0d"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ba": {
+      "size": 690,
+      "md5": "145f91251ccf3d12832e4e8cf34ff3ea"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/bd": {
+      "size": 3325,
+      "md5": "e57a1dbadeb5c751b22494cf00135532"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/be": {
+      "size": 10702,
+      "md5": "ababc42f8463c76c084b715f7e7d01d9"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/bg": {
+      "size": 18901,
+      "md5": "6bf0fc34127a21a9ddeb0f2d3b2cde6e"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/bqn": {
+      "size": 5301,
+      "md5": "1ff193723c61d2fc7af9e33cc625313e"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/br": {
+      "size": 19260,
+      "md5": "d988f602b2e30f55279dfaa909f84c6a"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/brai": {
+      "size": 2510,
+      "md5": "6289f30483815c3182a9fee26cfc089a"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/bt": {
+      "size": 3681,
+      "md5": "d9922b76be2b83967d23d1dcce7f67b8"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/bw": {
+      "size": 950,
+      "md5": "3828445304e8a25f241273efba2821f2"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/by": {
+      "size": 4417,
+      "md5": "7ff961a86671b389d557d52347b9f261"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ca": {
+      "size": 17126,
+      "md5": "8cebb9ebc941b60aaf58ea286f3cd2e7"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/capslock": {
+      "size": 2238,
+      "md5": "8ec65cb59a8e9fc345955b849219313e"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/cd": {
+      "size": 3977,
+      "md5": "146d63e86b8ee11c017f053734aa7a7a"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ch": {
+      "size": 6801,
+      "md5": "358aedd5adc06d57f18bc6bbfbae039c"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/cm": {
+      "size": 27943,
+      "md5": "017ca05c77ffa4b5ff18f8e905e46732"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/cn": {
+      "size": 37393,
+      "md5": "6337c2fe1a7f3d235aaef9cd9b9d1c5a"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/compose": {
+      "size": 2485,
+      "md5": "ae2c4b0e039dcbc1b7d15e5c018a771c"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ctrl": {
+      "size": 3947,
+      "md5": "4b32543c683e81106d4d41dd64185f77"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/cz": {
+      "size": 23520,
+      "md5": "1829e5174d94ecfb940941078e00aeab"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/de": {
+      "size": 102079,
+      "md5": "7f03e238240b686b4da6cc1adf5c7d6e"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/dk": {
+      "size": 2578,
+      "md5": "a921673abca8c7fa601430e30e18914f"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/dz": {
+      "size": 12452,
+      "md5": "56d8722028f37d2b45f28d53513bdbd5"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ee": {
+      "size": 4922,
+      "md5": "1659f025fc6c7c04f7a937a64515de41"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/eg": {
+      "size": 2160,
+      "md5": "5810866cf3d4e2237e5c71d67b446b20"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/empty": {
+      "size": 121,
+      "md5": "6e0bf01a21937990af8b12114550cba2"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/epo": {
+      "size": 7654,
+      "md5": "bfac20ef480e2551b3db2ba04d6e041e"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/es": {
+      "size": 9958,
+      "md5": "4f9103f7d814501c0f0a7e3cdff750b4"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/et": {
+      "size": 2327,
+      "md5": "94e2299a1921e26344d52a79c71fa55b"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/eu": {
+      "size": 5018,
+      "md5": "f62d90d8625d308e69345e3e688a0ba5"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/eurosign": {
+      "size": 629,
+      "md5": "32c5806265a68066acd1225eb5cf54ab"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/fi": {
+      "size": 24789,
+      "md5": "b8dfd4a498db6e93b0c252e22be71325"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/fo": {
+      "size": 1832,
+      "md5": "b7b725e2979a763dcc94bc7fa935ed11"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/fr": {
+      "size": 107995,
+      "md5": "bb80ff75332615670daaee64ea291886"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/gb": {
+      "size": 9473,
+      "md5": "b03ae28fc95fb9810bd9113a16a9ad36"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ge": {
+      "size": 12641,
+      "md5": "9feff240dd1b25c2f9fc9a74c9bc480b"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/gh": {
+      "size": 6530,
+      "md5": "cecb0d2d2b768f35453a5c3f244bb4d6"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/gn": {
+      "size": 2171,
+      "md5": "01b9d9dcb2f5739ae77019b915129f3c"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/gr": {
+      "size": 10528,
+      "md5": "f218b123748a8f2e229cda597b42f732"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/group": {
+      "size": 9891,
+      "md5": "a712cbfd2efd65253d53948d267725c8"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/hr": {
+      "size": 2726,
+      "md5": "92eaa89877a0b4102509caf0bf457dc5"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/hu": {
+      "size": 24206,
+      "md5": "f40ff87ab65adb0f096a84e81f9fe4ee"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/id": {
+      "size": 13937,
+      "md5": "1b42204c3eb4df6517c5535c2a6eeba2"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ie": {
+      "size": 17971,
+      "md5": "c78b3bc4940cac3f92fbc1b082d51ad2"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/il": {
+      "size": 16122,
+      "md5": "48746199dda0de8c1671bd2c8a6405f5"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/in": {
+      "size": 118512,
+      "md5": "10b40908899b27b00dd8e0f7a573b6e9"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/inet": {
+      "size": 80532,
+      "md5": "84904f7b05c04af90658405bf3687a3c"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/iq": {
+      "size": 633,
+      "md5": "f7524e5a9e7c0efdca9cb2df47108fc3"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ir": {
+      "size": 11783,
+      "md5": "92c3acf118feee0d89b61e9362be1a1a"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/is": {
+      "size": 11128,
+      "md5": "059da270798e37fd1ba16d4714d5bd46"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/it": {
+      "size": 16979,
+      "md5": "14a0d7475e59750fe7d5279282913a36"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/jp": {
+      "size": 7407,
+      "md5": "91f3a4512a2b69df61b60911fd59dbc5"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ke": {
+      "size": 4512,
+      "md5": "1b108e124bdb8ae368047bf0dcb73e5d"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/keypad": {
+      "size": 23910,
+      "md5": "dd616adff1d5f29d119e28619a2ca9f8"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/kg": {
+      "size": 6364,
+      "md5": "548ea4366021104dd25c29164f1a5bd0"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/kh": {
+      "size": 3430,
+      "md5": "df659b367cd9e48cbf2caefe98a36e52"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/kpdl": {
+      "size": 3398,
+      "md5": "af037c59909462114f5d292e9e9da780"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/kr": {
+      "size": 1200,
+      "md5": "00a23149610506e4b5e5a1db4143b6f1"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/kz": {
+      "size": 16429,
+      "md5": "cdf15b101d7ccad44f4a5001822ad3c2"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/la": {
+      "size": 4819,
+      "md5": "4501962301fd5d2266eb5f4b2eea0eea"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/latam": {
+      "size": 10061,
+      "md5": "ced5d42f2eaa556e3b9eb098834afb3e"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/latin": {
+      "size": 14743,
+      "md5": "4b6d620aefa4f3a3437e9fafd3bf8488"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/level2": {
+      "size": 209,
+      "md5": "eba7f1e069cdef4e71245e0c2fa3ab1e"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/level3": {
+      "size": 4663,
+      "md5": "8a48d87450355be4afb0bb3c313ee546"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/level5": {
+      "size": 4195,
+      "md5": "0244fc29f6427f8e511e7cea55b5caa7"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/lk": {
+      "size": 7827,
+      "md5": "f65df7ebcce4d1b621c29c8de26c8af3"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/lt": {
+      "size": 20500,
+      "md5": "3bec4a58696344a2d989670e84a6a5a0"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/lv": {
+      "size": 20480,
+      "md5": "cdd7bbf147df600ad3ebf193fefdb094"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ma": {
+      "size": 12757,
+      "md5": "b62832a5c532fb284247faee5e9e8997"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/md": {
+      "size": 4950,
+      "md5": "8c9da6e5eafa40d3f40dfb4566e92961"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/me": {
+      "size": 1706,
+      "md5": "0ae0c9e660d79d858ee588efbba017cb"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/mk": {
+      "size": 3110,
+      "md5": "52d9e3d1a1dae2df1434678e284bbe54"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ml": {
+      "size": 2083,
+      "md5": "e0845bf363d15787d3a7f33b979f697f"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/mm": {
+      "size": 17258,
+      "md5": "98b77d43cd35ed0176df1c98d3427593"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/mn": {
+      "size": 4309,
+      "md5": "bbf27a53936592554ef7d586cf14af22"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/mt": {
+      "size": 5670,
+      "md5": "9d672b05a4f29ff7a7b663cdd5944ab0"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/mv": {
+      "size": 2550,
+      "md5": "c3a2972cb2c9717288c775b3422af046"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/my": {
+      "size": 5537,
+      "md5": "de5322512bb8ee4aff7e1002a7662896"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/nbsp": {
+      "size": 2680,
+      "md5": "0a707aa2590d9efa8ca45f1a537b5aa2"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ng": {
+      "size": 6298,
+      "md5": "11fa63f3157ed027b404b53f45e1035a"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/nl": {
+      "size": 6941,
+      "md5": "e79750b5d9ee1f14d7e72661c391c058"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/no": {
+      "size": 12435,
+      "md5": "88c7b1555bebdc7286c17cac3ccf47b1"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/np": {
+      "size": 6317,
+      "md5": "b6af8be747dc1b99537135da16bdcfda"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/nz": {
+      "size": 698,
+      "md5": "96bf600515960ce91ee6ecf40c9ed48f"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/olpc": {
+      "size": 930,
+      "md5": "52f9656ce56b4ac3ddb9be0b06b96600"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/parens": {
+      "size": 389,
+      "md5": "50cbb90f710098721518f414adb46cfc"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/pc": {
+      "size": 2726,
+      "md5": "6bbeef7b53efbcb7c6d9b2f8af8527e4"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ph": {
+      "size": 76020,
+      "md5": "194c9734d34514a1032471717af6e58d"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/pk": {
+      "size": 20325,
+      "md5": "5ae9570793d3fd73dd0aebe6d45c33ac"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/pl": {
+      "size": 27943,
+      "md5": "c0638259021982c16bb8c7548aef2ff2"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/pt": {
+      "size": 11775,
+      "md5": "0d78476905f932055791ec447307d292"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ro": {
+      "size": 11343,
+      "md5": "64c210ad271f4155406a90f79badc8fa"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/rs": {
+      "size": 15173,
+      "md5": "5d23685a70b745cb89728931191a8ee9"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ru": {
+      "size": 80362,
+      "md5": "acebe90a0c60ef93665b12bf6cb1ccef"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/rupeesign": {
+      "size": 131,
+      "md5": "f9e82f92e9698efeb04be8309af71fc0"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/se": {
+      "size": 16113,
+      "md5": "d23dbeb52a13159d87774b2f3f868974"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/shift": {
+      "size": 2115,
+      "md5": "c5bca00e311b66858436a69d6e9910d4"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/si": {
+      "size": 625,
+      "md5": "1604ccffede5250da8b4235c4c58cfcf"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sk": {
+      "size": 6718,
+      "md5": "fb7c69af7e18273c6261bf863e623ee1"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sn": {
+      "size": 2233,
+      "md5": "537d653ced677c73d38c628f075feb07"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/srvr_ctrl": {
+      "size": 1803,
+      "md5": "749fc5bbbbd95a57e2db728d15c27678"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sy": {
+      "size": 4782,
+      "md5": "63d873d26a9ebea606274564e6a78b94"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/terminate": {
+      "size": 199,
+      "md5": "f6bcbacd564f3a440d4ab978873135c1"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/tg": {
+      "size": 3748,
+      "md5": "23ac68c13147fb7ce4a3229af394be56"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/th": {
+      "size": 7429,
+      "md5": "dcf0a3797680cddc6fcea08bd9cc7bd8"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/tj": {
+      "size": 9868,
+      "md5": "f7c02d3d67377bdfa2771e23147a1251"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/tm": {
+      "size": 1519,
+      "md5": "9993aeae0fbcf54953ebfba860ad42bb"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/tr": {
+      "size": 28100,
+      "md5": "c98cca5c576e1215f2a12c2c6ed2c3f2"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/trans": {
+      "size": 16578,
+      "md5": "a7ab7492fe7b85f69897daf0456b0f5d"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/tw": {
+      "size": 3338,
+      "md5": "45d5054466a3f5598b51a818b1b85c08"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/typo": {
+      "size": 4493,
+      "md5": "156bb718a7b3deae5c24114968dbd3ec"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/tz": {
+      "size": 3353,
+      "md5": "acb2cae98babf8000d1b75958151ec10"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/ua": {
+      "size": 16265,
+      "md5": "791a7c7d06f74b2b31554797e153d62a"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/us": {
+      "size": 118061,
+      "md5": "4fe8e020d5b1d91662173b52fe1f9a35"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/uz": {
+      "size": 3177,
+      "md5": "0823f599ca09be4eda8168f259c0f84b"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/vn": {
+      "size": 6140,
+      "md5": "62a320338294d72be2005015454dd683"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/za": {
+      "size": 2241,
+      "md5": "46d73d17809b2b2f595c1a88794a8db4"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/digital_vndr/lk": {
+      "size": 4348,
+      "md5": "f2da379ff7f61186b7d503161cb512af"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/digital_vndr/pc": {
+      "size": 6189,
+      "md5": "24b4ebdfa33cddbe20334bd8fa43e6ee"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/digital_vndr/us": {
+      "size": 7948,
+      "md5": "4a10c0cd902ad438d64f6904af84d56f"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/digital_vndr/vt": {
+      "size": 5454,
+      "md5": "06085b2b52152f61322d833d95c90972"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/fujitsu_vndr/jp": {
+      "size": 4109,
+      "md5": "fe2ef8ba5d3b2f487eee5b2feb0fbd81"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/fujitsu_vndr/us": {
+      "size": 4382,
+      "md5": "b33eab69f0dfcdee02a8db5cf9364b67"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/hp_vndr/us": {
+      "size": 3319,
+      "md5": "a5cc0b13831ba8a1344f4b323bc3fbd4"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/jolla_vndr/sbj": {
+      "size": 1958,
+      "md5": "dfd402a1f68d2fcf371cf9717dd1ecdf"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/apple": {
+      "size": 5281,
+      "md5": "6bee33bb53a60be71c0f36b0139118bf"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/ch": {
+      "size": 3787,
+      "md5": "2659061c1fc776ce15c186e3d3724626"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/de": {
+      "size": 4037,
+      "md5": "e8a6a1001f2074c403b5b55e7b1ea334"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/dk": {
+      "size": 3505,
+      "md5": "84b0287d8569a6329b0fd7b4f4b509c7"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/fi": {
+      "size": 328,
+      "md5": "74b4c4bd5dc176cd47e899db20e65b83"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/fr": {
+      "size": 5150,
+      "md5": "1077c98910b1598f8d39248bb63f7f42"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/gb": {
+      "size": 552,
+      "md5": "139f1a6a0f6f7a78c67744e5cdbbe7ae"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/is": {
+      "size": 5710,
+      "md5": "51ff6adc81e6f8d3533e0e901f8b43d4"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/it": {
+      "size": 2742,
+      "md5": "82a49849d02ca351918d0f9d4883e057"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/jp": {
+      "size": 763,
+      "md5": "00c5da6933d4187bf26475385a4724be"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/latam": {
+      "size": 1912,
+      "md5": "1ccce921b6bb3404f156a78866b1af22"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/nl": {
+      "size": 155,
+      "md5": "89411a469ae8319eec89dd012ee0efc9"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/no": {
+      "size": 2116,
+      "md5": "15c6d0ae9d4029a00ad1ef140a019fb8"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/pt": {
+      "size": 2555,
+      "md5": "2fe35da7999fd4bc229df834d7c5ec84"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/se": {
+      "size": 2083,
+      "md5": "c2388750e477bad92d00ec0586bb630a"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/us": {
+      "size": 4004,
+      "md5": "a8d84892d30fa33fc882458a77f6960b"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/nec_vndr/jp": {
+      "size": 6075,
+      "md5": "0781476738b351c907a711c698e61b1a"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/nokia_vndr/rx-44": {
+      "size": 15161,
+      "md5": "ecc76c8f87ec9ad3c7cb86607f1a324f"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/nokia_vndr/rx-51": {
+      "size": 71840,
+      "md5": "f4e7eba2e0541f0b1b50019407e5a409"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/nokia_vndr/su-8w": {
+      "size": 27441,
+      "md5": "bb05f82cd673c8da335cf7eb2262a484"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sgi_vndr/jp": {
+      "size": 2102,
+      "md5": "20744185c96d9c5c8f9504d4eecb4c63"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sharp_vndr/sl-c3x00": {
+      "size": 2053,
+      "md5": "0332c4d868144c04be50b59a02076167"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sharp_vndr/ws003sh": {
+      "size": 1924,
+      "md5": "98a3b0497852d9c6191199d22d6080db"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sharp_vndr/ws007sh": {
+      "size": 1924,
+      "md5": "802a9f8124a9c81291b7822dd0702462"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sharp_vndr/ws011sh": {
+      "size": 2071,
+      "md5": "ae4b59e16708f63f3b79dc4a314ef3ac"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sharp_vndr/ws020sh": {
+      "size": 1847,
+      "md5": "c3c319bfdaf7bc9bcced772b7d629b24"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sony_vndr/us": {
+      "size": 2891,
+      "md5": "dcf2ff1e4f2820b28604eac3a7a608cb"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/ara": {
+      "size": 6085,
+      "md5": "158b2f8368d27c7acde96a8fc24789c9"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/be": {
+      "size": 4509,
+      "md5": "dc5620be58b76be5e38ffd162bc47c2d"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/br": {
+      "size": 5242,
+      "md5": "aa33414550dff5c3fec032171e77ced8"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/ca": {
+      "size": 4805,
+      "md5": "de7346b3de4920d97186e5c9a45cd136"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/ch": {
+      "size": 6575,
+      "md5": "99915fe22a08949e2e2cb37f3ba0fefd"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/cz": {
+      "size": 4666,
+      "md5": "b3c43fa95d2b9beb89d0875c6ab894b7"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/de": {
+      "size": 5418,
+      "md5": "4149d2d22f5dca8eb056451b84ad9fda"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/dk": {
+      "size": 3793,
+      "md5": "4a3f78253065b26d3f78c83d94c8346a"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/ee": {
+      "size": 5813,
+      "md5": "79dce5ab82ab03001f188560bf6438ea"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/es": {
+      "size": 4201,
+      "md5": "84149352c515a4cbe8c0c0a7f1f21121"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/fi": {
+      "size": 4416,
+      "md5": "0ed76cf2c49ffa3001b1da90c2df32aa"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/fr": {
+      "size": 5376,
+      "md5": "e8c589678a975788a205dc6628e228e2"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/gb": {
+      "size": 2798,
+      "md5": "3facc74ece0cb623658a03fd6226e2b8"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/gr": {
+      "size": 5122,
+      "md5": "edc47a52c133accc12a6c72354a0df62"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/it": {
+      "size": 4052,
+      "md5": "662c9b58b1a27db4015a41f4d1721e69"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/jp": {
+      "size": 6604,
+      "md5": "549c12e42e824007ba608720439a66ee"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/kr": {
+      "size": 2556,
+      "md5": "dbff25e1556bed5eb0012ee7fe7fe407"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/lt": {
+      "size": 5733,
+      "md5": "374598c6d05a30d5c4ce9ffb43509da8"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/lv": {
+      "size": 6725,
+      "md5": "f762f67fd603e2dc4c84703380194b64"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/nl": {
+      "size": 4209,
+      "md5": "18bc8bbe79e46d1ad39af9bb6ec7688b"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/no": {
+      "size": 4035,
+      "md5": "9f70872d2f9c1b370577aad728557fcc"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/pl": {
+      "size": 4190,
+      "md5": "d58826c494e37a31295ae09c30ce4649"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/pt": {
+      "size": 4241,
+      "md5": "aabbe262ebd8ce6f03a121fb0fec7e5a"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/ro": {
+      "size": 4533,
+      "md5": "fbeed2152b280728fabe5362f99f5b05"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/ru": {
+      "size": 6528,
+      "md5": "48e0b5000e9e462c5280018ae80cf401"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/se": {
+      "size": 3987,
+      "md5": "b57ccb85fcaf77dc67e3381571ac1f7b"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/sk": {
+      "size": 5104,
+      "md5": "b6a091be4df5d57e44021fded0086f7f"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/solaris": {
+      "size": 4304,
+      "md5": "ba152fad56a3d1c3e41acac20c50da0b"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/tr": {
+      "size": 3967,
+      "md5": "220819aa44ea0f46c8b1fb8e57fbe8c6"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/tw": {
+      "size": 2184,
+      "md5": "e274939a3d7e89bdcb436f799fa2000e"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/ua": {
+      "size": 5472,
+      "md5": "822605863c13c1632180d61b1aee6ece"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/us": {
+      "size": 5761,
+      "md5": "2d705646e28aa2d773bdc7fe013aac40"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/xfree68_vndr/amiga": {
+      "size": 3899,
+      "md5": "ab569255a9d5acd43d5e9c59bee857f8"
+    },
+    "assets/wpe-runtime/share/X11/xkb/symbols/xfree68_vndr/ataritt": {
+      "size": 4685,
+      "md5": "9832ca112ae8b54b9aa930663de0ca9f"
+    },
+    "assets/wpe-runtime/share/X11/xkb/types/README": {
+      "size": 246,
+      "md5": "26bbcdf44791466e42b7ea167127799d"
+    },
+    "assets/wpe-runtime/share/X11/xkb/types/basic": {
+      "size": 596,
+      "md5": "fc3d8d3359fd7ccc13920c430bdec8d8"
+    },
+    "assets/wpe-runtime/share/X11/xkb/types/cancel": {
+      "size": 226,
+      "md5": "2ba9509502a990221306e7546085ef01"
+    },
+    "assets/wpe-runtime/share/X11/xkb/types/caps": {
+      "size": 4535,
+      "md5": "6e2ab1ae7ccb6e681a62490b188e0c0e"
+    },
+    "assets/wpe-runtime/share/X11/xkb/types/complete": {
+      "size": 179,
+      "md5": "cf22d0a4c309145c7a1bf5ffbf90503b"
+    },
+    "assets/wpe-runtime/share/X11/xkb/types/default": {
+      "size": 178,
+      "md5": "bfee2f46624965bdeb66395790cae0e5"
+    },
+    "assets/wpe-runtime/share/X11/xkb/types/extra": {
+      "size": 4431,
+      "md5": "8841551da19f57cc0d7a4df3087973f0"
+    },
+    "assets/wpe-runtime/share/X11/xkb/types/iso9995": {
+      "size": 432,
+      "md5": "d34a6f609e1bdd133ca8f07624d9de5b"
+    },
+    "assets/wpe-runtime/share/X11/xkb/types/level5": {
+      "size": 7674,
+      "md5": "d63f110f5c051cb1bdc5582cf39670eb"
+    },
+    "assets/wpe-runtime/share/X11/xkb/types/mousekeys": {
+      "size": 218,
+      "md5": "d5af08e9e068b45f2f82a53408b82150"
+    },
+    "assets/wpe-runtime/share/X11/xkb/types/nokia": {
+      "size": 303,
+      "md5": "e430384f6a4fb8c782b307c88dbb8b78"
+    },
+    "assets/wpe-runtime/share/X11/xkb/types/numpad": {
+      "size": 1658,
+      "md5": "1e5028e5e798b37addcdae10dfbfc6ea"
+    },
+    "assets/wpe-runtime/share/X11/xkb/types/pc": {
+      "size": 1107,
+      "md5": "1f9251941ccd4e22aff7a1b62816f7b9"
+    },
+    "assets/wpe-runtime/share/glib-2.0/codegen/__init__.py": {
+      "size": 998,
+      "md5": "839ce646d8b58f46e0a3d64a96383598"
     },
     "assets/wpe-runtime/share/glib-2.0/codegen/codegen.py": {
       "size": 230292,
@@ -1502,10 +2706,6 @@
       "size": 4038,
       "md5": "ae2432e48fef8572359f2f161411a46a"
     },
-    "assets/wpe-runtime/share/glib-2.0/codegen/__init__.py": {
-      "size": 998,
-      "md5": "839ce646d8b58f46e0a3d64a96383598"
-    },
     "assets/wpe-runtime/share/glib-2.0/gdb/glib_gdb.py": {
       "size": 8323,
       "md5": "33e70c783dc506475e68067c0bd682ab"
@@ -1521,10 +2721,6 @@
     "assets/wpe-runtime/share/glib-2.0/valgrind/glib.supp": {
       "size": 20211,
       "md5": "1f44160933a49737b6dd5ea68e02043a"
-    },
-    "assets/wpe-runtime/share/gstreamer-plugin-set.sha256": {
-      "size": 11066,
-      "md5": "0c6aabd5e80067ac6b0146d21afef1d9"
     },
     "assets/wpe-runtime/share/libinput/10-generic-keyboard.quirks": {
       "size": 245,
@@ -1682,1178 +2878,6 @@
       "size": 149,
       "md5": "8eb425d52452abb3ba6d8abae22d1899"
     },
-    "assets/wpe-runtime/share/X11/xkb/compat/accessx": {
-      "size": 1121,
-      "md5": "ee106b5ef0da6071d90511652f7c4a72"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/basic": {
-      "size": 996,
-      "md5": "bbee0fb670f46f8fcf80ea463b5d8030"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/caps": {
-      "size": 507,
-      "md5": "1397c66d1c78221e686d3c9fe4eefd4b"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/complete": {
-      "size": 228,
-      "md5": "af35b0e40c0de53459538fa37dd185a8"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/iso9995": {
-      "size": 1492,
-      "md5": "4273520af1e9429bd81695ba918f2a7b"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/japan": {
-      "size": 979,
-      "md5": "d985da6a1f56872177c38f3f0656d320"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/ledcaps": {
-      "size": 469,
-      "md5": "1a7fb9f3400c54c358d851ab83ef28db"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/ledcompose": {
-      "size": 287,
-      "md5": "9c689b38c1d5c2bbdde76ffe9a8ec268"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/lednum": {
-      "size": 466,
-      "md5": "2a8603ced28fe0cabdf805306b385ea9"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/ledscroll": {
-      "size": 486,
-      "md5": "ede43ecfca7cabda85f4a78960213b41"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/level5": {
-      "size": 1273,
-      "md5": "073a8d522aae67bbb5809c9dbdaa7497"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/misc": {
-      "size": 3053,
-      "md5": "272508090144d0455b177276f04aef96"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/mousekeys": {
-      "size": 4578,
-      "md5": "2fd3a56bb9de015f50424063b94820fb"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/olpc": {
-      "size": 1001,
-      "md5": "c54d1c04d6a4199fea505b8edc897bdc"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/pc": {
-      "size": 341,
-      "md5": "31e2bf669d7542fbafd35ac0b1ba9b4b"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/pc98": {
-      "size": 1094,
-      "md5": "fb843b09367bce7d30dc887b59732074"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/README": {
-      "size": 1712,
-      "md5": "248cf4492eb76056449873b36da53aae"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/xfree86": {
-      "size": 1842,
-      "md5": "e83ae778ccb3a66336e47519efbb9bd3"
-    },
-    "assets/wpe-runtime/share/X11/xkb/compat/xtest": {
-      "size": 1399,
-      "md5": "08657b0ca35d54d229cfbec3540d46e1"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/amiga": {
-      "size": 6221,
-      "md5": "fe82b14ff14f8e345c8bfea183d9b3cb"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/ataritt": {
-      "size": 5764,
-      "md5": "ff7e9651ce43f036c5363906b62f8947"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/chicony": {
-      "size": 4531,
-      "md5": "78365c2f0019654a3f9c0039bb8f97a5"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/dell": {
-      "size": 20201,
-      "md5": "6c35e91cef6d32c7449fc06d6283cbe9"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/digital_vndr/lk": {
-      "size": 20585,
-      "md5": "0e6e4ee10a63788ee0914b8d457066ad"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/digital_vndr/pc": {
-      "size": 10833,
-      "md5": "ba695f57c058cefe73ba859e0de3579a"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/digital_vndr/unix": {
-      "size": 7147,
-      "md5": "1f58db2c3878c006ea83c76c6f280ba6"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/everex": {
-      "size": 3821,
-      "md5": "0683f027f76f3b55ed32f62e891955d3"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/fujitsu": {
-      "size": 7737,
-      "md5": "ac705259287d83e832e10553927bb529"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/hhk": {
-      "size": 5451,
-      "md5": "fd57e65140935b7c61815b37d09621fa"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/hp": {
-      "size": 17323,
-      "md5": "c9c57b8e61cbbfc727da1a6043b5f523"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/keytronic": {
-      "size": 6479,
-      "md5": "e4b0df372db7dbaffddeac368247356f"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/kinesis": {
-      "size": 4030,
-      "md5": "e359cb6b6a12db78e209680d7aef980f"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/macintosh": {
-      "size": 41020,
-      "md5": "1a3eb7c0f736b298275debb1c862eb50"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/microsoft": {
-      "size": 12547,
-      "md5": "2bd0b2e293f2e987f614396ec677496f"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/nec": {
-      "size": 4139,
-      "md5": "4800b69d1fe505e3c0a99ef6041c7f57"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/nokia": {
-      "size": 1264,
-      "md5": "2e4f27ebfa220be78cfb316d70d0e03c"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/northgate": {
-      "size": 4011,
-      "md5": "9fb53548303a743af50c0f511d31c9d3"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/pc": {
-      "size": 25737,
-      "md5": "5ae97048440a601c3dc3c3b954cdfafa"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/README": {
-      "size": 461,
-      "md5": "a0373dff2e35d1d0bbbb7652a6854d62"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/sanwa": {
-      "size": 5878,
-      "md5": "9dbc1070ae2cd4a7173b219a7fce5b82"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/sgi_vndr/indigo": {
-      "size": 10366,
-      "md5": "48395d72c157f554ba10f95f47c5790d"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/sgi_vndr/indy": {
-      "size": 14928,
-      "md5": "cda2fec2d1ae8236c2d96b37f64aa346"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/sgi_vndr/O2": {
-      "size": 15273,
-      "md5": "ac4850896b1e572ba3a765bf2d4a441a"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/sony": {
-      "size": 4949,
-      "md5": "462babbcdc4e6e22ec2f743b00f5ca66"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/steelseries": {
-      "size": 8282,
-      "md5": "6ed822a0da799faf1edc31f1fb64c913"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/sun": {
-      "size": 19791,
-      "md5": "7ecf43a0999f4066e7da11bf09fcb80e"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/teck": {
-      "size": 9728,
-      "md5": "96f02dacd16fab1dbcccb04b2b60f26d"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/thinkpad": {
-      "size": 12112,
-      "md5": "7751ac08e63c08ee561ff02ceacfa8c3"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/typematrix": {
-      "size": 21188,
-      "md5": "5796ed8b885ef3deec79205216a9d5c3"
-    },
-    "assets/wpe-runtime/share/X11/xkb/geometry/winbook": {
-      "size": 2740,
-      "md5": "274a120892206c4ab672cb79c0c4aea2"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/aliases": {
-      "size": 2176,
-      "md5": "e01f2cfd7b4e39af4ac38eeac76146a4"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/amiga": {
-      "size": 3401,
-      "md5": "a5d14a62ce9e2924f39d62b9b7f1ec23"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/ataritt": {
-      "size": 1839,
-      "md5": "080091672369fbd14f214c430dabf884"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/digital_vndr/lk": {
-      "size": 6126,
-      "md5": "afe9bafacd1c22ea24a06a27af3800ae"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/digital_vndr/pc": {
-      "size": 6094,
-      "md5": "dc4bae1d9ae7e0f0d3638a677a2fa859"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/empty": {
-      "size": 68,
-      "md5": "f40094105a7f7f387c82002903be840c"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/evdev": {
-      "size": 25523,
-      "md5": "f29deac1b4f5c9b40fe33c9a0902c7b0"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/fujitsu": {
-      "size": 3715,
-      "md5": "db53b9093054b119f1b6c72e17734a93"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/hp": {
-      "size": 4971,
-      "md5": "54b1a93e6e36fc91847340745d0e5f55"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/ibm": {
-      "size": 3146,
-      "md5": "a92a55358f70f361f1ca6add5b29cc43"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/jolla": {
-      "size": 283,
-      "md5": "e06941e7da64ec02ef1beeb480fb31f6"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/macintosh": {
-      "size": 4120,
-      "md5": "4d631636819e588df3a5f4f2ea8463e3"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/olpc": {
-      "size": 762,
-      "md5": "b887690d116c9c5a87df6f0a11d59959"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/README": {
-      "size": 416,
-      "md5": "9b71ac20a2dcd2b0dd108b3030f243e7"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/sgi_vndr/indigo": {
-      "size": 2311,
-      "md5": "f2a0c427912a87fb85045e9232b4058b"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/sgi_vndr/indy": {
-      "size": 3683,
-      "md5": "7d9f062b92b8e4b01bf4dbb2c5b6d16d"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/sgi_vndr/iris": {
-      "size": 260,
-      "md5": "ae27e8d91213aaa8b985ab2221327d0c"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/sony": {
-      "size": 2954,
-      "md5": "1e607126d546e1778116d037a425eb5d"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/sun": {
-      "size": 5076,
-      "md5": "e355318b548108461e2111c6d1950b81"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/xfree86": {
-      "size": 8749,
-      "md5": "e360c8cb97139b3fe3edbe69b398daf6"
-    },
-    "assets/wpe-runtime/share/X11/xkb/keycodes/xfree98": {
-      "size": 3204,
-      "md5": "9ff6be9792b215d59eb75acc8129a918"
-    },
-    "assets/wpe-runtime/share/X11/xkb/rules/base": {
-      "size": 40765,
-      "md5": "ae5ceab72717d5385e3a69bae73e2a5b"
-    },
-    "assets/wpe-runtime/share/X11/xkb/rules/base.extras.xml": {
-      "size": 59969,
-      "md5": "9ba14495b8fa56f08c1d1bdec1c89239"
-    },
-    "assets/wpe-runtime/share/X11/xkb/rules/base.lst": {
-      "size": 46249,
-      "md5": "383771af855da77d4cafb46c331c8cf5"
-    },
-    "assets/wpe-runtime/share/X11/xkb/rules/base.xml": {
-      "size": 253198,
-      "md5": "b03368f411d07266739458bf9993735f"
-    },
-    "assets/wpe-runtime/share/X11/xkb/rules/evdev": {
-      "size": 35826,
-      "md5": "8078207278372280124f1c300b442a75"
-    },
-    "assets/wpe-runtime/share/X11/xkb/rules/evdev.extras.xml": {
-      "size": 59969,
-      "md5": "9ba14495b8fa56f08c1d1bdec1c89239"
-    },
-    "assets/wpe-runtime/share/X11/xkb/rules/evdev.lst": {
-      "size": 46249,
-      "md5": "383771af855da77d4cafb46c331c8cf5"
-    },
-    "assets/wpe-runtime/share/X11/xkb/rules/evdev.xml": {
-      "size": 253198,
-      "md5": "b03368f411d07266739458bf9993735f"
-    },
-    "assets/wpe-runtime/share/X11/xkb/rules/README": {
-      "size": 91,
-      "md5": "1cb4b3e6d56889944af101ba0122f103"
-    },
-    "assets/wpe-runtime/share/X11/xkb/rules/xfree98": {
-      "size": 863,
-      "md5": "d8fdac41407c0a6dceda6e5188600658"
-    },
-    "assets/wpe-runtime/share/X11/xkb/rules/xkb.dtd": {
-      "size": 1085,
-      "md5": "a0b48dc9ca4e8f6ee5001d39658fd78c"
-    },
-    "assets/wpe-runtime/share/X11/xkb/rules/xorg": {
-      "size": 40765,
-      "md5": "ae5ceab72717d5385e3a69bae73e2a5b"
-    },
-    "assets/wpe-runtime/share/X11/xkb/rules/xorg.lst": {
-      "size": 46249,
-      "md5": "383771af855da77d4cafb46c331c8cf5"
-    },
-    "assets/wpe-runtime/share/X11/xkb/rules/xorg.xml": {
-      "size": 253198,
-      "md5": "b03368f411d07266739458bf9993735f"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/af": {
-      "size": 22269,
-      "md5": "2bef124a8da0b4dc095f5f5e3ddd6da4"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/al": {
-      "size": 5987,
-      "md5": "2e8df330203d67a979f4a19b2c9858b2"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/altwin": {
-      "size": 3667,
-      "md5": "52b2448da3f31d5f82372cce26bb2ca7"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/am": {
-      "size": 9468,
-      "md5": "b267468788d2902cfd0ad89499e02c53"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ancient": {
-      "size": 8468,
-      "md5": "6a3a6f7c3aceee9e59f01fda6db13988"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/apl": {
-      "size": 52172,
-      "md5": "28a27f71abd7923ddec934bd47e7c0ea"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ara": {
-      "size": 36045,
-      "md5": "f82ae613705654077c56d96145802601"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/at": {
-      "size": 392,
-      "md5": "b1fc1eb6e2a7cc62857500c94d35766a"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/au": {
-      "size": 222,
-      "md5": "d8cc1854fd0d1ada293f9eb1dd31a7e5"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/az": {
-      "size": 3946,
-      "md5": "03dcbffc12dd75645c7e415e1818bd0d"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ba": {
-      "size": 690,
-      "md5": "145f91251ccf3d12832e4e8cf34ff3ea"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/bd": {
-      "size": 3325,
-      "md5": "e57a1dbadeb5c751b22494cf00135532"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/be": {
-      "size": 10702,
-      "md5": "ababc42f8463c76c084b715f7e7d01d9"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/bg": {
-      "size": 18901,
-      "md5": "6bf0fc34127a21a9ddeb0f2d3b2cde6e"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/bqn": {
-      "size": 5301,
-      "md5": "1ff193723c61d2fc7af9e33cc625313e"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/br": {
-      "size": 19260,
-      "md5": "d988f602b2e30f55279dfaa909f84c6a"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/brai": {
-      "size": 2510,
-      "md5": "6289f30483815c3182a9fee26cfc089a"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/bt": {
-      "size": 3681,
-      "md5": "d9922b76be2b83967d23d1dcce7f67b8"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/bw": {
-      "size": 950,
-      "md5": "3828445304e8a25f241273efba2821f2"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/by": {
-      "size": 4417,
-      "md5": "7ff961a86671b389d557d52347b9f261"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ca": {
-      "size": 17126,
-      "md5": "8cebb9ebc941b60aaf58ea286f3cd2e7"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/capslock": {
-      "size": 2238,
-      "md5": "8ec65cb59a8e9fc345955b849219313e"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/cd": {
-      "size": 3977,
-      "md5": "146d63e86b8ee11c017f053734aa7a7a"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ch": {
-      "size": 6801,
-      "md5": "358aedd5adc06d57f18bc6bbfbae039c"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/cm": {
-      "size": 27943,
-      "md5": "017ca05c77ffa4b5ff18f8e905e46732"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/cn": {
-      "size": 37393,
-      "md5": "6337c2fe1a7f3d235aaef9cd9b9d1c5a"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/compose": {
-      "size": 2485,
-      "md5": "ae2c4b0e039dcbc1b7d15e5c018a771c"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ctrl": {
-      "size": 3947,
-      "md5": "4b32543c683e81106d4d41dd64185f77"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/cz": {
-      "size": 23520,
-      "md5": "1829e5174d94ecfb940941078e00aeab"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/de": {
-      "size": 102079,
-      "md5": "7f03e238240b686b4da6cc1adf5c7d6e"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/digital_vndr/lk": {
-      "size": 4348,
-      "md5": "f2da379ff7f61186b7d503161cb512af"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/digital_vndr/pc": {
-      "size": 6189,
-      "md5": "24b4ebdfa33cddbe20334bd8fa43e6ee"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/digital_vndr/us": {
-      "size": 7948,
-      "md5": "4a10c0cd902ad438d64f6904af84d56f"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/digital_vndr/vt": {
-      "size": 5454,
-      "md5": "06085b2b52152f61322d833d95c90972"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/dk": {
-      "size": 2578,
-      "md5": "a921673abca8c7fa601430e30e18914f"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/dz": {
-      "size": 12452,
-      "md5": "56d8722028f37d2b45f28d53513bdbd5"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ee": {
-      "size": 4922,
-      "md5": "1659f025fc6c7c04f7a937a64515de41"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/eg": {
-      "size": 2160,
-      "md5": "5810866cf3d4e2237e5c71d67b446b20"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/empty": {
-      "size": 121,
-      "md5": "6e0bf01a21937990af8b12114550cba2"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/epo": {
-      "size": 7654,
-      "md5": "bfac20ef480e2551b3db2ba04d6e041e"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/es": {
-      "size": 9958,
-      "md5": "4f9103f7d814501c0f0a7e3cdff750b4"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/et": {
-      "size": 2327,
-      "md5": "94e2299a1921e26344d52a79c71fa55b"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/eu": {
-      "size": 5018,
-      "md5": "f62d90d8625d308e69345e3e688a0ba5"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/eurosign": {
-      "size": 629,
-      "md5": "32c5806265a68066acd1225eb5cf54ab"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/fi": {
-      "size": 24789,
-      "md5": "b8dfd4a498db6e93b0c252e22be71325"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/fo": {
-      "size": 1832,
-      "md5": "b7b725e2979a763dcc94bc7fa935ed11"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/fr": {
-      "size": 107995,
-      "md5": "bb80ff75332615670daaee64ea291886"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/fujitsu_vndr/jp": {
-      "size": 4109,
-      "md5": "fe2ef8ba5d3b2f487eee5b2feb0fbd81"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/fujitsu_vndr/us": {
-      "size": 4382,
-      "md5": "b33eab69f0dfcdee02a8db5cf9364b67"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/gb": {
-      "size": 9473,
-      "md5": "b03ae28fc95fb9810bd9113a16a9ad36"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ge": {
-      "size": 12641,
-      "md5": "9feff240dd1b25c2f9fc9a74c9bc480b"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/gh": {
-      "size": 6530,
-      "md5": "cecb0d2d2b768f35453a5c3f244bb4d6"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/gn": {
-      "size": 2171,
-      "md5": "01b9d9dcb2f5739ae77019b915129f3c"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/gr": {
-      "size": 10528,
-      "md5": "f218b123748a8f2e229cda597b42f732"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/group": {
-      "size": 9891,
-      "md5": "a712cbfd2efd65253d53948d267725c8"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/hp_vndr/us": {
-      "size": 3319,
-      "md5": "a5cc0b13831ba8a1344f4b323bc3fbd4"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/hr": {
-      "size": 2726,
-      "md5": "92eaa89877a0b4102509caf0bf457dc5"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/hu": {
-      "size": 24206,
-      "md5": "f40ff87ab65adb0f096a84e81f9fe4ee"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/id": {
-      "size": 13937,
-      "md5": "1b42204c3eb4df6517c5535c2a6eeba2"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ie": {
-      "size": 17971,
-      "md5": "c78b3bc4940cac3f92fbc1b082d51ad2"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/il": {
-      "size": 16122,
-      "md5": "48746199dda0de8c1671bd2c8a6405f5"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/in": {
-      "size": 118512,
-      "md5": "10b40908899b27b00dd8e0f7a573b6e9"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/inet": {
-      "size": 80532,
-      "md5": "84904f7b05c04af90658405bf3687a3c"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/iq": {
-      "size": 633,
-      "md5": "f7524e5a9e7c0efdca9cb2df47108fc3"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ir": {
-      "size": 11783,
-      "md5": "92c3acf118feee0d89b61e9362be1a1a"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/is": {
-      "size": 11128,
-      "md5": "059da270798e37fd1ba16d4714d5bd46"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/it": {
-      "size": 16979,
-      "md5": "14a0d7475e59750fe7d5279282913a36"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/jolla_vndr/sbj": {
-      "size": 1958,
-      "md5": "dfd402a1f68d2fcf371cf9717dd1ecdf"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/jp": {
-      "size": 7407,
-      "md5": "91f3a4512a2b69df61b60911fd59dbc5"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ke": {
-      "size": 4512,
-      "md5": "1b108e124bdb8ae368047bf0dcb73e5d"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/keypad": {
-      "size": 23910,
-      "md5": "dd616adff1d5f29d119e28619a2ca9f8"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/kg": {
-      "size": 6364,
-      "md5": "548ea4366021104dd25c29164f1a5bd0"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/kh": {
-      "size": 3430,
-      "md5": "df659b367cd9e48cbf2caefe98a36e52"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/kpdl": {
-      "size": 3398,
-      "md5": "af037c59909462114f5d292e9e9da780"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/kr": {
-      "size": 1200,
-      "md5": "00a23149610506e4b5e5a1db4143b6f1"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/kz": {
-      "size": 16429,
-      "md5": "cdf15b101d7ccad44f4a5001822ad3c2"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/la": {
-      "size": 4819,
-      "md5": "4501962301fd5d2266eb5f4b2eea0eea"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/latam": {
-      "size": 10061,
-      "md5": "ced5d42f2eaa556e3b9eb098834afb3e"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/latin": {
-      "size": 14743,
-      "md5": "4b6d620aefa4f3a3437e9fafd3bf8488"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/level2": {
-      "size": 209,
-      "md5": "eba7f1e069cdef4e71245e0c2fa3ab1e"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/level3": {
-      "size": 4663,
-      "md5": "8a48d87450355be4afb0bb3c313ee546"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/level5": {
-      "size": 4195,
-      "md5": "0244fc29f6427f8e511e7cea55b5caa7"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/lk": {
-      "size": 7827,
-      "md5": "f65df7ebcce4d1b621c29c8de26c8af3"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/lt": {
-      "size": 20500,
-      "md5": "3bec4a58696344a2d989670e84a6a5a0"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/lv": {
-      "size": 20480,
-      "md5": "cdd7bbf147df600ad3ebf193fefdb094"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ma": {
-      "size": 12757,
-      "md5": "b62832a5c532fb284247faee5e9e8997"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/apple": {
-      "size": 5281,
-      "md5": "6bee33bb53a60be71c0f36b0139118bf"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/ch": {
-      "size": 3787,
-      "md5": "2659061c1fc776ce15c186e3d3724626"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/de": {
-      "size": 4037,
-      "md5": "e8a6a1001f2074c403b5b55e7b1ea334"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/dk": {
-      "size": 3505,
-      "md5": "84b0287d8569a6329b0fd7b4f4b509c7"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/fi": {
-      "size": 328,
-      "md5": "74b4c4bd5dc176cd47e899db20e65b83"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/fr": {
-      "size": 5150,
-      "md5": "1077c98910b1598f8d39248bb63f7f42"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/gb": {
-      "size": 552,
-      "md5": "139f1a6a0f6f7a78c67744e5cdbbe7ae"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/is": {
-      "size": 5710,
-      "md5": "51ff6adc81e6f8d3533e0e901f8b43d4"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/it": {
-      "size": 2742,
-      "md5": "82a49849d02ca351918d0f9d4883e057"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/jp": {
-      "size": 763,
-      "md5": "00c5da6933d4187bf26475385a4724be"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/latam": {
-      "size": 1912,
-      "md5": "1ccce921b6bb3404f156a78866b1af22"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/nl": {
-      "size": 155,
-      "md5": "89411a469ae8319eec89dd012ee0efc9"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/no": {
-      "size": 2116,
-      "md5": "15c6d0ae9d4029a00ad1ef140a019fb8"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/pt": {
-      "size": 2555,
-      "md5": "2fe35da7999fd4bc229df834d7c5ec84"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/se": {
-      "size": 2083,
-      "md5": "c2388750e477bad92d00ec0586bb630a"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/macintosh_vndr/us": {
-      "size": 4004,
-      "md5": "a8d84892d30fa33fc882458a77f6960b"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/md": {
-      "size": 4950,
-      "md5": "8c9da6e5eafa40d3f40dfb4566e92961"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/me": {
-      "size": 1706,
-      "md5": "0ae0c9e660d79d858ee588efbba017cb"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/mk": {
-      "size": 3110,
-      "md5": "52d9e3d1a1dae2df1434678e284bbe54"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ml": {
-      "size": 2083,
-      "md5": "e0845bf363d15787d3a7f33b979f697f"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/mm": {
-      "size": 17258,
-      "md5": "98b77d43cd35ed0176df1c98d3427593"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/mn": {
-      "size": 4309,
-      "md5": "bbf27a53936592554ef7d586cf14af22"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/mt": {
-      "size": 5670,
-      "md5": "9d672b05a4f29ff7a7b663cdd5944ab0"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/mv": {
-      "size": 2550,
-      "md5": "c3a2972cb2c9717288c775b3422af046"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/my": {
-      "size": 5537,
-      "md5": "de5322512bb8ee4aff7e1002a7662896"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/nbsp": {
-      "size": 2680,
-      "md5": "0a707aa2590d9efa8ca45f1a537b5aa2"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/nec_vndr/jp": {
-      "size": 6075,
-      "md5": "0781476738b351c907a711c698e61b1a"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ng": {
-      "size": 6298,
-      "md5": "11fa63f3157ed027b404b53f45e1035a"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/nl": {
-      "size": 6941,
-      "md5": "e79750b5d9ee1f14d7e72661c391c058"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/no": {
-      "size": 12435,
-      "md5": "88c7b1555bebdc7286c17cac3ccf47b1"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/nokia_vndr/rx-44": {
-      "size": 15161,
-      "md5": "ecc76c8f87ec9ad3c7cb86607f1a324f"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/nokia_vndr/rx-51": {
-      "size": 71840,
-      "md5": "f4e7eba2e0541f0b1b50019407e5a409"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/nokia_vndr/su-8w": {
-      "size": 27441,
-      "md5": "bb05f82cd673c8da335cf7eb2262a484"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/np": {
-      "size": 6317,
-      "md5": "b6af8be747dc1b99537135da16bdcfda"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/nz": {
-      "size": 698,
-      "md5": "96bf600515960ce91ee6ecf40c9ed48f"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/olpc": {
-      "size": 930,
-      "md5": "52f9656ce56b4ac3ddb9be0b06b96600"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/parens": {
-      "size": 389,
-      "md5": "50cbb90f710098721518f414adb46cfc"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/pc": {
-      "size": 2726,
-      "md5": "6bbeef7b53efbcb7c6d9b2f8af8527e4"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ph": {
-      "size": 76020,
-      "md5": "194c9734d34514a1032471717af6e58d"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/pk": {
-      "size": 20325,
-      "md5": "5ae9570793d3fd73dd0aebe6d45c33ac"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/pl": {
-      "size": 27943,
-      "md5": "c0638259021982c16bb8c7548aef2ff2"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/pt": {
-      "size": 11775,
-      "md5": "0d78476905f932055791ec447307d292"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ro": {
-      "size": 11343,
-      "md5": "64c210ad271f4155406a90f79badc8fa"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/rs": {
-      "size": 15173,
-      "md5": "5d23685a70b745cb89728931191a8ee9"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ru": {
-      "size": 80362,
-      "md5": "acebe90a0c60ef93665b12bf6cb1ccef"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/rupeesign": {
-      "size": 131,
-      "md5": "f9e82f92e9698efeb04be8309af71fc0"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/se": {
-      "size": 16113,
-      "md5": "d23dbeb52a13159d87774b2f3f868974"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sgi_vndr/jp": {
-      "size": 2102,
-      "md5": "20744185c96d9c5c8f9504d4eecb4c63"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sharp_vndr/sl-c3x00": {
-      "size": 2053,
-      "md5": "0332c4d868144c04be50b59a02076167"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sharp_vndr/ws003sh": {
-      "size": 1924,
-      "md5": "98a3b0497852d9c6191199d22d6080db"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sharp_vndr/ws007sh": {
-      "size": 1924,
-      "md5": "802a9f8124a9c81291b7822dd0702462"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sharp_vndr/ws011sh": {
-      "size": 2071,
-      "md5": "ae4b59e16708f63f3b79dc4a314ef3ac"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sharp_vndr/ws020sh": {
-      "size": 1847,
-      "md5": "c3c319bfdaf7bc9bcced772b7d629b24"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/shift": {
-      "size": 2115,
-      "md5": "c5bca00e311b66858436a69d6e9910d4"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/si": {
-      "size": 625,
-      "md5": "1604ccffede5250da8b4235c4c58cfcf"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sk": {
-      "size": 6718,
-      "md5": "fb7c69af7e18273c6261bf863e623ee1"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sn": {
-      "size": 2233,
-      "md5": "537d653ced677c73d38c628f075feb07"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sony_vndr/us": {
-      "size": 2891,
-      "md5": "dcf2ff1e4f2820b28604eac3a7a608cb"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/srvr_ctrl": {
-      "size": 1803,
-      "md5": "749fc5bbbbd95a57e2db728d15c27678"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/ara": {
-      "size": 6085,
-      "md5": "158b2f8368d27c7acde96a8fc24789c9"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/be": {
-      "size": 4509,
-      "md5": "dc5620be58b76be5e38ffd162bc47c2d"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/br": {
-      "size": 5242,
-      "md5": "aa33414550dff5c3fec032171e77ced8"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/ca": {
-      "size": 4805,
-      "md5": "de7346b3de4920d97186e5c9a45cd136"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/ch": {
-      "size": 6575,
-      "md5": "99915fe22a08949e2e2cb37f3ba0fefd"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/cz": {
-      "size": 4666,
-      "md5": "b3c43fa95d2b9beb89d0875c6ab894b7"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/de": {
-      "size": 5418,
-      "md5": "4149d2d22f5dca8eb056451b84ad9fda"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/dk": {
-      "size": 3793,
-      "md5": "4a3f78253065b26d3f78c83d94c8346a"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/ee": {
-      "size": 5813,
-      "md5": "79dce5ab82ab03001f188560bf6438ea"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/es": {
-      "size": 4201,
-      "md5": "84149352c515a4cbe8c0c0a7f1f21121"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/fi": {
-      "size": 4416,
-      "md5": "0ed76cf2c49ffa3001b1da90c2df32aa"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/fr": {
-      "size": 5376,
-      "md5": "e8c589678a975788a205dc6628e228e2"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/gb": {
-      "size": 2798,
-      "md5": "3facc74ece0cb623658a03fd6226e2b8"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/gr": {
-      "size": 5122,
-      "md5": "edc47a52c133accc12a6c72354a0df62"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/it": {
-      "size": 4052,
-      "md5": "662c9b58b1a27db4015a41f4d1721e69"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/jp": {
-      "size": 6604,
-      "md5": "549c12e42e824007ba608720439a66ee"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/kr": {
-      "size": 2556,
-      "md5": "dbff25e1556bed5eb0012ee7fe7fe407"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/lt": {
-      "size": 5733,
-      "md5": "374598c6d05a30d5c4ce9ffb43509da8"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/lv": {
-      "size": 6725,
-      "md5": "f762f67fd603e2dc4c84703380194b64"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/nl": {
-      "size": 4209,
-      "md5": "18bc8bbe79e46d1ad39af9bb6ec7688b"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/no": {
-      "size": 4035,
-      "md5": "9f70872d2f9c1b370577aad728557fcc"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/pl": {
-      "size": 4190,
-      "md5": "d58826c494e37a31295ae09c30ce4649"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/pt": {
-      "size": 4241,
-      "md5": "aabbe262ebd8ce6f03a121fb0fec7e5a"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/ro": {
-      "size": 4533,
-      "md5": "fbeed2152b280728fabe5362f99f5b05"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/ru": {
-      "size": 6528,
-      "md5": "48e0b5000e9e462c5280018ae80cf401"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/se": {
-      "size": 3987,
-      "md5": "b57ccb85fcaf77dc67e3381571ac1f7b"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/sk": {
-      "size": 5104,
-      "md5": "b6a091be4df5d57e44021fded0086f7f"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/solaris": {
-      "size": 4304,
-      "md5": "ba152fad56a3d1c3e41acac20c50da0b"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/tr": {
-      "size": 3967,
-      "md5": "220819aa44ea0f46c8b1fb8e57fbe8c6"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/tw": {
-      "size": 2184,
-      "md5": "e274939a3d7e89bdcb436f799fa2000e"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/ua": {
-      "size": 5472,
-      "md5": "822605863c13c1632180d61b1aee6ece"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sun_vndr/us": {
-      "size": 5761,
-      "md5": "2d705646e28aa2d773bdc7fe013aac40"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/sy": {
-      "size": 4782,
-      "md5": "63d873d26a9ebea606274564e6a78b94"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/terminate": {
-      "size": 199,
-      "md5": "f6bcbacd564f3a440d4ab978873135c1"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/tg": {
-      "size": 3748,
-      "md5": "23ac68c13147fb7ce4a3229af394be56"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/th": {
-      "size": 7429,
-      "md5": "dcf0a3797680cddc6fcea08bd9cc7bd8"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/tj": {
-      "size": 9868,
-      "md5": "f7c02d3d67377bdfa2771e23147a1251"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/tm": {
-      "size": 1519,
-      "md5": "9993aeae0fbcf54953ebfba860ad42bb"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/tr": {
-      "size": 28100,
-      "md5": "c98cca5c576e1215f2a12c2c6ed2c3f2"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/trans": {
-      "size": 16578,
-      "md5": "a7ab7492fe7b85f69897daf0456b0f5d"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/tw": {
-      "size": 3338,
-      "md5": "45d5054466a3f5598b51a818b1b85c08"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/typo": {
-      "size": 4493,
-      "md5": "156bb718a7b3deae5c24114968dbd3ec"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/tz": {
-      "size": 3353,
-      "md5": "acb2cae98babf8000d1b75958151ec10"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/ua": {
-      "size": 16265,
-      "md5": "791a7c7d06f74b2b31554797e153d62a"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/us": {
-      "size": 118061,
-      "md5": "4fe8e020d5b1d91662173b52fe1f9a35"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/uz": {
-      "size": 3177,
-      "md5": "0823f599ca09be4eda8168f259c0f84b"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/vn": {
-      "size": 6140,
-      "md5": "62a320338294d72be2005015454dd683"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/xfree68_vndr/amiga": {
-      "size": 3899,
-      "md5": "ab569255a9d5acd43d5e9c59bee857f8"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/xfree68_vndr/ataritt": {
-      "size": 4685,
-      "md5": "9832ca112ae8b54b9aa930663de0ca9f"
-    },
-    "assets/wpe-runtime/share/X11/xkb/symbols/za": {
-      "size": 2241,
-      "md5": "46d73d17809b2b2f595c1a88794a8db4"
-    },
-    "assets/wpe-runtime/share/X11/xkb/types/basic": {
-      "size": 596,
-      "md5": "fc3d8d3359fd7ccc13920c430bdec8d8"
-    },
-    "assets/wpe-runtime/share/X11/xkb/types/cancel": {
-      "size": 226,
-      "md5": "2ba9509502a990221306e7546085ef01"
-    },
-    "assets/wpe-runtime/share/X11/xkb/types/caps": {
-      "size": 4535,
-      "md5": "6e2ab1ae7ccb6e681a62490b188e0c0e"
-    },
-    "assets/wpe-runtime/share/X11/xkb/types/complete": {
-      "size": 179,
-      "md5": "cf22d0a4c309145c7a1bf5ffbf90503b"
-    },
-    "assets/wpe-runtime/share/X11/xkb/types/default": {
-      "size": 178,
-      "md5": "bfee2f46624965bdeb66395790cae0e5"
-    },
-    "assets/wpe-runtime/share/X11/xkb/types/extra": {
-      "size": 4431,
-      "md5": "8841551da19f57cc0d7a4df3087973f0"
-    },
-    "assets/wpe-runtime/share/X11/xkb/types/iso9995": {
-      "size": 432,
-      "md5": "d34a6f609e1bdd133ca8f07624d9de5b"
-    },
-    "assets/wpe-runtime/share/X11/xkb/types/level5": {
-      "size": 7674,
-      "md5": "d63f110f5c051cb1bdc5582cf39670eb"
-    },
-    "assets/wpe-runtime/share/X11/xkb/types/mousekeys": {
-      "size": 218,
-      "md5": "d5af08e9e068b45f2f82a53408b82150"
-    },
-    "assets/wpe-runtime/share/X11/xkb/types/nokia": {
-      "size": 303,
-      "md5": "e430384f6a4fb8c782b307c88dbb8b78"
-    },
-    "assets/wpe-runtime/share/X11/xkb/types/numpad": {
-      "size": 1658,
-      "md5": "1e5028e5e798b37addcdae10dfbfc6ea"
-    },
-    "assets/wpe-runtime/share/X11/xkb/types/pc": {
-      "size": 1107,
-      "md5": "1f9251941ccd4e22aff7a1b62816f7b9"
-    },
-    "assets/wpe-runtime/share/X11/xkb/types/README": {
-      "size": 246,
-      "md5": "26bbcdf44791466e42b7ea167127799d"
-    },
     "assets/wpe-runtime/tests/fullscreen-touch.html": {
       "size": 1277,
       "md5": "d204232135833ae0f38ae2c97ad3f319"
@@ -2894,35 +2918,11 @@
       "size": 5600,
       "md5": "95307692f4e6953b6854b9d2a003b25c"
     },
-    "assets/wpe-runtime/wpe-drm-minimal": {
-      "size": 253504,
-      "md5": "2abf373272879affdd32b714e0cf50e5"
-    },
-    "base-page-bd62aef9.js": {
-      "size": 1485,
-      "md5": "48b3177818e2c83146c518d4dc4f4960"
-    },
-    "display-resolver-b7d76f5e.js": {
-      "size": 20041,
-      "md5": "8dd6daa0753996ece6659f13ec42425f"
-    },
-    "frame.js": {
-      "size": 72383,
-      "md5": "92cfbf3d277d8246740f17e3a84f69da"
-    },
-    "icon.png": {
-      "size": 772,
-      "md5": "b773a3f4da4541ef43f74f4678760f5e"
-    },
-    "index.js": {
-      "size": 8591,
-      "md5": "513ea5280128fd1aaaae5c201505b7c6"
-    },
-    "libs/arm64-orange/libjsapi_browser.so": {
+    "libs/libjsapi_browser_12345.so": {
       "size": 7529456,
       "md5": "3505898d59904ef1933ae33f80655bcc"
     },
-    "libs/libjsapi_browser_12345.so": {
+    "libs/arm64-orange/libjsapi_browser.so": {
       "size": 7529456,
       "md5": "3505898d59904ef1933ae33f80655bcc"
     }
