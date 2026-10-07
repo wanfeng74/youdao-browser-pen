@@ -1,6 +1,6 @@
 {
   "appName": "Web浏览器",
-  "version": "1.4.19",
+  "version": "1.4.20",
   "appid": "8002482420830506",
   "icon": "icon.png",
   "quickjs": {
@@ -51,8 +51,8 @@
       "md5": "897e0ea40263abf7facbe7137a16298d"
     },
     "assets/wpe-runtime/run.sh": {
-      "size": 31825,
-      "md5": "2348bc4c9aab7750b4370c97f51e30d9"
+      "size": 31720,
+      "md5": "dcaf96628be98c7545c72651eafa68d4"
     },
     "assets/wpe-runtime/wpe-drm-minimal": {
       "size": 253504,

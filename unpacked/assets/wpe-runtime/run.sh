@@ -244,10 +244,11 @@ export WPE_CHROME_FONT_MEDIUM="${WPE_CHROME_FONT_MEDIUM:-$DIR/assets/fonts/minia
 export WPE_CHROME_FONT_BOLD="${WPE_CHROME_FONT_BOLD:-$DIR/assets/fonts/miniapp/HarmonyOS_Sans_SC_Bold.ttf}"
 export WPE_PANEL_SIZE="${WPE_PANEL_SIZE:-${WPE_VIEWPORT:-960x480}}"
 export WPE_VIEWPORT="${WPE_VIEWPORT:-$WPE_PANEL_SIZE}"
-# DRM模式必须与PANEL_SIZE同方向(横屏),与原始包一致。
-# 若硬编码为480x960竖屏,WPE会跳过输出旋转,横屏viewport内容被裁切,
-# 表现为「页面只在侧边显示一条」。改回横屏后WPE正确旋转270°输出。
-export WPE_DRM_MODE="${WPE_DRM_MODE:-$WPE_PANEL_SIZE}"
+# DRM模式强制与PANEL_SIZE同方向(横屏)。display-resolver的DEFAULT_DRM_MODE是
+# 480x960竖屏,getSystemDisplayConfig偶尔返回空时会fallback到竖屏并通过环境变量
+# 覆盖此处,导致WPE跳过输出旋转、横屏viewport内容被裁切(「页面只在侧边显示一条」)。
+# 强制横屏后WPE正确旋转270°输出,间歇性显示异常消除。
+export WPE_DRM_MODE="$WPE_PANEL_SIZE"
 export WPE_DRM_FIT="${WPE_DRM_FIT:-panel-native}"
 REQUESTED_ROTATION="${4:-${WPE_DRM_ROTATION:-${WPE_PANEL_ROTATION:-0}}}"
 export WPE_PANEL_ROTATION="${WPE_PANEL_ROTATION:-$REQUESTED_ROTATION}"
@@ -416,10 +417,7 @@ export WPE_TOUCH_TAP_MAX_MOVE="${WPE_TOUCH_TAP_MAX_MOVE:-28}"
 export WPE_TOUCH_SCROLL_INTERVAL_MS="${WPE_TOUCH_SCROLL_INTERVAL_MS:-16}"
 export WPE_TOUCH_SCROLL_STOP_DELAY_MS="${WPE_TOUCH_SCROLL_STOP_DELAY_MS:-120}"
 export WPE_INPUT_PROFILE="${WPE_INPUT_PROFILE:-auto}"
-# 只把云游戏域名加入GAME_HOSTS。官网ys.mihoyo.com(及yuanshen.com重定向目标)
-# 若被加入,整个官网会被切换到game输入模式并注入cloud_autostart脚本,
-# 导致页面无法正常渲染(黑屏)。
-export WPE_GAME_HOSTS="${WPE_GAME_HOSTS:-cloudgame.mihoyo.com}"
+export WPE_GAME_HOSTS="${WPE_GAME_HOSTS:-ys.mihoyo.com,cloudgame.mihoyo.com}"
 export WPE_CLOUD_AUTOSTART="${WPE_CLOUD_AUTOSTART:-1}"
 export WPE_DEFAULT_URL="${WPE_DEFAULT_URL:-https://m.baidu.com/}"
 URL="${1:-$WPE_DEFAULT_URL}"
