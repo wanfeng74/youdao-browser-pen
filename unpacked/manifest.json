@@ -1,6 +1,6 @@
 {
   "appName": "Web浏览器",
-  "version": "1.4.20",
+  "version": "1.4.21",
   "appid": "8002482420830506",
   "icon": "icon.png",
   "quickjs": {
@@ -56,7 +56,7 @@
     },
     "assets/wpe-runtime/wpe-drm-minimal": {
       "size": 253504,
-      "md5": "2abf373272879affdd32b714e0cf50e5"
+      "md5": "7554751cb0d36a57f1019b3530405920"
     },
     "assets/wpe-runtime/assets/fonts/dejavu/DejaVuSans-Bold.ttf": {
       "size": 708920,
