@@ -244,9 +244,10 @@ export WPE_CHROME_FONT_MEDIUM="${WPE_CHROME_FONT_MEDIUM:-$DIR/assets/fonts/minia
 export WPE_CHROME_FONT_BOLD="${WPE_CHROME_FONT_BOLD:-$DIR/assets/fonts/miniapp/HarmonyOS_Sans_SC_Bold.ttf}"
 export WPE_PANEL_SIZE="${WPE_PANEL_SIZE:-${WPE_VIEWPORT:-960x480}}"
 export WPE_VIEWPORT="${WPE_VIEWPORT:-$WPE_PANEL_SIZE}"
-# DRM模式必须是屏幕物理分辨率(480x960竖屏),不能默认等于PANEL_SIZE(960x480横屏)。
-# 否则CRTC_X=(960-480)/2=240,旋转后左右各240px黑边,网页无法全屏。
-export WPE_DRM_MODE="${WPE_DRM_MODE:-480x960}"
+# DRM模式必须与PANEL_SIZE同方向(横屏),与原始包一致。
+# 若硬编码为480x960竖屏,WPE会跳过输出旋转,横屏viewport内容被裁切,
+# 表现为「页面只在侧边显示一条」。改回横屏后WPE正确旋转270°输出。
+export WPE_DRM_MODE="${WPE_DRM_MODE:-$WPE_PANEL_SIZE}"
 export WPE_DRM_FIT="${WPE_DRM_FIT:-panel-native}"
 REQUESTED_ROTATION="${4:-${WPE_DRM_ROTATION:-${WPE_PANEL_ROTATION:-0}}}"
 export WPE_PANEL_ROTATION="${WPE_PANEL_ROTATION:-$REQUESTED_ROTATION}"
@@ -415,10 +416,7 @@ export WPE_TOUCH_TAP_MAX_MOVE="${WPE_TOUCH_TAP_MAX_MOVE:-28}"
 export WPE_TOUCH_SCROLL_INTERVAL_MS="${WPE_TOUCH_SCROLL_INTERVAL_MS:-16}"
 export WPE_TOUCH_SCROLL_STOP_DELAY_MS="${WPE_TOUCH_SCROLL_STOP_DELAY_MS:-120}"
 export WPE_INPUT_PROFILE="${WPE_INPUT_PROFILE:-auto}"
-# 只把云原神入口(cloudgame.mihoyo.com)当作云游戏host;
-# ys.mihoyo.com 是原神官网,若列入游戏host会被WPE当成云游戏入口,
-# 触发 cloud_autostart 注入探测脚本+切换game输入模式,导致官网无法正常访问。
-export WPE_GAME_HOSTS="${WPE_GAME_HOSTS:-cloudgame.mihoyo.com}"
+export WPE_GAME_HOSTS="${WPE_GAME_HOSTS:-ys.mihoyo.com,cloudgame.mihoyo.com}"
 export WPE_CLOUD_AUTOSTART="${WPE_CLOUD_AUTOSTART:-1}"
 export WPE_DEFAULT_URL="${WPE_DEFAULT_URL:-https://m.baidu.com/}"
 URL="${1:-$WPE_DEFAULT_URL}"

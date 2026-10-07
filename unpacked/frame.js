@@ -506,12 +506,11 @@ function clampMaxlength(value) {
 }
 
 class KeyboardSession {
-  constructor({ onConfirm, onCancel, onText } = {}) {
+  constructor({ onConfirm, onCancel } = {}) {
     this.activeUuid = '';
     this.editFinished = null;
     this.onConfirm = onConfirm;
     this.onCancel = onCancel;
-    this.onText = onText;
     this.stripNewlines = true;
     this.closeDelayMs = 350;
     this.closedUuids = {};
@@ -539,18 +538,8 @@ class KeyboardSession {
         if (result.confirmed) {
           // 兼容 found=false 的固件:直接取文本,而不是丢弃为空串
           this.finish(result.text || '');
-        } else if (result.terminal) {
-          // 明确取消(terminal=true 且 confirmed=false):关闭输入法
-          this.cancel();
         } else {
-          // 非终态回调:固件输入过程中会多次上报中间文本。
-          // 绝不能在这里 cancel —— 那样输入第一个字符输入法就被关掉,
-          // 表现为「地址栏/网页输入没反应」。只转发中间文本,等最终确认。
-          if (this.onText) {
-            try { this.onText(result.text || ''); } catch (e) {
-              console.warn(`keyboard text handler failed ${e}`);
-            }
-          }
+          this.cancel();
         }
       }, 0);
     };
@@ -1314,7 +1303,6 @@ class KeyboardBridge {
     session.onCancel = function () {
       try { bridge.finishRequest(false, ''); } catch (e) {}
     };
-    session.onText = null;
   }
 }
 
@@ -1477,11 +1465,6 @@ var script = {
         }
         setTimeout(() => { self.navigateToUrl(val); }, 900);
       };
-      // 固件输入过程中的中间回调:实时记录地址栏文本,
-      // 这样即使最终确认回调丢失,「确认」键也能拿到用户输入的新网址。
-      session.onText = (t) => {
-        self.addressBarText = (t || '').trim();
-      };
       session.onCancel = () => {
         self.addressBarEditing = false;
         restore();
@@ -1498,15 +1481,9 @@ var script = {
       const self = this;
       const bridge = this.keyboardBridge;
       const session = bridge && bridge.state && bridge.state.session;
-      // 优先使用地址栏最新文本:固件输入过程中 onText 已实时同步,
-      // 若最终确认回调丢失,这里仍能拿到用户输入的新网址;
-      // 仅当地址栏处于编辑态(输入法还开着)时采用,否则回退当前显示 URL,
-      // 避免上次输入的历史残留把「确认」变成跳回旧地址。
-      const typed = self.addressBarEditing ? (self.addressBarText || '').trim() : '';
-      const target = (typed && typed !== 'about:blank' && typed !== 'about:start')
-        ? typed
-        : (self.currentDisplayUrl || '').trim();
-      console.warn('top-go: addressBarText=' + JSON.stringify(typed) +
+      const editing = self.addressBarEditing ? (self.addressBarText || '') : '';
+      const target = (editing || self.currentDisplayUrl || '').trim();
+      console.warn('top-go: editing=' + JSON.stringify(editing) +
         ' display=' + JSON.stringify(self.currentDisplayUrl) +
         ' target=' + JSON.stringify(target));
       if (!target || target === 'about:blank' || target === 'about:start') {
@@ -1547,6 +1524,10 @@ var script = {
             : 'https://m.baidu.com/s?word=' + encodeURIComponent(val);
         } else if (/^(\d{1,3}\.){3}\d{1,3}$/.test(val) || /^localhost/i.test(val)) {
           // IP地址或localhost默认用HTTP(校园网登录页/路由器管理页通常是HTTP)
+          val = 'http://' + val;
+        } else if (/(^|\.)(login|auth|wlan|portal|captive|sso|cas|wifi|wireless|net|drcom|radius|safe|network)\./i.test(val)
+            || /\.(edu|gov|cn)(:|\/|$)/i.test(val) && /(login|auth|wlan|portal|sso|cas)/i.test(val)) {
+          // 校园网/企业网登录页域名通常是HTTP,强制HTTPS会导致证书错误或连接失败
           val = 'http://' + val;
         } else {
           val = 'https://' + val;

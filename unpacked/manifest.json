@@ -35,24 +35,24 @@
       "md5": "8dd6daa0753996ece6659f13ec42425f"
     },
     "frame.js": {
-      "size": 74892,
-      "md5": "38cabee23041bad7d64c47f574d66d05"
+      "size": 73919,
+      "md5": "bcda1301ad88081df71a070be7393163"
     },
     "icon.png": {
       "size": 772,
       "md5": "b773a3f4da4541ef43f74f4678760f5e"
     },
     "index.js": {
-      "size": 8792,
-      "md5": "eca2cfd74ecbb7b778d0224d25d51227"
+      "size": 9143,
+      "md5": "e9cc4d338dc7b83579760c8db2e593d4"
     },
     "assets/wpe-runtime/build-manifest.json": {
       "size": 682,
       "md5": "897e0ea40263abf7facbe7137a16298d"
     },
     "assets/wpe-runtime/run.sh": {
-      "size": 31774,
-      "md5": "460b3b3d93591f6d1fa08899c2613ef5"
+      "size": 31611,
+      "md5": "04e36fbfd7fbfbf32784195ff4364f80"
     },
     "assets/wpe-runtime/wpe-drm-minimal": {
       "size": 253504,

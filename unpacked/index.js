@@ -29,6 +29,11 @@ function normalizeLaunchUrl(url) {
   if (/^(\d{1,3}\.){3}\d{1,3}$/.test(value) || /^localhost/i.test(value)) {
     return `http://${value}`
   }
+  // 校园网/企业网登录页域名通常是HTTP,强制HTTPS会导致证书错误或连接失败
+  if (/(^|\.)(login|auth|wlan|portal|captive|sso|cas|wifi|wireless|net|drcom|radius|safe|network)\./i.test(value)
+      || (/\.(edu|gov|cn)(:|\/|$)/i.test(value) && /(login|auth|wlan|portal|sso|cas)/i.test(value))) {
+    return `http://${value}`
+  }
   return `https://${value}`
 }
 
