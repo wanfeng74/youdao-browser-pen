@@ -1619,62 +1619,6 @@ var script = {
         try { this.browserLifecycle.stop(); } catch (e) {}
       }
     },
-    // 「键盘」按钮:手动唤起输入法,作为网页输入框不唤起时的备选入口。
-    // 初始文本为当前URL(与点击地址栏一致),确保导航栏「确认」按钮能拿到正确值。
-    onTopKeyboard() {
-      const self = this;
-      const bridge = this.keyboardBridge;
-      const session = bridge && bridge.state && bridge.state.session;
-      if (!session) return;
-      const initial = (self.currentDisplayUrl === 'about:blank' || self.currentDisplayUrl === 'about:start')
-        ? '' : (self.currentDisplayUrl || '');
-      if (self.browserLifecycle) {
-        try { self.browserLifecycle.stop(); } catch (e) {}
-      }
-      const uuid = session.open({
-        text: initial,
-        placeholder: '输入网址或搜索词',
-        inputType: 'EnUSPreferred',
-        enterButtonText: '前往'
-      });
-      if (!uuid) {
-        console.warn('top-keyboard: open failed (empty uuid)');
-        if (bridge) bridge.restoreSessionHandlers();
-        if (self.browserLifecycle) {
-          setTimeout(() => {
-            if (!self.browserLifecycle.state.leaving) self.browserLifecycle.restartForUrl(self.currentDisplayUrl);
-          }, 400);
-        }
-        return;
-      }
-      self.addressBarEditing = true;
-      self.addressBarText = initial;
-      const restore = () => { if (bridge) bridge.restoreSessionHandlers(); };
-      session.onConfirm = (newText) => {
-        const val = (newText || '').trim();
-        self.addressBarText = val;
-        self.addressBarEditing = false;
-        restore();
-        if (!val) {
-          if (self.browserLifecycle) {
-            setTimeout(() => {
-              if (!self.browserLifecycle.state.leaving) self.browserLifecycle.restartForUrl(self.currentDisplayUrl);
-            }, 900);
-          }
-          return;
-        }
-        setTimeout(() => { self.navigateToUrl(val); }, 900);
-      };
-      session.onCancel = () => {
-        self.addressBarEditing = false;
-        restore();
-        if (self.browserLifecycle) {
-          setTimeout(() => {
-            if (!self.browserLifecycle.state.leaving) self.browserLifecycle.restartForUrl(self.currentDisplayUrl);
-          }, 900);
-        }
-      };
-    },
     closeSettings() {
       this.showSettings = false;
       // 关闭面板后恢复浏览器:先停掉再重启,避免面板关闭瞬间的触摸
@@ -1923,17 +1867,6 @@ var style_0 = { "_": {
     "borderRadius": "7px",
     "marginLeft": "8px"
   },
-  "top-tab-keyboard": {
-    "width": "64px",
-    "height": "34px",
-    "lineHeight": "34px",
-    "textAlign": "center",
-    "fontSize": "15px",
-    "color": "#ffffff",
-    "backgroundColor": "#7b2d8c",
-    "borderRadius": "7px",
-    "marginLeft": "8px"
-  },
   "top-tab-go": {
     "width": "64px",
     "height": "34px",
@@ -2050,12 +1983,6 @@ var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
       staticClass: ["top-tab-settings"],
       on: { "click": function($event) { return _vm.onTopSettings() } }
     }, [_vm._v("设置")]),
-    // 「键盘」按钮:手动唤起输入法。网页输入框键盘不唤起时的备选入口,
-    // 点击后弹出输入法,输入内容作为URL或搜索词提交。
-    _c('text', {
-      staticClass: ["top-tab-keyboard"],
-      on: { "click": function($event) { return _vm.onTopKeyboard() } }
-    }, [_vm._v("键盘")]),
     // 导航栏最右侧:确认键。点击后直接提交当前地址栏内容,
     // 不依赖输入法的确认回调(固件确认回调不触发时的可靠通路)。
     _c('text', {
