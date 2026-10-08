@@ -962,6 +962,10 @@ class KeyboardBridge {
   openGlobal(request) {
     if (!this.state.session) return false
     this.closeTextarea();
+    // 网页输入请求必须使用 KeyboardBridge 自己的处理器:
+    // 地址栏/主页编辑可能残留自定义 onConfirm/onCancel,不重置会导致
+    // 网页输入文本被当成网址导航或被存成主页(网页永远收不到文本)。
+    this.restoreSessionHandlers();
     this.state.phase = 'opening';
     const uuid = this.state.session.open(this.optionsForRequest(request));
     if (uuid) {
@@ -1289,6 +1293,31 @@ class KeyboardBridge {
       !!(this.state.session && this.state.session.isActive()) ||
       this.state.textareaVisible
   }
+
+  /**
+   * 把输入法会话的确认/取消处理器统一归还给 KeyboardBridge。
+   *
+   * 地址栏输入(openUrlKeyboard)与主页编辑(editSettingsHome)会临时接管
+   * session.onConfirm/onCancel。若这些临时处理器没有在会话结束时恢复,
+   * 之后网页里的输入框会继续触发「地址栏/主页」逻辑:
+   *   - 输入账号 → 被当成新网址导航(跳百度搜索)
+   *   - 输入内容 → 被当成新主页保存
+   * 网页永远收不到文本,表现为"某些网页的移动交互存在bug"。
+   * 因此所有接管路径都必须通过 restoreSessionHandlers() 归还。
+   */
+  restoreSessionHandlers() {
+    const session = this.state.session;
+    if (!session) return
+    const bridge = this;
+    session.onConfirm = function (text) {
+      try { bridge.finishRequest(true, text); } catch (e) {
+        console.warn('bridge finishRequest failed ' + e);
+      }
+    };
+    session.onCancel = function () {
+      try { bridge.finishRequest(false, ''); } catch (e) {}
+    };
+  }
 }
 
 //
@@ -1411,19 +1440,31 @@ var script = {
     },
     openUrlKeyboard() {
       const cur = this.currentDisplayUrl || 'https://m.baidu.com/';
-      const session = this.keyboardBridge && this.keyboardBridge.state && this.keyboardBridge.state.session;
+      const bridge = this.keyboardBridge;
+      const session = bridge && bridge.state && bridge.state.session;
       if (!session) return;
       const initial = (cur === 'about:blank' || cur === 'about:start') ? '' : cur;
       // 先停掉浏览器:输入法确认瞬间的触摸不会再落到网页或浏览器内按键上(避免误触跳转/点到热搜)
       if (this.browserLifecycle) {
         try { this.browserLifecycle.stop(); } catch (e) {}
       }
-      session.open({
+      const uuid = session.open({
         text: initial,
         placeholder: '输入网址或搜索',
         inputType: 'EnUSPreferred',
         enterButtonText: '前往'
       });
+      // 输入法没起来(空 uuid):不进入地址栏编辑态,立即把处理器还给 bridge 并恢复浏览器
+      if (!uuid) {
+        console.warn('address bar keyboard open failed (empty uuid)');
+        if (bridge) bridge.restoreSessionHandlers();
+        if (this.browserLifecycle) {
+          setTimeout(() => {
+            if (!this.browserLifecycle.state.leaving) this.browserLifecycle.restartForUrl(this.currentDisplayUrl);
+          }, 400);
+        }
+        return;
+      }
       const self = this;
       // 标记「正在编辑地址栏」,并记录地址栏文本,供「确认」按钮使用。
       // 这两个字段与网页输入完全隔离。
@@ -1433,18 +1474,11 @@ var script = {
       // 否则网页里点击输入框时的文本会被当成新网址(输入账号→跳百度搜索),
       // 并且网页的 web_input 请求会被 cancel 掉,账号永远填不进去。
       const restore = () => {
-        const bridge = self.keyboardBridge;
-        if (!bridge) return
+        const b = self.keyboardBridge;
+        if (!b) return
         // 归还给 KeyboardBridge:网页发起的输入必须回写 response 文件,
         // 否则网页永远收不到文本(账号填不进去)。
-        session.onConfirm = function (text) {
-          try { bridge.finishRequest(true, text); } catch (e) {
-            console.warn('bridge finishRequest failed ' + e);
-          }
-        };
-        session.onCancel = function () {
-          try { bridge.finishRequest(false, ''); } catch (e) {}
-        };
+        b.restoreSessionHandlers();
       };
       session.onConfirm = (newText) => {
         const val = (newText || '').trim();
@@ -1479,10 +1513,8 @@ var script = {
     // 不依赖输入法回调 —— 输入法确认无效时这是唯一可靠通路。
     onTopGo() {
       const self = this;
-      const session = this.keyboardBridge && this.keyboardBridge.state && this.keyboardBridge.state.session;
-      const typed = session ? self.lastTypedText : '';
-      // 只使用地址栏正在编辑的内容(addressBarText),绝不能用 lastTypedText ——
-      // 那个值会被「网页里输入账号」覆盖,导致点确认时拿账号去搜索(跳百度)。
+      const bridge = this.keyboardBridge;
+      const session = bridge && bridge.state && bridge.state.session;
       const editing = self.addressBarEditing ? (self.addressBarText || '') : '';
       const target = (editing || self.currentDisplayUrl || '').trim();
       console.warn('top-go: editing=' + JSON.stringify(editing) +
@@ -1500,6 +1532,13 @@ var script = {
       // 主动收起输入法,避免它继续盖住页面
       if (session && session.activeUuid && session.close) {
         try { session.close(); } catch (e) {}
+      }
+      // 地址栏编辑态随本次提交结束:清理编辑标记,
+      // 并把输入法处理器归还 KeyboardBridge,防止残留地址栏处理器
+      // 劫持之后的网页输入(输入账号→被当网址导航/跳百度搜索)。
+      self.addressBarEditing = false;
+      if (bridge) {
+        try { bridge.restoreSessionHandlers(); } catch (e) {}
       }
       // 延迟要足够长:输入法收起 + 触摸抬起(UP)序列结束后再启动,
       // 否则新 WPE 会收到这次触摸的后续事件并误触页面。
@@ -1609,23 +1648,42 @@ var script = {
       }
     },
     editSettingsHome() {
-      const session = this.keyboardBridge && this.keyboardBridge.state && this.keyboardBridge.state.session;
+      const bridge = this.keyboardBridge;
+      const session = bridge && bridge.state && bridge.state.session;
       if (!session) return;
       const self = this;
       if (self.browserLifecycle) {
         try { self.browserLifecycle.stop(); } catch (e) {}
       }
-      session.open({
+      const uuid = session.open({
         text: self.settingsHome || '',
         placeholder: '主页地址',
         inputType: 'EnUSPreferred',
         enterButtonText: '保存'
       });
+      // 输入法没起来:不接管处理器,立即还给 bridge 并恢复浏览器
+      if (!uuid) {
+        console.warn('edit settings home: keyboard open failed (empty uuid)');
+        if (bridge) bridge.restoreSessionHandlers();
+        if (self.browserLifecycle) {
+          setTimeout(() => {
+            if (!self.browserLifecycle.state.leaving) self.browserLifecycle.restartForUrl(self.currentDisplayUrl);
+          }, 400);
+        }
+        return;
+      }
+      // 本次「主页编辑」专用处理器,结束后必须还给 KeyboardBridge:
+      // 否则之后网页里的输入框会继续触发「保存主页」逻辑,
+      // 网页输入内容被当成新主页保存且网页永远收不到文本。
+      const restore = () => {
+        if (bridge) bridge.restoreSessionHandlers();
+      };
       session.onConfirm = (t) => {
         const v = (t || '').trim();
         if (v) {
           self.settingsHome = /^[a-z][a-z0-9+.-]*:/i.test(v) ? v : ('https://' + v);
         }
+        restore();
         if (self.browserLifecycle) {
           setTimeout(() => {
             if (!self.browserLifecycle.state.leaving) self.browserLifecycle.restartForUrl(self.currentDisplayUrl);
@@ -1633,6 +1691,7 @@ var script = {
         }
       };
       session.onCancel = () => {
+        restore();
         if (self.browserLifecycle) {
           setTimeout(() => {
             if (!self.browserLifecycle.state.leaving) self.browserLifecycle.restartForUrl(self.currentDisplayUrl);
