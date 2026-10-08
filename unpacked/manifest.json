@@ -1,6 +1,6 @@
 {
   "appName": "Web浏览器",
-  "version": "1.4.26",
+  "version": "1.4.27",
   "appid": "8002482420830506",
   "icon": "icon.png",
   "quickjs": {
@@ -23,8 +23,8 @@
       "md5": "6eaa2bd7f9d9d0c75c6b3f235d940135"
     },
     "app_icon.png": {
-      "size": 446855,
-      "md5": "c89580b05e66a46575a00110f8e36a7f"
+      "size": 1039101,
+      "md5": "bc4e6ce92d63b083fcdc41ca0d49a00a"
     },
     "base-page-bd62aef9.js": {
       "size": 1485,
@@ -39,8 +39,8 @@
       "md5": "19dc87742062ca8c0097a4335e42b81b"
     },
     "icon.png": {
-      "size": 446855,
-      "md5": "c89580b05e66a46575a00110f8e36a7f"
+      "size": 1039101,
+      "md5": "bc4e6ce92d63b083fcdc41ca0d49a00a"
     },
     "index.js": {
       "size": 8887,
