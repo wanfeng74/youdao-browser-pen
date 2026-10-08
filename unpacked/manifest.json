@@ -1,6 +1,6 @@
 {
   "appName": "Web浏览器",
-  "version": "1.4.28",
+  "version": "1.4.29",
   "appid": "8002482420830506",
   "icon": "icon.png",
   "quickjs": {
@@ -51,12 +51,12 @@
       "md5": "897e0ea40263abf7facbe7137a16298d"
     },
     "assets/wpe-runtime/run.sh": {
-      "size": 32213,
-      "md5": "04e5001545531555a4d4040fcce6f4bb"
+      "size": 31720,
+      "md5": "dcaf96628be98c7545c72651eafa68d4"
     },
     "assets/wpe-runtime/wpe-drm-minimal": {
       "size": 253504,
-      "md5": "2abf373272879affdd32b714e0cf50e5"
+      "md5": "ddcc1aeb74010e7a4ceba43db946fa6b"
     },
     "assets/wpe-runtime/assets/fonts/dejavu/DejaVuSans-Bold.ttf": {
       "size": 708920,
