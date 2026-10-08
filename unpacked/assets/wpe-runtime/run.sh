@@ -486,7 +486,20 @@ cleanup_runtime() {
 on_terminate() {
     TERMINATING=1
     if [ -n "$BROWSER_PID" ]; then
+        # 先发送SIGTERM优雅退出
         kill "$BROWSER_PID" 2>/dev/null || true
+        # 尝试杀整个进程组(WPE可能有WebKitWebProcess等子进程)
+        kill -TERM -"$BROWSER_PID" 2>/dev/null || true
+        # 等待1秒,如果进程还在则发送SIGKILL强杀
+        for i in 1 2 3 4 5 6 7 8 9 10; do
+            if ! kill -0 "$BROWSER_PID" 2>/dev/null; then break; fi
+            sleep 0.2
+        done
+        if kill -0 "$BROWSER_PID" 2>/dev/null; then
+            echo "WPE: SIGTERM timeout, sending SIGKILL to pid $BROWSER_PID" >&2
+            kill -9 "$BROWSER_PID" 2>/dev/null || true
+            kill -KILL -"$BROWSER_PID" 2>/dev/null || true
+        fi
     fi
 }
 

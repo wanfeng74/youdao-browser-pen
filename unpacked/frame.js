@@ -146,8 +146,10 @@ class BrowserLifecycle {
         this.state.running = Number(pid) > 0;
         console.warn(`wpe browser pid ${pid}`);
         if (this.state.running) {
-          // 新浏览器已确认起来,撤掉重启保护窗口
-          this.state.restartGraceUntil = 0;
+          // WPE进程已创建但内部初始化需要时间(加载WebKit、建立IPC等),
+          // 立即启动watchdog会因isBrowserRunning短暂返回false而误判崩溃,
+          // 导致「黑屏→百度→黑屏」循环。设置5秒启动宽限期。
+          this.state.restartGraceUntil = Date.now() + 5000;
           this.startWatchdog();
           if (this.keyboardBridge) this.keyboardBridge.startPolling();
         } else {
@@ -196,10 +198,10 @@ class BrowserLifecycle {
     }
     // 连续失败计数:WPE 加载复杂页面时进程可能短暂无响应,
     // 一次 isBrowserRunning=false 就 leaveFrame 会导致「黑屏→百度→黑屏」循环。
-    // 必须连续 3 次(约3秒)检测不到才判定为真正崩溃。
+    // 必须连续 5 次(约5秒)检测不到才判定为真正崩溃。
     this.state.watchdogFailCount += 1;
-    console.warn(`watchdog: browser not running (fail ${this.state.watchdogFailCount}/3)`);
-    if (this.state.watchdogFailCount < 3) {
+    console.warn(`watchdog: browser not running (fail ${this.state.watchdogFailCount}/5)`);
+    if (this.state.watchdogFailCount < 5) {
       return
     }
     this.state.watchdogFailCount = 0;
@@ -353,7 +355,8 @@ class BrowserLifecycle {
     const options = this.pageOptions();
     this.stop();
     // 退出后强制确认WPE进程已被杀掉,避免残留占用内存。
-    // 轮询isBrowserRunning,若仍存活则再次stopBrowser,最多重试5次。
+    // stopBrowser是异步的,先等待500ms再开始检测;
+    // 轮询isBrowserRunning,若仍存活则再次stopBrowser,最多重试10次(共3秒)。
     const self = this;
     let killAttempts = 0;
     const waitAndKill = setInterval(() => {
@@ -362,7 +365,7 @@ class BrowserLifecycle {
         alive = !!(self.browserPlayer.isBrowserRunning &&
           self.browserPlayer.isBrowserRunning({ workdir: self.workdir() }));
       } catch (e) { alive = false; }
-      if (!alive || killAttempts >= 5) {
+      if (!alive || killAttempts >= 10) {
         clearInterval(waitAndKill);
         console.warn('wpe leave frame: process ' + (alive ? 'STILL ALIVE after ' + killAttempts + ' attempts' : 'confirmed dead') + ', navigating to index');
         try {
@@ -378,7 +381,7 @@ class BrowserLifecycle {
       killAttempts += 1;
       console.warn('wpe leave frame: process still alive, force stop attempt ' + killAttempts);
       try { self.browserPlayer.stopBrowser({ workdir: self.workdir() }); } catch (e) {}
-    }, 200);
+    }, 300);
   }
 }
 
