@@ -696,6 +696,7 @@ function createKeyboardBridgeState() {
     profileSource: 'probe',
     profileOverride: 'auto',
     phase: 'idle',
+    stuckPhaseSince: 0,
     session: null,
     pollTimer: null,
     pollTick: 0,
@@ -1146,7 +1147,22 @@ class KeyboardBridge {
   }
 
   pollRequest() {
-    if (this.component.browser.leaving || this.state.phase !== 'idle') return
+    if (this.component.browser.leaving) return
+    // phase 非 idle 时检测是否卡住:超过30秒强制重置,避免后续键盘请求被永久忽略
+    if (this.state.phase !== 'idle') {
+      const now = Date.now();
+      if (!this.state.stuckPhaseSince) {
+        this.state.stuckPhaseSince = now;
+      } else if (now - this.state.stuckPhaseSince > 30000) {
+        console.warn(`keyboard phase stuck=${this.state.phase} for ${now - this.state.stuckPhaseSince}ms, force reset`);
+        this.resetActiveRequest('phase_timeout');
+        this.state.stuckPhaseSince = 0;
+      } else {
+        return
+      }
+    } else {
+      this.state.stuckPhaseSince = 0;
+    }
     if (!this.browserPlayer.pollKeyboardRequest || !this.state.session) return
     if (this.runningGetter && !this.runningGetter()) return
 
