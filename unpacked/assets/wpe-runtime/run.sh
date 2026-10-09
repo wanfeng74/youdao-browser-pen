@@ -242,6 +242,42 @@ export WPE_BROWSER_MODE
 export WPE_CHROME_FONT="${WPE_CHROME_FONT:-$DIR/assets/fonts/miniapp/HarmonyOS_Sans_SC_Regular.ttf}"
 export WPE_CHROME_FONT_MEDIUM="${WPE_CHROME_FONT_MEDIUM:-$DIR/assets/fonts/miniapp/HarmonyOS_Sans_SC_Medium.ttf}"
 export WPE_CHROME_FONT_BOLD="${WPE_CHROME_FONT_BOLD:-$DIR/assets/fonts/miniapp/HarmonyOS_Sans_SC_Bold.ttf}"
+
+# ===== 动态屏幕检测（全设备适配）=====
+# 优先环境变量 WPE_PANEL_SIZE/WPE_VIEWPORT，其次自动检测 DRM/fb0，最后 fallback 960x480
+detect_screen_size() {
+    for modes_file in /sys/class/drm/card*-*/modes; do
+        if [ -r "$modes_file" ]; then
+            _mode=$(head -n1 "$modes_file" 2>/dev/null)
+            if [ -n "$_mode" ]; then
+                _size=$(printf '%s' "$_mode" | grep -oE '[0-9]+x[0-9]+' | head -n1)
+                if [ -n "$_size" ]; then printf '%s' "$_size"; return 0; fi
+            fi
+        fi
+    done
+    if [ -r /sys/class/graphics/fb0/modes ]; then
+        _mode=$(head -n1 /sys/class/graphics/fb0/modes 2>/dev/null)
+        if [ -n "$_mode" ]; then
+            _size=$(printf '%s' "$_mode" | grep -oE '[0-9]+x[0-9]+' | head -n1)
+            if [ -n "$_size" ]; then printf '%s' "$_size"; return 0; fi
+        fi
+    fi
+    printf '960x480'; return 1
+}
+if [ -z "$WPE_PANEL_SIZE" ] && [ -z "$WPE_VIEWPORT" ]; then
+    DETECTED_SIZE=$(detect_screen_size)
+    DETECTED_W="${DETECTED_SIZE%x*}"
+    DETECTED_H="${DETECTED_SIZE#*x}"
+    if [ -n "$DETECTED_W" ] && [ -n "$DETECTED_H" ] && [ "$DETECTED_H" -gt "$DETECTED_W" ] 2>/dev/null; then
+        WPE_PANEL_SIZE="${DETECTED_H}x${DETECTED_W}"
+        WPE_PANEL_ROTATION="${WPE_PANEL_ROTATION:-270}"
+        echo "WPE display auto: portrait ${DETECTED_SIZE} -> landscape ${WPE_PANEL_SIZE} rot=270"
+    else
+        WPE_PANEL_SIZE="$DETECTED_SIZE"
+        WPE_PANEL_ROTATION="${WPE_PANEL_ROTATION:-0}"
+        echo "WPE display auto: ${DETECTED_SIZE} rot=0"
+    fi
+fi
 export WPE_PANEL_SIZE="${WPE_PANEL_SIZE:-${WPE_VIEWPORT:-960x480}}"
 export WPE_VIEWPORT="${WPE_VIEWPORT:-$WPE_PANEL_SIZE}"
 # DRM模式强制与PANEL_SIZE同方向(横屏)。display-resolver的DEFAULT_DRM_MODE是
